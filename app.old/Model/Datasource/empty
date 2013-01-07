@@ -1,2 +1,0 @@
-#Create table recipes
-CREATE  TABLE "main"."recipes" ("id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , "title" VARCHAR NOT NULL , "description" TEXT NOT NULL , "severity" INTEGER, "rating" INTEGER)
