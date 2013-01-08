@@ -15,6 +15,11 @@ Class Recipe extends AppModel {
         'CategoryRecipe' => array(
             'className'     => 'CategoryRecipe',
             'foreignKey'    => 'recipe_id'
+        ),
+         'Image' => array(
+            'className'     => 'Image',
+            'foreignKey'    => 'recipe_id',
+            'dependent'     => true
         )
     );
     public $validate = array(

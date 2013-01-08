@@ -49,11 +49,13 @@ $(function() {
 		browse_button : 'pickfiles',
 		container : 'container',
 		max_file_size : '10mb',
+                chunk_size : '1mb',
+	        unique_names : true,
+                
 		url : '<?php echo $this->Html->Url(array("controller"=>"recipes","action"=>"addImages"),true); ?>',
                 
 		filters : [
-			{title : "Image files", extensions : "jpg,gif,png"},
-			{title : "Zip files", extensions : "zip"}
+			{title : "Image files", extensions : "jpg,gif,png"}
 		],
                 
 		resize : {width : 320, height : 240, quality : 90},
@@ -74,41 +76,34 @@ $(function() {
 	uploader.init();
 
 	uploader.bind('FilesAdded', function(up, files) {
-		$.each(files, function(i, file) {
-			$('#filelist').append(
-				'<div id="' + file.id + '">' +
-				file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
-			'</div>');
-		});
+            $.each(files, function(i, file) {
+                    $('#filelist').append(
+                            '<div id="' + file.id + '">' +
+                            file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
+                    '</div>');
+            });
 
-		up.refresh(); // Reposition Flash/Silverlight
+            up.refresh(); // Reposition Flash/Silverlight
 	});
-        uploader.bind('FileUploaded', function(up, file, response) {
-            //alert(response); 
-            $('#success').html(dump(response));
-            var obj = jQuery.parseJSON(response.response);
-            $('#success').html(dump(obj));
-            $('#errkr').html(obj.error);
-            //alert(obj);
-            //alert(obj.result);
-            //alert(json.jsonrpc); 
-        });
+        
 	uploader.bind('UploadProgress', function(up, file) {
-		$('#' + file.id + " b").html(file.percent + "%");
+            $('#' + file.id + " b").html(file.percent + "%");
 	});
 
 	uploader.bind('Error', function(up, err) {
-		$('#filelist').append("<div>Error: " + err.code +
-			", Message: " + err.message +
-			(err.file ? ", File: " + err.file.name : "") +
-			"</div>"
-		);
-
-		up.refresh(); // Reposition Flash/Silverlight
+            $('#filelist').append("<div>Error: " + err.code +
+                    ", Message: " + err.message +
+                    (err.file ? ", File: " + err.file.name : "") +
+                    "</div>"
+            );
+            up.refresh(); // Reposition Flash/Silverlight
 	});
 
-	uploader.bind('FileUploaded', function(up, file) {
-		$('#' + file.id + " b").html("100%");
+	uploader.bind('FileUploaded', function(up, file,response) {
+            $('#' + file.id + " b").html("100%");
+            var obj = jQuery.parseJSON(response["response"]);
+            $('#success').html(obj["result"]["fileName"]);
+            $('#RecipeAddForm').append('<input name="data[Image][][name]" type="hidden" value="'+obj["result"]["fileName"]+'"/>')
 	});
 });
 
@@ -129,8 +124,6 @@ echo $this->Form->input('description', array('rows' => '3'));
 echo $this->Form->input('ingredients', array('rows' => '2'));
 echo $this->Form->input('severity');
 echo $this->Form->input('Category.name', array('label'=>'Categories'));
-echo $this->Form->innput('file', array('type' => 'file'));
-#echo $this->Form->input('categories');
 echo $this->Form->end('Save Recipe');
 ?>
 <?php
