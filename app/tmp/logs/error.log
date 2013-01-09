@@ -672,3 +672,19 @@
 2012-06-28 18:22:13 Error: [MissingControllerException] Controller class Index.phpController could not be found.
 #0 C:\xampp\htdocs\cooking\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-01-09 11:06:22 Error: Could not delete uploads from recipe id = 101 content must be deleted manually contentkey = p17gfb90rd1hqb4kj1e9t64n1sf03.jpg
+2013-01-09 16:40:56 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-09 16:42:16 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-09 16:42:17 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-09 16:42:17 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-09 16:43:15 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

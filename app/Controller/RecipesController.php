@@ -11,6 +11,23 @@ Class RecipesController extends AppController {
     public function array_searchi($needle, $haystack) {
         return array_search(strtolower($needle), array_map('strtolower', $haystack));
     }
+    /**
+     * Delete a file or recursively delete a directory
+     *
+     * @param string $str Path to file or directory
+     */
+    protected function recursiveDelete($str){
+        if(is_file($str)){
+            return @unlink($str);
+        }
+        elseif(is_dir($str)){
+            $scan = glob(rtrim($str,'/').'/*');
+            foreach($scan as $index=>$path){
+                $this->recursiveDelete($path);
+            }
+            return @rmdir($str);
+        }
+    }
     ##########################################################
     
     public function index() {
@@ -59,8 +76,18 @@ Class RecipesController extends AppController {
                     }                 
                     $this->Recipe->Category->save($category);
                 }
+                if (!is_dir($targetDir)){
+                    @mkdir($targetDir);
+                }
+                if (isset($this->request->data['Image']) && count($this->request->data['Image']) !== 0) {
+                    foreach ($this->request->data['Image'] as $img) {
+                        if (copy("uploads/tmp".DIRECTORY_SEPARATOR.$img['name'], $targetDir.DIRECTORY_SEPARATOR.$img['name'])){
+                            @unlink("uploads/tmp".DIRECTORY_SEPARATOR.$img['name']);
+                        }
+                    }
+                }
                 $this->Session->setFlash('Your post has been saved.');
-                #$this->redirect(array('action' => 'index'));
+                $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash('Unable to add your recipe.');
             }
@@ -203,8 +230,10 @@ Class RecipesController extends AppController {
             foreach ($this->request->data['Category'] as $category) {
                 array_push($categories, $category['name']);
             }
+            pr($this->request->data);
             $categories_csv = implode(";",$categories);
-            $this->Set('categories', $categories_csv);
+            $this->set('categories', $categories_csv);
+            $this->set('recipe', $this->request->data);
         } else {
             if ($this->Recipe->save($this->request->data)) {
                 #first delete all associated categories for the recipe
@@ -235,12 +264,24 @@ Class RecipesController extends AppController {
             }
         }
     }
+    
     public function delete($id, $title) {
         if ($this->request->is('get')) {
             throw new MethodNotAllowedException();
+            $this->redirect(array('action' => 'index'));
         }
+        
+        $this->Recipe->id = $id;
+        $contentkey = $this->Recipe->field('contentkey');
+        
         if ($this->Recipe->delete($id)) {
+            if ($this->recursiveDelete("uploads".DIRECTORY_SEPARATOR.$contentkey) !== true) {
+                $this->log("Could not delete uploads from recipe id = ".$id." content must be deleted manually contentkey = ".$contentkey);
+            }
             $this->Session->setFlash('The recipe ' . $title . ' has been deleted.');
+            $this->redirect(array('action' => 'index'));
+        } else {
+            $this->Session->setFlash('The recipe ' . $title . ' could not be deleted. Try again later.');
             $this->redirect(array('action' => 'index'));
         }
     }
