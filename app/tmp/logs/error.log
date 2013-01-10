@@ -856,3 +856,18 @@
 2013-01-10 12:57:27 Error: [MissingControllerException] Controller class ImgController could not be found.
 #0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-01-10 16:49:28 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 19 images.name may not be NULL
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO "ma...', Array)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO "ma...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Model.php(1721): DboSource->create(Object(Image), Array, Array)
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Model.php(2081): Model->save(Array, Array)
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Model.php(2286): Model->saveMany(Array, Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Model.php(2023): Model->saveAssociated(Array, Array)
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(59): Model->saveAll(Array)
+#8 [internal function]: RecipesController->add()
+#9 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#10 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#12 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}

@@ -44,6 +44,9 @@ function dump(arr,level) {
 * Configure pluploader
 */
 $(function() {
+        var queuedImages = 0;
+        var addedImages = 0;
+        
 	var uploader = new plupload.Uploader({
 		runtimes : 'html5,flash,silverlight,html4',
 		browse_button : 'pickfiles',
@@ -75,9 +78,10 @@ $(function() {
 
 	uploader.init();
 
-	uploader.bind('FilesAdded', function(up, files) {
+	uploader.bind('FilesAdded', function(up, files) {            
             $.each(files, function(i, file) {
-                    $('#filelist').append(
+                    ++queuedImages;
+                    $('#filelist').append(                            
                             '<div id="' + file.id + '">' +
                             file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
                     '</div>');
@@ -103,7 +107,11 @@ $(function() {
             $('#' + file.id + " b").html("100%");
             var obj = jQuery.parseJSON(response["response"]);
             $('#success').html(obj["result"]["fileName"]);
-            $('#RecipeAddForm').append('<input name="data[Image][][name]" type="hidden" value="'+obj["result"]["fileName"]+'"/>')
+            if (addedImages <= queuedImages) {
+                $('#RecipeAddForm').append('<input name="data[Image]['+addedImages+'][name]" type="hidden" value="'+obj["result"]["fileName"]+'"/>');
+                $('#RecipeAddForm').append('<input name="data[Image]['+addedImages+'][ordernum]" type="hidden" value="'+addedImages+'"/>');
+                ++addedImages;
+            }
 	});
 });
 

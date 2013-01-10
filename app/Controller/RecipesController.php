@@ -87,7 +87,7 @@ Class RecipesController extends AppController {
                     }
                 }
                 $this->Session->setFlash('Your post has been saved.');
-                $this->redirect(array('action' => 'index'));
+                //$this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash('Unable to add your recipe.');
             }
