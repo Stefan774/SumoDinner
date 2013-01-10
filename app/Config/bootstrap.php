@@ -130,3 +130,13 @@ Inflector::rules('plural', array('irregular' => array('category_recipe' => 'cate
  *
  * CakePlugin::loadAll(); // Loads all plugins at once
  */ 
+
+/***
+ * Custom global variables
+ */
+/**
+ * Web path to the public images directory.
+ */
+if (!defined('CONTENT_URL')) {
+	define('CONTENT_URL', 'uploads/');
+}

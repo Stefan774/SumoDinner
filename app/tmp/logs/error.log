@@ -688,3 +688,171 @@
 2013-01-09 16:43:15 Error: [MissingControllerException] Controller class ImgController could not be found.
 #0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-01-10 12:05:23 Error: [MissingActionException] Action RecipesController::display() could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-10 12:14:38 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:14:39 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:29:15 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:29:16 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:29:55 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:29:55 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:29:55 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:29:56 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:30:34 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:30:34 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:30:35 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:30:35 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:30:35 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:30:35 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:31:09 Error: [MissingHelperException] Helper class HtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('Html', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:35:17 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:38:28 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:38:28 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:46:15 Error: [MissingControllerException] Controller class UploadscakeLogo.pngController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:52:40 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:52:40 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:52:41 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:52:41 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:52:41 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:53:57 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:53:57 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:54:28 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:54:28 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:56:40 Error: [MissingHelperException] Helper class RHtmlHelper could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(852): HelperCollection->load('RHtml', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-01-10 12:57:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-10 12:57:27 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
