@@ -1,3 +1,11 @@
+SumoDinner::App
+
+This app is based on CakePHP framework.
+
+Page purpose
+
+The purpose of the site is to generate a page for recipes. The goal is to build a network where members can share their recipes and can rate it. It is not for public use in first place it is only for private recipe sharing and rating. Members can share their knowledge and comment other recipes. To motivate people to participate a game character will be implemented. The game is a typical credit game for specific actions a user gets credit points (likes, new recipes …). Users can view a high score list. 
+
 CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC. Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
 
 The Cake Software Foundation - promoting development related to CakePHP
