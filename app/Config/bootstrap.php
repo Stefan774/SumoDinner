@@ -140,3 +140,5 @@ Inflector::rules('plural', array('irregular' => array('category_recipe' => 'cate
 if (!defined('CONTENT_URL')) {
 	define('CONTENT_URL', 'uploads/');
 }
+
+define('UPLOADS', WWW_ROOT . 'uploads' . DS);

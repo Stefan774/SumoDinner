@@ -19,6 +19,7 @@ Class Recipe extends AppModel {
          'Image' => array(
             'className'     => 'Image',
             'foreignKey'    => 'recipe_id',
+            'order'         => 'Image.ordernum',
             'dependent'     => true
         )
     );

@@ -108,7 +108,7 @@ Class RecipesController extends AppController {
 
         $cleanupTargetDir = true; // Remove old files
         $maxFileAge = 5 * 3600; // Temp file age in seconds
-
+        //$maxFileAge = 30;
         // 5 minutes execution time
         @set_time_limit(5 * 60);
 
@@ -149,10 +149,16 @@ Class RecipesController extends AppController {
         if ($cleanupTargetDir && is_dir($targetDir) && ($dir = opendir($targetDir))) {
             while (($file = readdir($dir)) !== false) {
                 $tmpfilePath = $targetDir . DIRECTORY_SEPARATOR . $file;
-
+                //$this->log(filemtime($tmpfilePath)." <= MAXTIME = ".(time() - $maxFileAge),'Debug');
+//                if (preg_match('/\.part$/', $file)) {
+//                    $this->log('MAXTIME IS REACHED FOR '.$tmpfilePath,'Debug');
+//                }
                 // Remove temp file if it is older than the max age and is not the current file
-                if (preg_match('/\.part$/', $file) && (filemtime($tmpfilePath) < time() - $maxFileAge) && ($tmpfilePath != "{$filePath}.part")) {
-                    @unlink($tmpfilePath);
+                //if (preg_match('/\.part$/', $file) && (filemtime($tmpfilePath) < time() - $maxFileAge) && ($tmpfilePath != "{$filePath}.part")) {
+                /** Remove all files when max age is reached not only tmp files **/
+                if ((filemtime($tmpfilePath) < time() - $maxFileAge) && ($tmpfilePath != "{$filePath}.part")) {
+                    $this->log($tmpfilePath,'Debug');
+                    $this->log(@unlink($tmpfilePath),'Debug');
                 }
             }
             closedir($dir);
