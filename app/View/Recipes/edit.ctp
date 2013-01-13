@@ -37,10 +37,10 @@
 	text-shadow:1px 1px 0px #b23e35;
         color:white;
         position: absolute;
-        top:-2px;
-        left:32px;
+        top:-4px;
+        left:45px;
         width: 60px;
-        height: 12px;
+        height: 20px;
 }.classname:hover {
         color:#ffffff;
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00) );
@@ -59,6 +59,43 @@
 </style>
 <script>
 $(function() {
+    
+    /**
+ * Function : dump()
+ * Arguments: The data - array,hash(associative array),object
+ *    The level - OPTIONAL
+ * Returns  : The textual representation of the array.
+ * This function was inspired by the print_r function of PHP.
+ * This will accept some data as the argument and return a
+ * text that will be a more readable version of the
+ * array/hash/object that is given.
+ * Docs: http://www.openjs.com/scripts/others/dump_function_php_print_r.php
+ */
+function dump(arr,level) {
+	var dumped_text = "";
+	if(!level) level = 0;
+	
+	//The padding given at the beginning of the line.
+	var level_padding = "";
+	for(var j=0;j<level+1;j++) level_padding += "    ";
+	
+	if(typeof(arr) == 'object') { //Array/Hashes/Objects 
+		for(var item in arr) {
+			var value = arr[item];
+			
+			if(typeof(value) == 'object') { //If it is an array,
+				dumped_text += level_padding + "'" + item + "' ...\n";
+				dumped_text += dump(value,level+1);
+			} else {
+				dumped_text += level_padding + "'" + item + "' => \"" + value + "\"\n";
+			}
+		}
+	} else { //Stings/Chars/Numbers etc.
+		dumped_text = "===>"+arr+"<===("+typeof(arr)+")";
+	}
+	return dumped_text;
+}
+    
 /** Handle sortable elements **/
 
     $( "#images_editor" ).sortable({
@@ -96,7 +133,20 @@ $(function() {
                 //$('#error').append('Index'+index + '=' + attr_helper + '<br>')
         });
     });
-
+    
+    $(".classname").click(function() {
+        alert("Hallo");
+        $("#error").show();
+        $("#error").append("Hallo");
+        $("#error").append(this.id);
+        /*function complete() {
+            $("#error").show();
+            $("#error").append(dump(this));
+            $("<div/>").text(this.id).appendTo("#log");
+        } */
+        //$("#box1").fadeOut(1600, "linear", complete);
+        //$("#box2").fadeOut(1600, complete);
+    });
 /** END Handle sortable elements **/
 });
 </script>
@@ -119,7 +169,7 @@ $(function() {
 <ul id="images_editor">
     <?php
         foreach ($recipe['Image'] as $img) {
-            echo "<li class='ui-state-default'>".$this->Html->image($recipe['Recipe']['contentkey'].'/'.$img['name'],array('alt' => 'CakePHP','pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."<a href='#' style='color:white' class='classname'>L&ouml;schen</a></li>";
+            echo "<li class='ui-state-default'>".$this->Html->image($recipe['Recipe']['contentkey'].'/'.$img['name'],array('alt' => 'CakePHP','pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."<button class='classname' id='tester'>Löschen</button></li>";
         }
     ?>
 </ul>
