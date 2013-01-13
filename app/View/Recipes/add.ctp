@@ -127,7 +127,7 @@ $(function() {
                 $( "#images_editor" ).sortable( "refresh" );
             }
 	});
-        /** Handle sortable elements **/
+    /** Handle sortable elements **/
         
         $( "#images_editor" ).sortable({
             placeholder: "ui-state-highlight"

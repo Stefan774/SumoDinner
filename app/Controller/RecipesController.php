@@ -236,12 +236,12 @@ Class RecipesController extends AppController {
             foreach ($this->request->data['Category'] as $category) {
                 array_push($categories, $category['name']);
             }
-            pr($this->request->data);
+            #pr($this->request->data);
             $categories_csv = implode(";",$categories);
             $this->set('categories', $categories_csv);
             $this->set('recipe', $this->request->data);
         } else {
-            if ($this->Recipe->save($this->request->data)) {
+            if ($this->Recipe->saveAll($this->request->data)) {
                 #first delete all associated categories for the recipe
                 $this->Recipe->CategoryRecipe->deleteAll(array('recipe_id' => $this->Recipe->id),false);
                 #read new categories and update the database
