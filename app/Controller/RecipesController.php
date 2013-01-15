@@ -28,6 +28,23 @@ Class RecipesController extends AppController {
             return @rmdir($str);
         }
     }
+    protected function rmFlaggedImages($requestData){        
+        if (isset($requestData['Image'])){            
+            $targetDir = "uploads".DIRECTORY_SEPARATOR.$requestData['Recipe']['contentkey'].DIRECTORY_SEPARATOR;
+            $count = 0;
+            foreach ($requestData['Image'] as $img) {
+                if ($img['ordernum'] == -1){
+                    if (is_file($targetDir.$img['name'])){
+                        @unlink($targetDir.$img['name']);
+                        $this->Recipe->Image->delete($img['id']);
+                        unset($requestData['Image'][$count]);
+                    }
+                }
+                $count++;
+            }
+        }
+            return $requestData;
+    }
     ##########################################################
     
     public function index() {
@@ -95,7 +112,21 @@ Class RecipesController extends AppController {
             $this->set('categories', $this->Recipe->Category->find('list'));
         }
     }
-	
+    
+    public function removeImage() {
+        // some logic here
+        Configure::write('debug', 0);
+        // Data to be sent as JSON response
+        $response = array(
+                    'success' => true,
+                     'message' => 'My error message',
+                     'test' => '123',
+                     'pic_id' => $this->request->data['pic_id']
+                    );
+        $this->set('resp',$response);
+        $this->set('_serialize', 'resp');
+    }
+
     public function addImages() {
 		
         header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
@@ -236,11 +267,12 @@ Class RecipesController extends AppController {
             foreach ($this->request->data['Category'] as $category) {
                 array_push($categories, $category['name']);
             }
-            #pr($this->request->data);
+            //pr($this->request->data);
             $categories_csv = implode(";",$categories);
             $this->set('categories', $categories_csv);
             $this->set('recipe', $this->request->data);
         } else {
+            $this->request->data = $this->rmFlaggedImages($this->request->data);
             if ($this->Recipe->saveAll($this->request->data)) {
                 #first delete all associated categories for the recipe
                 $this->Recipe->CategoryRecipe->deleteAll(array('recipe_id' => $this->Recipe->id),false);

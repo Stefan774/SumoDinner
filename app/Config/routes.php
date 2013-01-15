@@ -38,6 +38,10 @@
  * how to customize the loading of plugin routes.
  */
 	CakePlugin::routes();
+/**
+ * Enabling data views with json
+ */
+        Router::parseExtensions('json');
 
 /**
  * Load the CakePHP default routes. Remove this if you do not want to use

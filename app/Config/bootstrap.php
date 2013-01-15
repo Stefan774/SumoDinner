@@ -141,4 +141,13 @@ if (!defined('CONTENT_URL')) {
 	define('CONTENT_URL', 'uploads/');
 }
 
-define('UPLOADS', WWW_ROOT . 'uploads' . DS);
+/**
+ * Path to the vendors directory.
+ */
+if (!defined('VIEWS')) {
+	define('VIEWS', ROOT . DS . 'View' . DS);
+}
+
+if (!defined('UPLOADS')) {
+    define('UPLOADS', WWW_ROOT . 'uploads' . DS);
+}

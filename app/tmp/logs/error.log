@@ -884,3 +884,1344 @@
 #1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
 #2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2013-01-14 12:50:13 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-14 12:52:36 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-14 13:03:20 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php(98): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): JsonView->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSelements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:03:42 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSelements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:04:22 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:04:23 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:04:23 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:04:42 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements/j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:04:43 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements/j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:04:43 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements/j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:08:13 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:08:14 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:08:14 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:08:21 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:08:22 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:09:52 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:10:00 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php(98): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): JsonView->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'VIEWSElements\j...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:13:26 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:13:27 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:13:31 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php(98): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): JsonView->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:17:20 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:17:29 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:17:30 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:17:30 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\AppController.php(52): Controller->render(NULL, NULL, 'C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(108): AppController->sendJson(Array)
+#4 [internal function]: RecipesController->jsonView()
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-01-14 13:19:57 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(112): Controller->render(NULL, NULL, 'C:\xampp\htdocs...')
+#3 [internal function]: RecipesController->jsonView()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2013-01-14 13:20:23 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(111): Controller->render(NULL, NULL, 'C:\xampp\htdocs...')
+#3 [internal function]: RecipesController->jsonView()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2013-01-14 13:33:52 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-14 13:34:22 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-14 13:35:39 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json_view.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:38 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:48:39 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:49:29 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:50:46 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:50:46 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:50:46 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:50:46 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:50:47 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:50:47 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:50:47 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:50:47 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:52:18 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:52:18 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:52:18 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:52:18 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:58:08 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:58:08 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:58:09 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:58:09 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:58:09 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:58:09 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:58:10 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 13:58:10 Warning: Warning (2): Illegal offset type in [C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php, line 89]
+Trace:
+JsonView::render() - CORE\Cake\View\JsonView.php, line 89
+Controller::render() - CORE\Cake\Controller\Controller.php, line 959
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 110
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
+[main] - APP\webroot\index.php, line 92
+
+2013-01-14 16:22:51 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-14 16:23:22 Error: [MissingActionException] Action RecipesController::jsonView() could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-14 16:23:22 Error: [MissingActionException] Action RecipesController::jsonView() could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-14 16:23:22 Error: [MissingActionException] Action RecipesController::jsonView() could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-14 16:24:03 Error: [MissingActionException] Action RecipesController::jsonView() could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-14 16:24:03 Error: [MissingActionException] Action RecipesController::jsonView() could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-14 16:24:03 Error: [MissingActionException] Action RecipesController::jsonView() could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-14 16:24:03 Error: [MissingActionException] Action RecipesController::jsonView() could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-15 15:33:31 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-15 15:33:45 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-15 15:39:56 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-15 15:39:56 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-15 15:39:56 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-15 15:39:56 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-15 15:50:51 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-15 15:50:51 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-15 15:50:51 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-15 15:50:51 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
