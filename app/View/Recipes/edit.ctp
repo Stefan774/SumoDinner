@@ -3,9 +3,11 @@
     echo $this->Html->script('jquery'); // Include jQuery library
     echo $this->Html->script('jquery-ui-1.9.2.custom'); // Include jQuery UI-library
     echo $this->Html->script('plupload.full'); // Include plupload
+    echo $this->Html->script('advanced'); // Include wysihtml5 parser rules
+    echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
+    echo $this->Html->css('wysihtml5');
+    echo CSS."wysihtml5.css";
 ?>
-
-
 <h1>Edit Recipe</h1>
 
 <style>
@@ -198,8 +200,6 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
         });
         
         runHideEffect(imgListObject,'highlight');
-       
-         
         
         //imgListObject.css("width", "200px");
         //runHideEffect(imgListObject,'highlight');
@@ -228,9 +228,38 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
     });
 /** END Handle sortable elements **/
 
+    var editor = new wysihtml5.Editor("wysihtml5-textarea", { // id of textarea element
+        toolbar:      "wysihtml5-toolbar", // id of toolbar element
+        parserRules:  wysihtml5ParserRules, // defined in parser rules set 
+        stylesheets: ['<?php echo $this->webroot.'css/wysihtml5.css' ?>']
+    }); 
 });
 </script>
 <div id="error" style="display:none"></div>
+<div id="wysihtml5-toolbar" style="display: none;">
+  <a data-wysihtml5-command="bold">bold</a>
+  <a data-wysihtml5-command="italic">italic</a>
+  
+  <!-- Some wysihtml5 commands require extra parameters -->
+  <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">red</a>
+  <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">green</a>
+  <a data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue">blue</a>
+   <a data-wysihtml5-command="insertUnorderedList">insertUnorderedList</a>
+    <a data-wysihtml5-command="insertOrderedList">insertOrderedList</a>
+    <a data-wysihtml5-action="change_view">switch to html view</a>
+  
+  <!-- Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href) -->
+  <a data-wysihtml5-command="createLink">insert link</a>
+  <div data-wysihtml5-dialog="createLink" style="display: none;">
+    <label>
+      Link:
+      <input data-wysihtml5-dialog-field="href" value="http://" class="text">
+    </label>
+    <a data-wysihtml5-dialog-action="save">OK</a> <a data-wysihtml5-dialog-action="cancel">Cancel</a>
+  </div>
+</div>
+
+<form><textarea id="wysihtml5-textarea" placeholder="Enter your text ..." autofocus></textarea></form>
 <?php
     echo $this->Form->create('Recipe', array('action' => 'edit'));
     echo $this->Form->input('title');

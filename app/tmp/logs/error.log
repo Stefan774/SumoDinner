@@ -2225,3 +2225,8 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
 2013-01-15 15:50:51 Error: [MissingControllerException] Controller class UploadsController could not be found.
 #0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-01-16 16:38:29 Error: [MissingActionException] Action RecipesController::jsonView() could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
