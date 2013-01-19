@@ -2230,3 +2230,13 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
 #1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
 #2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2013-01-19 13:32:35 Error: [MissingActionException] Action AppController::View() could not be found.
+#0 /Applications/MAMP/htdocs/SumoDinner/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 /Applications/MAMP/htdocs/SumoDinner/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /Applications/MAMP/htdocs/SumoDinner/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-19 13:33:03 Error: [MissingActionException] Action AppController::View() could not be found.
+#0 /Applications/MAMP/htdocs/SumoDinner/lib/Cake/Routing/Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 /Applications/MAMP/htdocs/SumoDinner/lib/Cake/Routing/Dispatcher.php(85): Dispatcher->_invoke(Object(AppController), Object(CakeRequest), Object(CakeResponse))
+#2 /Applications/MAMP/htdocs/SumoDinner/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
