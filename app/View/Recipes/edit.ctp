@@ -206,12 +206,27 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
 
 <h2 class="salter">Rezept nachsalzen (bearbeiten)</h2>
 <div><div class="editable recipeTitle" id="RecipeTitle_edit"><?php echo $recipe['Recipe']['title'] ?></div><a href="#" class="edit_trigger" id="RecipeTitle_trigger">Edit me!!</a></div>
+<br>
 <h3>Zutaten:</h3>
 <div id="ingredients"><div class="editable" id="RecipeIngredients_edit"><?php echo $recipe['Recipe']['ingredients'] ?></div></div>
+<br>
+<div id="additionalInfo">
+    <div class="additional_widget"><p>Schwierigkeitsgrad</p>
+        <select id="severity">
+            <option value="0">Leicht wie Mehl</option>
+            <option value="1">Die goldene Mitte</option>
+            <option value="2">Schwer wie Butterschmalz</option>
+        </select>
+    </div>
+    <div class="additional_widget">
+        <p>Kategorie(n)</p>
+        <input type="text" id="category">
+    </div>
+</div>
 <h3>Zubereitung:</h3>
 <div><div class="editable" id="RecipeDescription_edit"><?php echo $recipe['Recipe']['description'] ?></div></div>
 <?php
-    echo $this->Form->create('Recipe', array('action' => 'edit'));
+    echo $this->Form->create('Recipe', array('action' => 'edit','style'=>'display'));
     echo $this->Form->input('title', array('type' => 'text'));
     echo $this->Form->input('description', array('rows' => '3'));
     echo $this->Form->input('ingredients', array('rows' => '2'));
@@ -226,6 +241,7 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
     }
     echo $this->Form->end('Save Recipe');
 ?>
+<br>
 <h3>Bilder:</h3>
 <ul id="images_editor">
     <?php
