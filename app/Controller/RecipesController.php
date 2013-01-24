@@ -60,7 +60,9 @@ Class RecipesController extends AppController {
     
     public function view($id = null) {
         $this->Recipe->id = $id;
-        $this->set('recipe', $this->Recipe->read());
+        $recipe = $this->Recipe->read();
+        //pr($this->Recipe->find('list',array('fields' => array('Category.name'))));
+        $this->set('recipe', $recipe);
     }
     
     public function add() {

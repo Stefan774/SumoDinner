@@ -35,7 +35,7 @@ Class Recipe extends AppModel {
         ),
         'severity' => array(
             'rule-1' => array (
-                'rule'    => array('range', 0, 6),
+                'rule'    => array('range', -1, 6),
                 'message' => 'Please enter a number between 1 and 5',
              ),
             'rule-2' => array (

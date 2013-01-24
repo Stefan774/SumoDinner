@@ -282,3 +282,10 @@ Cache::config('_cake_model_', array(
  */
 // No change
 // require APP . 'plugin\media\config\core.php';
+Configure::write('severity_level', array(
+    0 => 'Leicht wie Mehl',
+    1 => 'Leicht aber Vorsicht',
+    2 => 'Die goldene Mitte',
+    3 => 'Schwer wie Butterschmalz',
+    4 => 'Nur für absolute Sumos'
+));

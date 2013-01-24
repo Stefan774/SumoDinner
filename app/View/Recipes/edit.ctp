@@ -67,7 +67,7 @@ function runHideEffect(object,effect) {
 
 //Make images sortable with jquery sortable class
 $( "#images_editor" ).sortable({
-    placeholder: "ui-state-highlight"
+    placeholder: "ui-state-highlight, img-polaroid"
 });
 
 //Prefent selection on sortable elements
@@ -192,7 +192,8 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
         submit  : 'OK',
         event   : 'dblclick',
         cssclass : 'jeditTextarea',
-        width: 'none'
+        width: 'none',
+        onblur : 'ignore'
     });
     /* Find and trigger "edit" event on correct Jeditable instance. */
     $(".edit_trigger").bind("click", function() {
@@ -201,6 +202,20 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
         $('#'+triggerElement).trigger('click');
     });
 /** END Handle editable elements **/
+
+/** Handle some input elements **/
+    $("#CategoryName_edit").attr('value','<?php echo $categories; ?>');
+    $("#CategoryName_edit").keyup(function() {
+        var formElementId = this.id.split("_")[0];
+        $('#'+formElementId).attr('value',$(this).attr('value'));
+    });
+    
+    $("select#RecipeSeverity_edit")[0].selectedIndex = <?php echo ($recipe['Recipe']['severity']); ?>;
+    $("select#RecipeSeverity_edit").change(function(){
+        var formElementId = this.id.split("_")[0];
+        $('#'+formElementId).attr('value',$(this).attr('value'));
+    });
+/** END Handle some input elements **/
 });
 </script>
 
@@ -212,26 +227,24 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
 <br>
 <div id="additionalInfo">
     <div class="additional_widget"><p>Schwierigkeitsgrad</p>
-        <select id="severity">
-            <option value="0">Leicht wie Mehl</option>
-            <option value="1">Die goldene Mitte</option>
-            <option value="2">Schwer wie Butterschmalz</option>
+        <select id="RecipeSeverity_edit">
+            <?php foreach (Configure::read('severity_level') as $key=>$severity_level){echo "<option value='$key'>$severity_level</option>";}?>
         </select>
     </div>
     <div class="additional_widget">
         <p>Kategorie(n)</p>
-        <input type="text" id="category">
+        <input type="text" id="CategoryName_edit">
     </div>
 </div>
 <h3>Zubereitung:</h3>
 <div><div class="editable" id="RecipeDescription_edit"><?php echo $recipe['Recipe']['description'] ?></div></div>
 <?php
-    echo $this->Form->create('Recipe', array('action' => 'edit','style'=>'display'));
-    echo $this->Form->input('title', array('type' => 'text'));
-    echo $this->Form->input('description', array('rows' => '3'));
-    echo $this->Form->input('ingredients', array('rows' => '2'));
-    echo $this->Form->input('severity');
-    echo $this->Form->input('Category.name', array('value' => $categories, 'label'=>'Categories'));
+    echo $this->Form->create('Recipe', array('action' => 'edit'));
+    echo $this->Form->input('title', array('type' => 'text','type' => 'hidden'));
+    echo $this->Form->input('description', array('type' => 'hidden'));
+    echo $this->Form->input('ingredients', array('type' => 'hidden'));
+    echo $this->Form->input('severity', array('type' => 'hidden'));
+    echo $this->Form->input('Category.name', array('value' => $categories, 'label'=>'Categories','type' => 'hidden'));
     echo $this->Form->input('id', array('type' => 'hidden'));
     echo $this->Form->input('contentkey', array('type' => 'hidden'));
     foreach ($recipe['Image'] as $img) {
@@ -239,14 +252,15 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
         echo $this->Form->input('Image.'.$img['ordernum'].'.name', array('type' => 'hidden'));
         echo $this->Form->input('Image.'.$img['ordernum'].'.ordernum', array('type' => 'hidden'));
     }
-    echo $this->Form->end('Save Recipe');
+    echo $this->Form->submit('Save Recipe', array('class' => 'btn btn-success'));
+    echo $this->Form->end();
 ?>
 <br>
 <h3>Bilder:</h3>
 <ul id="images_editor">
     <?php
         foreach ($recipe['Image'] as $img) {
-            echo "<li class='ui-state-default'>".$this->Html->image($recipe['Recipe']['contentkey'].'/'.$img['name'],array('alt' => 'CakePHP','pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."<button class='btn_delete' id='".$img['id']."'>Löschen</button></li>";
+            echo "<li class='ui-state-default, img-polaroid'>".$this->Html->image($recipe['Recipe']['contentkey'].'/'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."<button class='btn_delete' id='".$img['id']."'>Löschen</button></li>";
         }
     ?>
 </ul>

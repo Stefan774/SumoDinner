@@ -29,8 +29,10 @@ $cakeDescription = __d('SumoDinner', 'SumoDinner: Dine like a Sumo');
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
-                //echo $this->Html->css('wysihtml5');                
+		//echo $this->Html->css('cake.generic');
+                //echo $this->Html->css('wysihtml5'); 
+                echo $this->Html->css('bootstrap');
+                echo $this->Html->css('customSumo');
                 echo $this->Html->css('jquery-ui-1.9.2.custom');
 
 		echo $this->fetch('meta');
@@ -39,7 +41,7 @@ $cakeDescription = __d('SumoDinner', 'SumoDinner: Dine like a Sumo');
 	?>
 </head>
 <body>
-	<div id="container">
+	<div  class="container">
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
