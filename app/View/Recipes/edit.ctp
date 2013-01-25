@@ -199,7 +199,7 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
     $(".edit_trigger").bind("click", function() {
         triggerElement = this.id.split('_')[0]+'_edit';
         //alert(triggerElement);
-        $('#'+triggerElement).trigger('click');
+        $('#'+triggerElement).trigger('dblclick');
     });
 /** END Handle editable elements **/
 
@@ -219,7 +219,7 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
 });
 </script>
 
-<h2 class="salter">Rezept nachsalzen (bearbeiten)</h2>
+<h2 class="salter">Rezept nachsalzen</h2>
 <div><div class="editable recipeTitle" id="RecipeTitle_edit"><?php echo $recipe['Recipe']['title'] ?></div><a href="#" class="edit_trigger" id="RecipeTitle_trigger">Edit me!!</a></div>
 <br>
 <h3>Zutaten:</h3>
