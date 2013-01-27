@@ -137,5 +137,22 @@ h3 {
 #RecipeIngredients_edit {
     display: block;
     min-height: 100px;
-    min-width: 100%;
+    min-width: 98%;
+}
+.wys-container {
+    position: relative;
+}
+#wysihtml5-toolbar-Ingredients {
+    margin-bottom: 0px;
+}
+#RecipeAddForm input, textArea {
+    width: 95%;
+    min-width: 500px;
+}
+
+#RecipeAddForm label {
+    
+}
+.clear {
+    clear: both;
 }

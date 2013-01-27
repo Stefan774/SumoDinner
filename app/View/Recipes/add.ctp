@@ -3,6 +3,8 @@
     echo $this->Html->script('jquery'); // Include jQuery library
     echo $this->Html->script('jquery-ui-1.9.2.custom'); // Include jQuery UI-library
     echo $this->Html->script('plupload.full'); // Include plupload
+    echo $this->Html->script('advanced'); // Include wysihtml5 parser rules
+    echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
 ?>
 <h1>Add Recipe</h1>
 
@@ -77,7 +79,7 @@ $(function() {
 	});
 
 	uploader.bind('Init', function(up, params) {
-		$('#filelist').html("<div>Current runtime: " + params.runtime + "</div>");
+		$('#filelist').html("<div>Bilder ausw&auml;hlen und Hochladen nicht vergessen !!</div>");
 	});
 
 	$('#uploadfiles').click(function(e) {
@@ -166,6 +168,18 @@ $(function() {
         });
 
     /** END Handle sortable elements **/
+    
+    /** Handle wysihtml5 editor for ingredients and description **/
+    
+    var editor = new wysihtml5.Editor("RecipeIngredients", { // id of textarea element
+        toolbar:      "wysihtml5-toolbar-Ingredients", // id of toolbar element
+        parserRules:  wysihtml5ParserRules, // defined in parser rules set 
+        stylesheets: ['<?php echo $this->webroot.'css/wysihtml5.css' ?>']
+    });
+    
+    editor.setValue("<ul><li><br></li></ul>");
+    
+     /** END handle wysihtml5 editor  **/
 });
 
 </script>
@@ -174,20 +188,39 @@ $(function() {
 <div id="error"></div>
 <div id="container">
 	<div id="filelist">No runtime found.</div>
+        <ul id="images_editor"></ul>
+        <div class="clear"></div>
 	<br />
-	<a id="pickfiles" href="#">[Select files]</a>
-	<a id="uploadfiles" href="#">[Upload files]</a>
+        <a id="pickfiles" href="#" class="btn"><i class="icon-picture"></i>&nbsp; Bilder ausw&auml;hlen</a>
+        <a id="uploadfiles" href="#" class="btn"><i class="icon-upload"></i>&nbsp; Bilder hochladen</a>
 </div>
-<ul id="images_editor">   
-</ul>
 <?php
 echo $this->Form->create('Recipe');
 echo $this->Form->input('title');
 echo $this->Form->input('description', array('rows' => '3'));
-echo $this->Form->input('ingredients', array('rows' => '2'));
+?>
+<div class="wys-container">
+    <label for="RecipeIngredients">Zutaten: </label>
+    <div id="wysihtml5-toolbar-Ingredients" style="display: none;" class="btn-toolbar">
+        <div class="btn-group">
+            <a data-wysihtml5-command="bold" class="btn"><i class="icon-bold">&nbsp;</i></a>
+            <a data-wysihtml5-command="italic" class="btn"><i class="icon-italic">&nbsp;</i></a> 
+          <!-- Some wysihtml5 commands require extra parameters -->
+            <a data-wysihtml5-command="insertUnorderedList" class="btn"><i class="icon-list">&nbsp;</i></a>
+            <a data-wysihtml5-command="insertOrderedList" class="btn"><i class="icon-th-list">&nbsp;</i></a>
+            <a data-wysihtml5-action="change_view" class="btn"><i class="icon-eye-open">&nbsp;</i></a>
+          <!-- Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href) -->
+        </div>
+    </div>
+<?php
+echo $this->Form->input('ingredients', array('rows' => '2','label'=>''));
+?>
+</div>
+<?php
 echo $this->Form->input('severity');
 echo $this->Form->input('Category.name', array('label'=>'Categories'));
-echo $this->Form->end('Save Recipe');
+echo $this->Form->submit('Save Recipe', array('class' => 'btn btn-success'));
+echo $this->Form->end();
 ?>
 <?php
 echo $this->Js->writeBuffer(); // Write cached scripts
