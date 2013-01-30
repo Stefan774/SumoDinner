@@ -61,6 +61,11 @@ Class RecipesController extends AppController {
     public function view($id = null) {
         $this->Recipe->id = $id;
         $recipe = $this->Recipe->read();
+        $rating = $this->Recipe->query(
+                    'SELECT ROUND(AVG(rating)) FROM ratings WHERE recipe_id = ?',
+                    array($id)
+        );
+        $recipe['Recipe']['rating'] = $rating[0][0][key($rating[0][0])];
         //pr($this->Recipe->find('list',array('fields' => array('Category.name'))));
         $this->set('recipe', $recipe);
     }
@@ -113,6 +118,38 @@ Class RecipesController extends AppController {
         }else {
             $this->set('categories', $this->Recipe->Category->find('list'));
         }
+    }
+    /**
+     * Function to rate recipes with ip lock.
+     * 
+     * Return-codes are:
+     * 200 = Success
+     * 102 = Failed
+     * 105 = Existing rating
+     *  
+     * @return json
+     * @param type $id
+     * @param type $rating
+     */
+    public function rateRecipe($id, $rating) {
+        $clientIp = $_SERVER['REMOTE_ADDR'];
+        $this->Recipe->id = $id;
+        
+        $logged = $this->Recipe->Rating->find('count', array(
+            'fields' => 'DISTINCT Rating.ip',
+            'conditions' => array('Rating.ip' => $clientIp, 'Rating.recipe_id' => $id)
+        ));
+        
+        if ($logged != 1 && $this->Recipe->Rating->save(array('Rating'=>array('rating'=>$rating,'ip'=>$clientIp,'recipe_id'=>$id)))) {
+             die('{"jsonrpc" : "2.0", "success" : {"code": 200 }}');
+        }
+        else {
+            if ($logged == 1) {
+                die('{"jsonrpc" : "2.0", "error" : {"code": 105, "message": "Recipe was rated already."}, "id" : '.$id.'}');
+            }
+            die('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to save rating."}, "id" : '.$id.'}');
+        }
+        
     }
     
     public function removeImage() {

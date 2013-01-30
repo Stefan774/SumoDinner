@@ -2763,3 +2763,167 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
 2013-01-26 09:09:48 Error: [MissingControllerException] Controller class ImgController could not be found.
 #0 /Applications/MAMP/htdocs/SumoDinner/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-01-28 15:56:47 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-29 16:54:40 Error: [MissingActionException] Action RecipesController::jsonView() could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-01-29 16:55:30 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json\message.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php(98): View->_getViewFileName('message')
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): JsonView->render('message', NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(339): Controller->render('message')
+#3 [internal function]: RecipesController->respond()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2013-01-29 16:55:44 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json\message.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php(98): View->_getViewFileName('message')
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): JsonView->render('message', NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(339): Controller->render('message')
+#3 [internal function]: RecipesController->respond()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2013-01-29 16:55:45 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json\message.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php(98): View->_getViewFileName('message')
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): JsonView->render('message', NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(339): Controller->render('message')
+#3 [internal function]: RecipesController->respond()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2013-01-29 16:55:46 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\json\message.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\JsonView.php(98): View->_getViewFileName('message')
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): JsonView->render('message', NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(339): Controller->render('message')
+#3 [internal function]: RecipesController->respond()
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2013-01-29 17:02:09 Error: [MissingControllerException] Controller class AddImagesController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-01-30 13:49:52 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\rate_recipe.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-30 13:51:29 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\rate_recipe.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-30 13:51:42 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\rate_recipe.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-30 13:53:47 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\rate_recipe.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-30 13:56:46 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\rate_recipe.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-30 13:58:55 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\rate_recipe.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-30 13:58:56 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\rate_recipe.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-30 13:58:56 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\rate_recipe.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-30 13:59:07 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\rate_recipe.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-30 13:59:24 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 19 recipes.title may not be NULL
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO "ma...', Array)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO "ma...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Model.php(1721): DboSource->create(Object(Recipe), Array, Array)
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Model.php(2242): Model->save(Array, Array)
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Model.php(2023): Model->saveAssociated(Array, Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(124): Model->saveAll(Array)
+#7 [internal function]: RecipesController->rateRecipe('128', '1')
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#9 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-01-30 14:00:21 Error: [MissingViewException] View file "C:\xampp\htdocs\SumoDinner\SumoDinner\app\View\Recipes\rate_recipe.ctp" is missing.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-01-30 14:00:57 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 19 ratings.recipe_id may not be NULL
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('INSERT INTO "ma...', Array)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(985): DboSource->execute('INSERT INTO "ma...')
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Model.php(1721): DboSource->create(Object(Rating), Array, Array)
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(124): Model->save(Array)
+#5 [internal function]: RecipesController->rateRecipe('128', '1')
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#7 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-01-30 14:39:33 Error: [PDOException] SQLSTATE[HY000]: General error: 1 near "fetchAll": syntax error
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(435): PDO->prepare('fetchAll', Array)
+#1 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('fetchAll', Array)
+#2 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('fetchAll', Array, Array)
+#3 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(589): DboSource->fetchAll('fetchAll', Array, Array)
+#4 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Model\Model.php(775): DboSource->query('fetchAll', Array, Object(Recipe))
+#5 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(68): Model->__call('fetchAll', Array)
+#6 C:\xampp\htdocs\SumoDinner\SumoDinner\app\Controller\RecipesController.php(68): Recipe->fetchAll('SELECT ROUND(AV...', Array)
+#7 [internal function]: RecipesController->view('128')
+#8 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#9 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 C:\xampp\htdocs\SumoDinner\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-01-30 17:31:14 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\xampp\htdocs\SumoDinner\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

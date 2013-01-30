@@ -63,7 +63,7 @@
     color:#ffffff;
 }
 .salter {
-    background-image: url(../img/Salter.png);
+    background-image: url(images/Salter.png);
     background-repeat:no-repeat;
     background-position:0px 5px;
     padding-left: 40px;
@@ -156,3 +156,80 @@ h3 {
 .clear {
     clear: both;
 }
+
+.star-rating{
+    list-style: none;
+    margin: 3px;
+    padding: 0px; 
+    width: 200px; 
+    height: 30px; 
+    position: relative;
+    background: url(images/sumo_rating.gif) top left repeat-x;
+}
+
+star-rating li{
+    padding:0px;
+    margin:0px;
+    /**/ 
+    float: left; – for any other browser, we are going to float left, this makes a horizontal list
+    /* */
+}
+
+.star-rating li a{
+    display:block; 
+    width:40px; 
+    height: 30px; 
+    text-decoration: none; 
+    text-indent: -9000px; 
+    z-index: 20; 
+    position: absolute; 
+    padding: 0px; 
+    background-image:none;
+}
+
+ .star-rating li.current-rating{
+    background: url(images/sumo_rating.gif) left bottom;
+    position: absolute;
+    height: 30px;
+    display: block;
+    text-indent: -9000px;
+    z-index: 1;
+ }
+
+.star-rating li a:hover {
+   background: url(images/sumo_rating.gif) left bottom;
+    z-index: 1; 
+    left: 0px; 
+}
+
+.star-rating a.one-star{
+    left: 0px;
+}
+.star-rating a.one-star:hover{
+    width:40px;
+}
+.star-rating a.two-stars{
+    left:40px;
+}
+.star-rating a.two-stars:hover{
+    width: 80px;
+}
+.star-rating a.three-stars{
+    left: 80px;
+}
+.star-rating a.three-stars:hover{
+    width: 120px;
+}
+.star-rating a.four-stars{
+    left: 120px;
+}
+.star-rating a.four-stars:hover{
+    width: 160px;
+}
+.star-rating a.five-stars{
+    left: 160px;
+}
+.star-rating a.five-stars:hover{
+    width: 200px;
+}
+

@@ -21,6 +21,11 @@ Class Recipe extends AppModel {
             'foreignKey'    => 'recipe_id',
             'order'         => 'Image.ordernum',
             'dependent'     => true
+        ),
+        'Rating' => array(
+            'className'     => 'Rating',
+            'foreignKey'    => 'recipe_id',
+            'dependent'     => true
         )
     );
     public $validate = array(
