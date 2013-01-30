@@ -7,6 +7,8 @@
 $(function() {    
     var rating =  parseInt(<?php echo $recipe['Recipe']['rating']; ?>) * 40;
     //alert (rating);
+    $('ul.star-rating > li > a').hover(function(){$("#currentR").hide();}, function(){$("#currentR").show();})
+    
     $('ul.star-rating > li > a').click(function() {
         //alert($(this).attr('class') + $(this).html());
         rating = parseInt($(this).html()) * 40;
@@ -34,7 +36,7 @@ $(function() {
         </div>
         <div id="recipe_star_ratings">  
             <ul class="star-rating">
-                 <li class="current-rating" style="width:0px;"></li>
+                 <li id="currentR" class="current-rating" style="width:0px;"></li>
                 <li><a title="Rate this 1 Sumo out of 5" class="star-hover">1</a></li>
                 <li><a title="Rate this 2 Sumos out of 5" class="two-stars">2</a></li>
                 <li><a title="Rate this 3 Sumos out of 5" class="three-stars">3</a></li>
