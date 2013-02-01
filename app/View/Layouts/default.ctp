@@ -34,6 +34,10 @@ $cakeDescription = __d('SumoDinner', 'SumoDinner: Dine like a Sumo');
                 echo $this->Html->css('bootstrap');
                 echo $this->Html->css('customSumo');
                 echo $this->Html->css('jquery-ui-1.9.2.custom');
+                                            
+                echo $this->Html->script('jquery'); // Include jQuery library
+                echo $this->Html->script('jquery-ui-1.9.2.custom'); // Include jQuery UI-library    
+                echo $this->Html->script('bootstrap'); // Include Bootstrap js for affix Navi
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -41,14 +45,27 @@ $cakeDescription = __d('SumoDinner', 'SumoDinner: Dine like a Sumo');
 	?>
 </head>
 <body>
-	<div  class="container">
-		<div id="content">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a class="brand" href="#">SumoDinner</a>
+            <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+            <form class="navbar-search pull-right">
+                <input type="text" class="search-query" placeholder="Search">
+            </form>
+        </div>
+    </div>
+    <div  class="container">
+            <div id="content">
 
-			<?php echo $this->Session->flash(); ?>
+                    <?php echo $this->Session->flash(); ?>
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-	</div>
-	<?php echo $this->element('sql_dump'); ?>
+                    <?php echo $this->fetch('content'); ?>
+            </div>
+    </div>
+    <?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

@@ -1,7 +1,8 @@
 <!-- File: /app/View/Recipes/view.ctp -->
 <?php //pr($recipe); ?>
 <?php 
-    echo $this->Html->script('jquery'); // Include jQuery library
+    
+
 ?>
 <script>
 $(function() {    
@@ -24,6 +25,7 @@ $(function() {
 });
 </script>
 <div id="result"></div>
+<div data-spy="affix" data-offset-top="10"></div>
 <div class="editable recipeTitle"><?php echo h($recipe['Recipe']['title']); ?></div>
 <div id="recipe_part1" class="row">
     <div id="recipe_main_pic" class="span8"><?php echo $this->Html->image($recipe['Recipe']['contentkey'].'/'.$recipe['Image'][0]['name'], array('pathPrefix' => CONTENT_URL,'alt' => $recipe['Image'][0]['titel'])); ?></div>

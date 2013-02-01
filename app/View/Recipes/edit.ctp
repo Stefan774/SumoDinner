@@ -1,12 +1,9 @@
 <!-- File: /app/View/Recipes/edit.ctp -->
-<?php 
-    echo $this->Html->script('jquery'); // Include jQuery library
-    echo $this->Html->script('jquery-ui-1.9.2.custom'); // Include jQuery UI-library
+<?php
     echo $this->Html->script('plupload.full'); // Include plupload
     echo $this->Html->script('advanced'); // Include wysihtml5 parser rules
     echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
     echo $this->Html->script('jEditable'); // Include wysihtml5 library
-    //echo $this->Html->css('wysihtml5');
 ?>
 <script>
 $(function() {
@@ -176,14 +173,6 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
        **/
     });
 /** END Handle sortable elements **/
-
-    var editor = new wysihtml5.Editor("wysihtml5-textarea", { // id of textarea element
-        toolbar:      "wysihtml5-toolbar", // id of toolbar element
-        parserRules:  wysihtml5ParserRules, // defined in parser rules set 
-        stylesheets: ['<?php echo $this->webroot.'css/wysihtml5.css' ?>']
-    });
-    
-    //editor.setValue("<ul><li><br></li></ul>");
     
 /** Handle editable elements ******/ 
     $('.editable').editable(function(value, settings) {
@@ -219,6 +208,20 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
         $('#'+formElementId).attr('value',$(this).attr('value'));
     });
 /** END Handle some input elements **/
+
+ /** Handle wysihtml5 editor for ingredients and description **/
+    
+    var editor = new wysihtml5.Editor("RecipeIngredients", { // id of textarea element
+        name: "wysihtml5desc",
+        toolbar:      "wysihtml5-toolbar-Description", // id of toolbar element
+        parserRules:  wysihtml5ParserRules, // defined in parser rules set 
+        stylesheets: ['<?php echo $this->webroot.'css/wysihtml5.css' ?>']
+    });
+    
+    editor.setValue("<ul><li><br></li></ul>");
+    $("#wysihtml5-toolbar-Description").hide();
+    
+     /** END handle wysihtml5 editor  **/
 });
 </script>
 
@@ -239,8 +242,21 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
         <input type="text" id="CategoryName_edit">
     </div>
 </div>
-<h3>Zubereitung:</h3>
-<div><div class="editable" id="RecipeDescription_edit"><?php echo $recipe['Recipe']['description'] ?></div></div>
+<div class="wys-container">
+    <h3>Zubereitung:</h3>
+    <div id="wysihtml5-toolbar-Description" style="display: none" class="btn-toolbar">
+        <div class="btn-group">
+            <a data-wysihtml5-command="bold" class="btn"><i class="icon-bold">&nbsp;</i></a>
+            <a data-wysihtml5-command="italic" class="btn"><i class="icon-italic">&nbsp;</i></a> 
+          <!-- Some wysihtml5 commands require extra parameters -->
+            <a data-wysihtml5-command="insertUnorderedList" class="btn"><i class="icon-list">&nbsp;</i></a>
+            <a data-wysihtml5-command="insertOrderedList" class="btn"><i class="icon-th-list">&nbsp;</i></a>
+            <a data-wysihtml5-action="change_view" class="btn"><i class="icon-eye-open">&nbsp;</i></a>
+          <!-- Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href) -->
+        </div>
+    </div>
+    <div><div class="editable" id="RecipeDescription_edit"><?php echo $recipe['Recipe']['description'] ?></div></div>
+</div>
 <?php
     echo $this->Form->create('Recipe', array('action' => 'edit'));
     echo $this->Form->input('title', array('type' => 'text','type' => 'hidden'));
@@ -267,17 +283,3 @@ $("#images_editor").bind( "sortupdate", function(event, ui) {
         }
     ?>
 </ul>
-
-<div id="wysihtml5-toolbar" style="display: none;" class="btn-toolbar">
-    <div class="btn-group">
-        <a data-wysihtml5-command="bold" class="btn"><i class="icon-bold">&nbsp;</i></a>
-        <a data-wysihtml5-command="italic" class="btn"><i class="icon-italic">&nbsp;</i></a> 
-      <!-- Some wysihtml5 commands require extra parameters -->
-        <a data-wysihtml5-command="insertUnorderedList" class="btn"><i class="icon-list">&nbsp;</i></a>
-        <a data-wysihtml5-command="insertOrderedList" class="btn"><i class="icon-th-list">&nbsp;</i></a>
-        <a data-wysihtml5-action="change_view" class="btn"><i class="icon-eye-open">&nbsp;</i></a>
-      <!-- Some wysihtml5 commands like 'createLink' require extra paramaters specified by the user (eg. href) -->
-    </div>
-</div>
-<form style=""><textarea id="wysihtml5-textarea" placeholder="Enter your text ..." autofocus></textarea></form>
-

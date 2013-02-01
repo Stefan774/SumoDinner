@@ -232,4 +232,10 @@ star-rating li{
 .star-rating a.five-stars:hover{
     width: 200px;
 }
-
+.brand {
+}
+#RecipeDescription_edit {
+    display: block;
+    min-height: 200px;
+    width: 98%;
+}
