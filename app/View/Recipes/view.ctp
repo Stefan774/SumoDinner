@@ -1,11 +1,11 @@
 <!-- File: /app/View/Recipes/view.ctp -->
 <?php //pr($recipe); ?>
 <?php 
-    
-
+    echo $this->Html->script('jquery.pikachoose'); // Include jquery pic viewer Galleriea
 ?>
 <script>
 $(function() {    
+    //if (Galleria) { $("body").text('Galleria works') }
     var rating =  parseInt(<?php echo $recipe['Recipe']['rating']; ?>) * 40;
     //alert (rating);
     $('ul.star-rating > li > a').hover(function(){$("#currentR").hide();}, function(){$("#currentR").show();})
@@ -20,10 +20,12 @@ $(function() {
             //alert('Load was performed.');
         });
     });
-    $(".current-rating").attr('style',"width:"+rating+"px");
-        
+    $(".current-rating").attr('style',"width:"+rating+"px");  
+    $('#pikame').pikachoose();
 });
 </script>
+<style>/* This rule is read by Galleria to define the gallery height: */
+            #galleria{height:320px}</style>
 <div id="result"></div>
 <div data-spy="affix" data-offset-top="10"></div>
 <div class="editable recipeTitle"><?php echo h($recipe['Recipe']['title']); ?></div>
@@ -53,13 +55,20 @@ $(function() {
 <h3>Zubereitung:</h3>
 <div><?php echo h($recipe['Recipe']['description']); ?></div>
 <h3>Sumo ART:</h3>
-<ul id="images_editor">
+<ul id="pikame">
     <?php
         foreach ($recipe['Image'] as $img) {
-            echo "<li class='ui-state-default, img-polaroid'>".$this->Html->image($recipe['Recipe']['contentkey'].'/'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."</li>";
+            echo "<li class='ui-state-default, img-polaroid'>".$this->Html->image($recipe['Recipe']['contentkey'].'/100x75/'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."</li>";
         }
     ?>
 </ul>
 <div style="clear: both">&nbsp;</div>
+<div id="galleria">
+    <?php
+        foreach ($recipe['Image'] as $img) {
+            echo $this->Html->image($recipe['Recipe']['contentkey'].'/100x75/'.$img['name'],array('pathPrefix' => CONTENT_URL));
+        }
+    ?>
+</div>
 <p><small>Created: <?php echo $recipe['Recipe']['created']; ?></small></p>
 <p><?php # echo h($post['Post']['body']); ?></p>

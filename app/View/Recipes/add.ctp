@@ -72,7 +72,7 @@ $(function() {
 			{title : "Image files", extensions : "jpg,gif,png"}
 		],
                 
-		resize : {width : 320, height : 240, quality : 90},
+		resize : {width : 800, height : 500, quality : 90},
                 
                 flash_swf_url : '<?php echo $this->webroot.'plupload/js/plupload.flash.swf' ?>',
                 silverlight_xap_url : '<?php echo $this->webroot.'plupload/js/plupload.silverlight.xap' ?>',

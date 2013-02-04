@@ -98,7 +98,6 @@
     display: block;
 }
 #ingredients {
-    border: 1px solid #000;
     min-height: 100px;
     padding: 10px;
 }
@@ -120,7 +119,6 @@
 #recipe_main_pic {
     width: 500px;
     height: 300px;
-    border:1px solid black;
 }
 #recipe_ratings {
     /*border: 1px solid black;*/

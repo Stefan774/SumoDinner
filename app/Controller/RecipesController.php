@@ -103,10 +103,24 @@ Class RecipesController extends AppController {
                 if (!is_dir($targetDir)){
                     @mkdir($targetDir);
                 }
+                if (!is_dir($targetDir.DIRECTORY_SEPARATOR."100x75")){
+                    @mkdir($targetDir.DIRECTORY_SEPARATOR."100x75");
+                }
                 if (isset($this->request->data['Image']) && count($this->request->data['Image']) !== 0) {
                     foreach ($this->request->data['Image'] as $img) {
                         if (copy("uploads/tmp".DIRECTORY_SEPARATOR.$img['name'], $targetDir.DIRECTORY_SEPARATOR.$img['name'])){
                             @unlink("uploads/tmp".DIRECTORY_SEPARATOR.$img['name']);
+                            /** Resize uploaded images to 500x300px **/
+                            $image = new Imagick($targetDir.DIRECTORY_SEPARATOR.$img['name']);
+                            $image->thumbnailimage(500, 300, false);
+                            $image->writeimage($targetDir.DIRECTORY_SEPARATOR.$img['name']);
+                            $image->destroy();
+                            
+                            /** Create thumbnails for dia preview 100x75px **/
+                            $image = new Imagick($targetDir.DIRECTORY_SEPARATOR.$img['name']);
+                            $image->thumbnailimage(100, 75, true);
+                            $image->writeimage($targetDir.DIRECTORY_SEPARATOR."100x75".DIRECTORY_SEPARATOR.$img['name']);
+                            $image->destroy();
                         }
                     }
                 }
@@ -335,7 +349,7 @@ Class RecipesController extends AppController {
                 $this->Recipe->Category->save($category);
                 }
                 $this->Session->setFlash('Your post has been updated.');
-                $this->redirect(array('action' => 'index'));
+                $this->redirect(array('action' => 'view', $id));
             } else {
                 $this->Session->setFlash('Unable to update your post.');
             }
