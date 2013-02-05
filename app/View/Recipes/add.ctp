@@ -1,7 +1,5 @@
 <!-- File: /app/View/Recipes/add.ctp -->
-<?php 
-    echo $this->Html->script('jquery'); // Include jQuery library
-    echo $this->Html->script('jquery-ui-1.9.2.custom'); // Include jQuery UI-library
+<?php
     echo $this->Html->script('plupload.full'); // Include plupload
     echo $this->Html->script('advanced'); // Include wysihtml5 parser rules
     echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
@@ -171,14 +169,17 @@ $(function() {
     
     /** Handle wysihtml5 editor for ingredients and description **/
     
-    var editor = new wysihtml5.Editor("RecipeIngredients", { // id of textarea element
+    var editor1 = new wysihtml5.Editor("RecipeIngredients", { // id of textarea element
         toolbar:      "wysihtml5-toolbar-Ingredients", // id of toolbar element
         parserRules:  wysihtml5ParserRules, // defined in parser rules set 
         stylesheets: ['<?php echo $this->webroot.'css/wysihtml5.css' ?>']
     });
     
-    editor.setValue("<ul><li><br></li></ul>");
-    
+    var editor2 = new wysihtml5.Editor("RecipeDescription", { // id of textarea element
+        toolbar:      "wysihtml5-toolbar-Description", // id of toolbar element
+        parserRules:  wysihtml5ParserRules, // defined in parser rules set 
+        stylesheets: ['<?php echo $this->webroot.'css/wysihtml5.css' ?>']
+    });
      /** END handle wysihtml5 editor  **/
 });
 
@@ -197,11 +198,10 @@ $(function() {
 <?php
 echo $this->Form->create('Recipe');
 echo $this->Form->input('title');
-echo $this->Form->input('description', array('rows' => '3'));
 ?>
 <div class="wys-container">
-    <label for="RecipeIngredients">Zutaten: </label>
-    <div id="wysihtml5-toolbar-Ingredients" style="display: none;" class="btn-toolbar">
+<label for="RecipeDescription">Beschreibung der Zubereitung: </label>
+    <div id="wysihtml5-toolbar-Description" style="display: none;" class="btn-toolbar">
         <div class="btn-group">
             <a data-wysihtml5-command="bold" class="btn"><i class="icon-bold">&nbsp;</i></a>
             <a data-wysihtml5-command="italic" class="btn"><i class="icon-italic">&nbsp;</i></a> 
@@ -213,7 +213,18 @@ echo $this->Form->input('description', array('rows' => '3'));
         </div>
     </div>
 <?php
-echo $this->Form->input('ingredients', array('rows' => '2','label'=>''));
+echo $this->Form->input('description', array('rows' => '3','label'=>''));
+?>
+</div>
+<div class="wys-container">
+    <label for="RecipeIngredients">Zutaten: </label>
+    <div id="wysihtml5-toolbar-Ingredients" style="display: none;" class="btn-toolbar">
+        <div class="btn-group">
+            <a data-wysihtml5-command="insertUnorderedList" class="btn"><i class="icon-th-list">&nbsp;</i></a>
+        </div>
+    </div>
+<?php
+echo $this->Form->input('ingredients', array('rows' => '2','label'=>'','value'=>'<ul><li></li></ul>'));
 ?>
 </div>
 <?php

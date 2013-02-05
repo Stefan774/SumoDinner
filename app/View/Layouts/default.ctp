@@ -33,11 +33,10 @@ $cakeDescription = __d('SumoDinner', 'SumoDinner: Dine like a Sumo');
                 //echo $this->Html->css('wysihtml5'); 
                 echo $this->Html->css('bootstrap');
                 echo $this->Html->css('customSumo');
-                echo $this->Html->css('jquery-ui-1.9.2.custom');
-                echo $this->Html->css('imgViewercss3');
+                echo $this->Html->css('jquery-ui-1.9.2.custom');                
                                
                 echo $this->Html->script('jquery'); // Include jQuery library
-                echo $this->Html->script('jquery-ui-1.9.2.custom'); // Include jQuery UI-library    
+                echo $this->Html->script('jquery-ui-1.9.2.custom.min'); // Include jQuery UI-library    
                 echo $this->Html->script('bootstrap'); // Include Bootstrap js for affix Navi
 
 		echo $this->fetch('meta');
