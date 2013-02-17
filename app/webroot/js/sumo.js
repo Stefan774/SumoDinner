@@ -55,7 +55,7 @@ $(function() {
     function removeDOMObject(object) {
         this.remove();
     }
-
+    
     //Initialize the jquery sortable event and assign the highlight css style when sort event occours
     $( "#images_editor" ).sortable({
         placeholder: "ui-state-highlight, img-polaroid"
@@ -127,26 +127,4 @@ $(function() {
         runHideEffect(imgListObject,'highlight');
     });
 /** END handle sortable elements for image editor **/
-    
-/** Handle editable elements **/ 
-    $('.editable').editable(function(value, settings) {
-            var formElementId = this.id.split("_")[0];
-            $('#'+formElementId).attr('value',value);
-            return value;
-        }, 
-        { 
-            type        : 'textarea',
-            submit      : 'OK',
-            event       : 'dblclick',
-            cssclass    : 'jeditTextarea',
-            width       : 'none',
-            onblur      : 'ignore'
-    });
-    
-    /* Find and trigger "edit" event on correct Jeditable instance. */
-    $(".edit_trigger").bind("click", function() {
-        triggerElement = this.id.split('_')[0]+'_edit';
-        $('#'+triggerElement).trigger('dblclick');
-    });
-/** END Handle editable elements **/
 });

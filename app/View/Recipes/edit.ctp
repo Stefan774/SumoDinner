@@ -3,7 +3,7 @@
     echo $this->Html->script('plupload.full'); // Include plupload
     echo $this->Html->script('advanced'); // Include wysihtml5 parser rules
     echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
-    echo $this->Html->script('jEditable'); // Include wysihtml5 library
+    echo $this->Html->script('jEditable');
 ?>
 <script>
 $(function() {
@@ -20,6 +20,28 @@ $(function() {
         $('#'+formElementId).attr('value',$(this).attr('value'));
     });
 /** END Handle some input elements **/
+
+/** Handle editable elements **/ 
+    $('.editable').editable(function(value, settings) {
+            var formElementId = this.id.split("_")[0];
+            $('#'+formElementId).attr('value',value);
+            return value;
+        }, 
+        { 
+            type        : 'textarea',
+            submit      : 'OK',
+            event       : 'dblclick',
+            cssclass    : 'jeditTextarea',
+            width       : 'none',
+            onblur      : 'ignore'
+    });
+    
+    /* Find and trigger "edit" event on correct Jeditable instance. */
+    $(".edit_trigger").bind("click", function() {
+        triggerElement = this.id.split('_')[0]+'_edit';
+        $('#'+triggerElement).trigger('dblclick');
+    });
+/** END Handle editable elements **/
 
  /** Handle wysihtml5 editor for ingredients and description **/
     

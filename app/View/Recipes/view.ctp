@@ -21,14 +21,14 @@ $(function() {
             //alert('Load was performed.');
         });
     });
+    
     $(".current-rating").attr('style',"width:"+rating+"px");  
     
     // Start fancybox image viewer
     $(".fancybox").fancybox();
 });
 </script>
-<style>/* This rule is read by Galleria to define the gallery height: */
-            #galleria{height:320px}</style>
+
 <div id="result"></div>
 <div data-spy="affix" data-offset-top="10"></div>
 <div class="editable recipeTitle"><?php echo h($recipe['Recipe']['title']); ?></div>

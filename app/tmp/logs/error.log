@@ -3297,3 +3297,6 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
 2013-02-17 15:46:29 Error: [MissingControllerException] Controller class CssController could not be found.
 #0 /Applications/MAMP/htdocs/SumoDinner/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-02-17 18:42:37 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 /Applications/MAMP/htdocs/SumoDinner/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

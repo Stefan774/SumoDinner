@@ -4,14 +4,6 @@
     echo $this->Html->script('advanced'); // Include wysihtml5 parser rules
     echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
 ?>
-<h1>Add Recipe</h1>
-
-<style>
-#images_editor { list-style-type: none; margin: 0; padding: 0; width: 550px; }
-#images_editor li { margin: 3px 3px 3px 3px; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; }
- html>body #images_editor li { height: 1.5em; line-height: 1.2em; }
-.ui-state-highlight { height: 1.5em; line-height: 1.2em; }
-</style>
 
 <script type="text/javascript">
 $(function() {
@@ -38,7 +30,7 @@ $(function() {
 	});
 
 	uploader.bind('Init', function(up, params) {
-		$('#filelist').html("<div>Bilder ausw&auml;hlen und Hochladen nicht vergessen !!</div>");
+		$('#filelist').html("<div>Bilder ausw&auml;hlen und dann Bilder hochladen nicht vergessen !!</div>");
 	});
 
 	$('#uploadfiles').click(function(e) {
@@ -91,7 +83,7 @@ $(function() {
             }
 	});
     
-    /** Handle wysihtml5 editor for ingredients and description **/
+/** Handle wysihtml5 editor for ingredients and description **/
     
     var editor1 = new wysihtml5.Editor("RecipeIngredients", { // id of textarea element
         toolbar:      "wysihtml5-toolbar-Ingredients", // id of toolbar element
@@ -104,7 +96,7 @@ $(function() {
         parserRules:  wysihtml5ParserRules, // defined in parser rules set 
         stylesheets: ['<?php echo $this->webroot.'css/wysihtml5.css' ?>']
     });
-     /** END handle wysihtml5 editor  **/   
+/** END handle wysihtml5 editor  **/   
      
 /** Handle some input elements **/
     
@@ -121,12 +113,38 @@ $(function() {
 });
 
 </script>
+
+<h3>Erstell ein neues Rezept</h3>
+
 <?php
 echo $this->Form->create('Recipe');
-echo $this->Form->input('title');
+echo $this->Form->input('title',array('class'=>'recipeTitle_Input','label'=>false,'value'=>'Name deines Rezepts...'));
 ?>
+<div id="recipe_part1" class="row">
+    <div id="recipe_main_pic" class="span8">Dein Titelbild</div>
+        <div class="additional_widget span2"><p>Schwierigkeitsgrad</p>
+            <select id="RecipeSeverity_edit">
+                <?php foreach (Configure::read('severity_level') as $key=>$severity_level){echo "<option value='$key'>$severity_level</option>";}?>
+            </select>
+        </div>
+        <div class="additional_widget span3">
+            <p>Kategorie(n) <small>z.B. Hauptspeise</small></p>
+            <input type="text" id="CategoryName_edit">
+        </div>
+</div>
 <div class="wys-container">
-<label for="RecipeDescription">Beschreibung der Zubereitung: </label>
+    <label for="RecipeIngredients">Zutaten: </label>
+    <div id="wysihtml5-toolbar-Ingredients" style="display: none;" class="btn-toolbar">
+        <div class="btn-group">
+            <a data-wysihtml5-command="insertUnorderedList" class="btn"><i class="icon-th-list">&nbsp;</i></a>
+        </div>
+    </div>
+<?php
+echo $this->Form->input('ingredients', array('rows' => '7','label'=>'','value'=>'<ul><li></li></ul>'));
+?>
+</div>
+<div class="wys-container">
+<label for="Recipe  Description">Beschreibung der Zubereitung: </label>
     <div id="wysihtml5-toolbar-Description" style="display: none;" class="btn-toolbar">
         <div class="btn-group">
             <a data-wysihtml5-command="bold" class="btn"><i class="icon-bold">&nbsp;</i></a>
@@ -142,30 +160,11 @@ echo $this->Form->input('title');
 echo $this->Form->input('description', array('rows' => '10','label'=>''));
 ?>
 </div>
-<div class="wys-container">
-    <label for="RecipeIngredients">Zutaten: </label>
-    <div id="wysihtml5-toolbar-Ingredients" style="display: none;" class="btn-toolbar">
-        <div class="btn-group">
-            <a data-wysihtml5-command="insertUnorderedList" class="btn"><i class="icon-th-list">&nbsp;</i></a>
-        </div>
-    </div>
 <?php
-echo $this->Form->input('ingredients', array('rows' => '7','label'=>'','value'=>'<ul><li></li></ul>'));
+echo $this->Form->input('severity', array('label'=>'','value'=>'0','type'=>'hidden'));
+echo $this->Form->input('Category.name', array('label'=>'','type'=>'hidden'));
 ?>
-</div>
-<div class="additional_widget"><p>Schwierigkeitsgrad</p>
-    <select id="RecipeSeverity_edit">
-        <?php foreach (Configure::read('severity_level') as $key=>$severity_level){echo "<option value='$key'>$severity_level</option>";}?>
-    </select>
-</div>
-<div class="additional_widget">
-    <p>Kategorie(n)</p>
-    <input type="text" id="CategoryName_edit">
-</div>
-<?php
-echo $this->Form->input('severity');
-echo $this->Form->input('Category.name', array('label'=>'Categories'));
-?>
+<div id="picUpload">
 <h3>Bilder hinzuf&uuml;gen</h3>
 <div id="success"></div>
 <div id="error"></div>
@@ -176,6 +175,7 @@ echo $this->Form->input('Category.name', array('label'=>'Categories'));
 	<br />
         <a id="pickfiles" href="#" class="btn"><i class="icon-picture"></i>&nbsp; Bilder ausw&auml;hlen</a>
         <a id="uploadfiles" href="#" class="btn"><i class="icon-upload"></i>&nbsp; Bilder hochladen</a>
+</div>
 </div>
 <?php
 echo $this->Form->submit('Save Recipe', array('class' => 'btn btn-success'));
