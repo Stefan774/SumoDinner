@@ -213,7 +213,7 @@ echo $this->Form->input('title');
         </div>
     </div>
 <?php
-echo $this->Form->input('description', array('rows' => '3','label'=>''));
+echo $this->Form->input('description', array('rows' => '10','label'=>''));
 ?>
 </div>
 <div class="wys-container">
@@ -224,7 +224,7 @@ echo $this->Form->input('description', array('rows' => '3','label'=>''));
         </div>
     </div>
 <?php
-echo $this->Form->input('ingredients', array('rows' => '2','label'=>'','value'=>'<ul><li></li></ul>'));
+echo $this->Form->input('ingredients', array('rows' => '7','label'=>'','value'=>'<ul><li></li></ul>'));
 ?>
 </div>
 <?php
