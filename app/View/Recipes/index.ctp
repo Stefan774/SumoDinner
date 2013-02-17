@@ -1,5 +1,5 @@
 <h1>Recipes</h1>
-<?php pr($recipes); ?>
+<?php //pr($recipes); ?>
 <table>
     <tr>
         <th>Id</th>

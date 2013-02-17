@@ -116,6 +116,9 @@
 #recipe_part1 {
     margin-top: 20px;
 }
+#recipe_part2 {
+    margin-top: 20px;
+}
 #recipe_main_pic {
     width: 500px;
     height: 300px;
@@ -231,6 +234,10 @@ star-rating li{
     width: 200px;
 }
 .brand {
+}
+#recipe_star_ratings {
+    margin-top: 30px;
+    margin-left: 50px;
 }
 #RecipeDescription_edit {
     display: block;

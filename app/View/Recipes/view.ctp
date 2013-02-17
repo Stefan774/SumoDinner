@@ -53,18 +53,20 @@ $(function() {
         </div>
     </div>
 </div>
-<h3 class="clearBottomBorder">Zutaten:</h3>
-<div id="ingredients"><?php echo $recipe['Recipe']['ingredients']; ?></div>
-<h3>Zubereitung:</h3>
-<div><?php echo h($recipe['Recipe']['description']); ?></div>
-<h3>Sumo ART:</h3>
-<ul id="images_editor">
-    <?php
-        foreach ($recipe['Image'] as $img) {
-            echo "<li class='ui-state-default, img-polaroid'><a class='fancybox' rel='group' href='/SumoDinner/uploads/".$recipe['Recipe']['contentkey'].'/'.$img['name']."'>".$this->Html->image($recipe['Recipe']['contentkey'].'/100x75/'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."</a></li>";
-        }
-    ?>
-</ul>
-<div style="clear: both">&nbsp;</div>
-<p><small>Created: <?php echo $recipe['Recipe']['created']; ?></small></p>
-<p><?php # echo h($post['Post']['body']); ?></p>
+<div id="recipe_part2">
+    <h3 class="clearBottomBorder">Zutaten:</h3>
+    <div id="ingredients"><?php echo $recipe['Recipe']['ingredients']; ?></div>
+    <h3>Zubereitung:</h3>
+    <div><?php echo h($recipe['Recipe']['description']); ?></div>
+    <h3>Sumo ART:</h3>
+    <ul id="images_editor">
+        <?php
+            foreach ($recipe['Image'] as $img) {
+                echo "<li class='ui-state-default, img-polaroid'><a class='fancybox' rel='group' href='/SumoDinner/uploads/".$recipe['Recipe']['contentkey'].'/'.$img['name']."'>".$this->Html->image($recipe['Recipe']['contentkey'].'/100x75/'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."</a></li>";
+            }
+        ?>
+    </ul>
+    <div style="clear: both">&nbsp;</div>
+    <p><small>Created: <?php echo $recipe['Recipe']['created']; ?></small></p>
+    <p><?php # echo h($post['Post']['body']); ?></p>
+</div>

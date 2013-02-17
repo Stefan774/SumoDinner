@@ -14,45 +14,8 @@
 </style>
 
 <script type="text/javascript">
-/**
- * Function : dump()
- * Arguments: The data - array,hash(associative array),object
- *    The level - OPTIONAL
- * Returns  : The textual representation of the array.
- * This function was inspired by the print_r function of PHP.
- * This will accept some data as the argument and return a
- * text that will be a more readable version of the
- * array/hash/object that is given.
- * Docs: http://www.openjs.com/scripts/others/dump_function_php_print_r.php
- */
-function dump(arr,level) {
-	var dumped_text = "";
-	if(!level) level = 0;
-	
-	//The padding given at the beginning of the line.
-	var level_padding = "";
-	for(var j=0;j<level+1;j++) level_padding += "    ";
-	
-	if(typeof(arr) == 'object') { //Array/Hashes/Objects 
-		for(var item in arr) {
-			var value = arr[item];
-			
-			if(typeof(value) == 'object') { //If it is an array,
-				dumped_text += level_padding + "'" + item + "' ...\n";
-				dumped_text += dump(value,level+1);
-			} else {
-				dumped_text += level_padding + "'" + item + "' => \"" + value + "\"\n";
-			}
-		}
-	} else { //Stings/Chars/Numbers etc.
-		dumped_text = "===>"+arr+"<===("+typeof(arr)+")";
-	}
-	return dumped_text;
-}
-/**
-* Configure pluploader
-*/
 $(function() {
+    
         var queuedImages = 0;
         var addedImages = 0;
         
@@ -61,7 +24,7 @@ $(function() {
 		browse_button : 'pickfiles',
 		container : 'container',
 		max_file_size : '10mb',
-                chunk_size : '1mb',
+                chunk_size : '2mb',
 	        unique_names : true,
                 
 		url : '<?php echo $this->Html->Url(array("controller"=>"recipes","action"=>"addImages"),true); ?>',
@@ -70,10 +33,8 @@ $(function() {
 			{title : "Image files", extensions : "jpg,gif,png"}
 		],
                 
-		resize : {width : 800, height : 500, quality : 90},
-                
                 flash_swf_url : '<?php echo $this->webroot.'plupload/js/plupload.flash.swf' ?>',
-                silverlight_xap_url : '<?php echo $this->webroot.'plupload/js/plupload.silverlight.xap' ?>',
+                silverlight_xap_url : '<?php echo $this->webroot.'plupload/js/plupload.silverlight.xap' ?>'
 	});
 
 	uploader.bind('Init', function(up, params) {
@@ -115,7 +76,7 @@ $(function() {
 	uploader.bind('FileUploaded', function(up, file,response) {
             $('#' + file.id + " b").html("100%");
             var obj = jQuery.parseJSON(response["response"]);
-            $('#success').html(obj["result"]["fileName"]);
+            
             if (addedImages <= queuedImages) {
                 $('#RecipeAddForm').append('<input name="data[Image]['+addedImages+'][name]" type="hidden" value="'+obj["result"]["fileName"]+'"/>');
                 $('#RecipeAddForm').append('<input name="data[Image]['+addedImages+'][ordernum]" type="hidden" value="'+addedImages+'"/>');
@@ -123,49 +84,12 @@ $(function() {
                 $('#images_editor').append('<li class="ui-state-default"><img src="'+tmpdir+'/'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+addedImages+'" /></li>');
                 ++addedImages;
             }
+            
             if (addedImages == queuedImages) {
+                $('#filelist').empty();
                 $( "#images_editor" ).sortable( "refresh" );
             }
 	});
-    /** Handle sortable elements **/
-    
-        $( "#images_editor" ).sortable({
-            placeholder: "ui-state-highlight"
-        });
-        
-        $( "#images_editor" ).disableSelection();
-
-        $("#images_editor").bind( "sortupdate", function(event, ui) {
-            //alert("changed")
-            $('ul#images_editor > li').each(function(index) {
-                    $('#error').show()
-                    //$('#error').append('Index'+index + ' '+ $('img',this).attr('name') + '<br>')	
-                    var attr_helper = $('img',this).attr('name');
-                    var debug_helper = $('img',this).attr('src');
-                    debug_helper_split = debug_helper.split("/");
-                    debug_helper = debug_helper_split[(debug_helper_split.length -1)];
-                    //$('#error').append("Picture " + attr_helper + "Changed To")
-                    attr_split = attr_helper.split("_");
-                    //$('#error').append('Moved Image'+debug_helper +' Number: '+attr_split[1]+" To Position : " + index+'<br>');
-                    attr_helper = (attr_split[0]+'_'+ index);
-                    $('img',this).attr('name', attr_helper);
-                    
-                    var input_img_name = $('input[value|="'+debug_helper+'"]').attr('name');
-                    
-                    input_img_number_array = input_img_name.split("[");
-                    //input_img_number_array = input_img_number.split("[");
-                    //alert([input_img_number_array[2]]);
-                    input_img_number = input_img_number_array[2].substr(0,input_img_number_array[2].length-1);
-                    
-                    //alert(input_img_number);
-                    $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').removeAttr('value');
-                    $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').attr('value',index);
-                    //$('#error').show()
-                    //$('#error').append('Index'+index + '=' + attr_helper + '<br>')
-            });
-        });
-
-    /** END Handle sortable elements **/
     
     /** Handle wysihtml5 editor for ingredients and description **/
     
@@ -180,21 +104,23 @@ $(function() {
         parserRules:  wysihtml5ParserRules, // defined in parser rules set 
         stylesheets: ['<?php echo $this->webroot.'css/wysihtml5.css' ?>']
     });
-     /** END handle wysihtml5 editor  **/
+     /** END handle wysihtml5 editor  **/   
+     
+/** Handle some input elements **/
+    
+    $("#CategoryName_edit").keyup(function() {
+        var formElementId = this.id.split("_")[0];
+        $('#'+formElementId).attr('value',$(this).attr('value'));
+    });
+    
+    $("select#RecipeSeverity_edit").change(function(){
+        var formElementId = this.id.split("_")[0];
+        $('#'+formElementId).attr('value',$(this).attr('value'));
+    });
+/** END Handle some input elements **/
 });
 
 </script>
-<h3>Custom example</h3>
-<div id="success"></div>
-<div id="error"></div>
-<div id="container">
-	<div id="filelist">No runtime found.</div>
-        <ul id="images_editor"></ul>
-        <div class="clear"></div>
-	<br />
-        <a id="pickfiles" href="#" class="btn"><i class="icon-picture"></i>&nbsp; Bilder ausw&auml;hlen</a>
-        <a id="uploadfiles" href="#" class="btn"><i class="icon-upload"></i>&nbsp; Bilder hochladen</a>
-</div>
 <?php
 echo $this->Form->create('Recipe');
 echo $this->Form->input('title');
@@ -227,12 +153,34 @@ echo $this->Form->input('description', array('rows' => '10','label'=>''));
 echo $this->Form->input('ingredients', array('rows' => '7','label'=>'','value'=>'<ul><li></li></ul>'));
 ?>
 </div>
+<div class="additional_widget"><p>Schwierigkeitsgrad</p>
+    <select id="RecipeSeverity_edit">
+        <?php foreach (Configure::read('severity_level') as $key=>$severity_level){echo "<option value='$key'>$severity_level</option>";}?>
+    </select>
+</div>
+<div class="additional_widget">
+    <p>Kategorie(n)</p>
+    <input type="text" id="CategoryName_edit">
+</div>
 <?php
 echo $this->Form->input('severity');
 echo $this->Form->input('Category.name', array('label'=>'Categories'));
+?>
+<h3>Bilder hinzuf&uuml;gen</h3>
+<div id="success"></div>
+<div id="error"></div>
+<div id="container">
+	<div id="filelist">No runtime found.</div>
+        <ul id="images_editor"></ul>
+        <div class="clear"></div>
+	<br />
+        <a id="pickfiles" href="#" class="btn"><i class="icon-picture"></i>&nbsp; Bilder ausw&auml;hlen</a>
+        <a id="uploadfiles" href="#" class="btn"><i class="icon-upload"></i>&nbsp; Bilder hochladen</a>
+</div>
+<?php
 echo $this->Form->submit('Save Recipe', array('class' => 'btn btn-success'));
 echo $this->Form->end();
-?>
+?>  
 <?php
 echo $this->Js->writeBuffer(); // Write cached scripts
 ?>
