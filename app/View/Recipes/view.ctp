@@ -6,26 +6,23 @@
 ?>
 <script>
 $(function() {    
-    //if (Galleria) { $("body").text('Galleria works') }
     var rating =  parseInt(<?php echo $recipe['Recipe']['rating']; ?>) * 40;
-    //alert (rating);
     $('ul.star-rating > li > a').hover(function(){$("#currentR").hide();}, function(){$("#currentR").show();})
-    
     $('ul.star-rating > li > a').click(function() {
-        //alert($(this).attr('class') + $(this).html());
         rating = parseInt($(this).html()) * 40;
         $.get("<?php echo $this->Html->Url(array("controller"=>"recipes","action"=>"rateRecipe"),false); ?>/<?php echo $recipe['Recipe']['id']; ?>/"+$(this).html(), function(data) {
             $('.result').html(data);
-            //alert(data);
             $(".current-rating").attr('style',"width:"+rating+"px");
-            //alert('Load was performed.');
         });
     });
     
     $(".current-rating").attr('style',"width:"+rating+"px");  
     
-    // Start fancybox image viewer
+// Start fancybox image viewer
     $(".fancybox").fancybox();
+// Disable sorting feature for imageEditor
+    $( "#images_editor" ).sortable("disable");
+    $( "#accordion" ).accordion();
 });
 </script>
 
@@ -33,7 +30,7 @@ $(function() {
 <div data-spy="affix" data-offset-top="10"></div>
 <div class="editable recipeTitle"><?php echo h($recipe['Recipe']['title']); ?></div>
 <div id="recipe_part1" class="row">
-    <div id="recipe_main_pic" class="span8"><?php echo $this->Html->image($recipe['Recipe']['contentkey'].'/'.$recipe['Image'][0]['name'], array('pathPrefix' => CONTENT_URL,'alt' => $recipe['Image'][0]['titel'])); ?></div>
+    <div id="recipe_main_pic" class="span8"><?php echo isset($recipe['Image'][0]['name'])?$this->Html->image($recipe['Recipe']['contentkey'].'/'.$recipe['Image'][0]['name'], array('pathPrefix' => CONTENT_URL,'alt' => $recipe['Image'][0]['titel'])):"Dein Titelbild"; ?></div>
     <div id="recipe_ratings" class="span4">
         <div id="recipe_text_ratings">
             <b>Schwierigkeitsgrad</b><br>
@@ -57,7 +54,7 @@ $(function() {
     <h3 class="clearBottomBorder">Zutaten:</h3>
     <div id="ingredients"><?php echo $recipe['Recipe']['ingredients']; ?></div>
     <h3>Zubereitung:</h3>
-    <div><?php echo h($recipe['Recipe']['description']); ?></div>
+    <div><?php echo $recipe['Recipe']['description']; ?></div>
     <h3>Sumo ART:</h3>
     <ul id="images_editor">
         <?php

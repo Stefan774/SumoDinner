@@ -1,5 +1,21 @@
+<script>
+$(function() {
+    $( "#accordion" ).accordion();
+});
+</script>
 <h1>Recipes</h1>
-<?php //pr($recipes); ?>
+<?php pr($recipes); ?>
+<div id="accordion">
+<?php foreach ($recipes as $recipe): ?>
+    <h1><?php echo $recipe['Recipe']['maincategory'] ?></h1>
+    <div>
+        <p>
+            <?php echo $this->Html->link(String::truncate($recipe['Recipe']['description'],100,array('ellipsis' => '...','exact' => false)),
+            array('controller' => 'recipes', 'action' => 'view', $recipe['Recipe']['id'])); ?>
+        </p>
+    </div>
+<?php endforeach; ?>
+</div>
 <table>
     <tr>
         <th>Id</th>
@@ -22,7 +38,7 @@
             <?php echo $this->Html->link($recipe['Recipe']['title'],
             array('controller' => 'recipes', 'action' => 'view', $recipe['Recipe']['id'])); ?>
         </td>
-        <td><?php echo $recipe['Recipe']['description']; ?></td>
+        <td><?php echo String::truncate($recipe['Recipe']['description'],100,array('ellipsis' => '...','exact' => false)); ?></td>
         <td><?php echo $recipe['Recipe']['severity']; ?></td>
         <td><?php foreach ($recipe['Category'] as $category) {
                     echo $category['name'];

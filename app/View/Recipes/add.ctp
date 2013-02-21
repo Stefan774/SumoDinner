@@ -68,17 +68,20 @@ $(function() {
 	uploader.bind('FileUploaded', function(up, file,response) {
             $('#' + file.id + " b").html("100%");
             var obj = jQuery.parseJSON(response["response"]);
+            var tmpdir = "<?php  echo $this->Html->webroot('uploads/tmp'); ?>";
             
             if (addedImages <= queuedImages) {
                 $('#RecipeAddForm').append('<input name="data[Image]['+addedImages+'][name]" type="hidden" value="'+obj["result"]["fileName"]+'"/>');
-                $('#RecipeAddForm').append('<input name="data[Image]['+addedImages+'][ordernum]" type="hidden" value="'+addedImages+'"/>');
-                tmpdir = "<?php  echo $this->Html->webroot('uploads/tmp'); ?>";
+                $('#RecipeAddForm').append('<input name="data[Image]['+addedImages+'][ordernum]" type="hidden" value="'+addedImages+'"/>');                
                 $('#images_editor').append('<li class="ui-state-default"><img src="'+tmpdir+'/'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+addedImages+'" /></li>');
                 ++addedImages;
             }
             
             if (addedImages == queuedImages) {
                 $('#filelist').empty();
+                //console.log($('img[name="pic_0"]').attr('src').replace(tmpdir+'/',''));
+                $('#recipe_main_pic').html('<img src="'+$('img[name="pic_0"]').attr('src')+'" alt="Title Picture" width="500px" height="300px" >');
+                $('#RecipePicture').attr('value',$('img[name="pic_0"]').attr('src').replace(tmpdir+'/',''));
                 $( "#images_editor" ).sortable( "refresh" );
             }
 	});
@@ -103,6 +106,12 @@ $(function() {
     $("#CategoryName_edit").keyup(function() {
         var formElementId = this.id.split("_")[0];
         $('#'+formElementId).attr('value',$(this).attr('value'));
+        var mainCategory = $(this).attr('value');
+        //console.log(mainCategory.split(";").length);
+        if (mainCategory.split(";").length > 1) {
+            mainCategory = mainCategory.split(";")[0]; 
+        }
+        $('#RecipeMaincategory').attr('value',mainCategory);
     });
     
     $("select#RecipeSeverity_edit").change(function(){
@@ -113,9 +122,6 @@ $(function() {
 });
 
 </script>
-
-<h3>Erstell ein neues Rezept</h3>
-
 <?php
 echo $this->Form->create('Recipe');
 echo $this->Form->input('title',array('class'=>'recipeTitle_Input','label'=>false,'value'=>'Name deines Rezepts...'));
@@ -132,8 +138,22 @@ echo $this->Form->input('title',array('class'=>'recipeTitle_Input','label'=>fals
             <input type="text" id="CategoryName_edit">
         </div>
 </div>
+
+<div id="picUpload">
+    <h3>Bilder hinzuf&uuml;gen</h3>
+    <div id="success"></div>
+    <div id="error"></div>
+    <div id="container">
+            <div id="filelist">No runtime found.</div>
+            <ul id="images_editor"></ul>
+            <div class="clear"></div>
+            <br />
+            <a id="pickfiles" href="#" class="btn"><i class="icon-picture"></i>&nbsp; Bilder ausw&auml;hlen</a>
+            <a id="uploadfiles" href="#" class="btn"><i class="icon-upload"></i>&nbsp; Bilder hochladen</a>
+    </div>
+</div>
 <div class="wys-container">
-    <label for="RecipeIngredients">Zutaten: </label>
+    <h3>Zutaten: </h3>
     <div id="wysihtml5-toolbar-Ingredients" style="display: none;" class="btn-toolbar">
         <div class="btn-group">
             <a data-wysihtml5-command="insertUnorderedList" class="btn"><i class="icon-th-list">&nbsp;</i></a>
@@ -144,7 +164,7 @@ echo $this->Form->input('ingredients', array('rows' => '7','label'=>'','value'=>
 ?>
 </div>
 <div class="wys-container">
-<label for="Recipe  Description">Beschreibung der Zubereitung: </label>
+<h3>Beschreibung der Zubereitung: </h3>
     <div id="wysihtml5-toolbar-Description" style="display: none;" class="btn-toolbar">
         <div class="btn-group">
             <a data-wysihtml5-command="bold" class="btn"><i class="icon-bold">&nbsp;</i></a>
@@ -161,22 +181,11 @@ echo $this->Form->input('description', array('rows' => '10','label'=>''));
 ?>
 </div>
 <?php
+echo $this->Form->input('picture', array('label'=>'', 'type'=>'hidden'));
+echo $this->Form->input('maincategory', array('label'=>'','type'=>'hidden'));
 echo $this->Form->input('severity', array('label'=>'','value'=>'0','type'=>'hidden'));
 echo $this->Form->input('Category.name', array('label'=>'','type'=>'hidden'));
 ?>
-<div id="picUpload">
-<h3>Bilder hinzuf&uuml;gen</h3>
-<div id="success"></div>
-<div id="error"></div>
-<div id="container">
-	<div id="filelist">No runtime found.</div>
-        <ul id="images_editor"></ul>
-        <div class="clear"></div>
-	<br />
-        <a id="pickfiles" href="#" class="btn"><i class="icon-picture"></i>&nbsp; Bilder ausw&auml;hlen</a>
-        <a id="uploadfiles" href="#" class="btn"><i class="icon-upload"></i>&nbsp; Bilder hochladen</a>
-</div>
-</div>
 <?php
 echo $this->Form->submit('Save Recipe', array('class' => 'btn btn-success'));
 echo $this->Form->end();

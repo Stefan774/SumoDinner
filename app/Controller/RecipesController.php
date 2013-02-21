@@ -48,17 +48,12 @@ Class RecipesController extends AppController {
     ##########################################################
     
     public function index() {
-        $searchConditions1 = array(
-            'recursive' => 1, //int
-            'order' => array('Recipe.title', 'Category.name DESC'), //string or array defining order
-   
-        );
          $this->paginate = array (
-            'order' => array(
-            'Recipe.title', 'Category.name DESC'
-            ),
-            'limit' => 5
-        );
+            'fields' => array('Recipe.id', 'Recipe.title','Recipe.picture','Recipe.maincategory','Recipe.contentkey','Recipe.description'),
+            'order' => array('Recipe.maincategory' => 'asc'),
+            'limit' => 50,
+            'recursive' => 0
+         );
         $data = $this->paginate('Recipe');
         $this->set('recipes', $data);
     }

@@ -52,7 +52,8 @@ $(function() {
             // run the effect
             $( object).hide( selectedEffect, options, 500, removeDOMObject);
     };
-    function removeDOMObject(object) {
+    
+    function removeDOMObject() {
         this.remove();
     }
     
@@ -72,24 +73,35 @@ $(function() {
                 var attr_helper = $('img',this).attr('name');
                 var img_name_helper = $('img',this).attr('src');
                 
-                img_name_helper_split = img_name_helper.split("/");
+                var img_name_helper_split = img_name_helper.split("/");
                 img_name_helper = img_name_helper_split[(img_name_helper_split.length -1)];
                 
-                attr_split = attr_helper.split("_");
+                var attr_split = attr_helper.split("_");
                 attr_helper = (attr_split[0]+'_'+ index);
+                
+                //alert(attr_helper);
                 
                 //Set new sort index number to the image name attr
                 $('img',this).attr('name', attr_helper);
+                var input_img_name = $('input[value|="'+img_name_helper+'"][id!="RecipePicture"]').attr('name');
                 
-                var input_img_name = $('input[value|="'+img_name_helper+'"]').attr('name');
+                var input_img_number_array = input_img_name.split("[");
+                var input_img_number = input_img_number_array[2].substr(0,input_img_number_array[2].length-1);
                 
-                input_img_number_array = input_img_name.split("[");
-                input_img_number = input_img_number_array[2].substr(0,input_img_number_array[2].length-1);
+                //Uncomment for debugging sort mechanism
+                //console.log("input_img_number = " + input_img_number + "; input_img_name = " + input_img_name + "; attr_helper = " + attr_helper + "; img_name_helper = " + img_name_helper);
                 
                 //Set new sort index number to cakephp input fields
                 $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').removeAttr('value');
                 $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').attr('value',index);
         });
+        if ($('#recipe_main_pic').length != 0) {
+            $('#recipe_main_pic').html('<img src="'+$('img[name="pic_0"]').attr('src')+'" alt="Title Picture" width="500px" height="300px" >');
+        }
+        if ($('#RecipePicture').length != 0) {
+            //console.log($('img[name="pic_0"]').attr('src').slice($('img[name="pic_0"]').attr('src').lastIndexOf('/')+1,$('img[name="pic_0"]').attr('src').length));
+            $('#RecipePicture').attr('value',$('img[name="pic_0"]').attr('src').slice($('img[name="pic_0"]').attr('src').lastIndexOf('/')+1,$('img[name="pic_0"]').attr('src').length));
+        }
     });
     
     $(".btn_delete").click(function() {

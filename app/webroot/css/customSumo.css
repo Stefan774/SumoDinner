@@ -14,6 +14,7 @@
     box-shadow: 0 0 3px 3px #888;
     margin-top: 20px;
     padding: 30px 25px;
+    background: url(images/cream_dust.png);
 }
 
 #images_editor { list-style-type: none; margin: 0; padding: 0; width: 550px; }
@@ -77,6 +78,7 @@
 }
 .recipeTitle_Input {
     margin-top: 10px;
+    width: 760px;
     font-size: 25px !important; 
     font-weight: bold !important; 
     color:#7da4d9 !important; 
@@ -117,8 +119,8 @@
 .additional_widget {
     display: inline-block;
     margin-right: 100px;
-    padding: 5px 10px 5px 10px;
-    line-height: 40px;
+    padding: 0px 10px 15px 10px;
+    line-height: 10px;
 }
 #recipe_part1 {
     margin-top: 20px;
@@ -166,7 +168,11 @@ h3 {
 #wysihtml5-toolbar-Ingredients {
     margin-bottom: 0px;
 }
-#RecipeAddForm input, textArea {
+#RecipeEditForm textArea {
+    width: 95%;
+    min-width: 500px;
+}
+#RecipeAddForm textArea {
     width: 95%;
     min-width: 500px;
 }
@@ -265,7 +271,7 @@ star-rating li{
     width: 98%;
 }
 #CategoryName_edit {
-    width: 20px;
+    width: 210px;
 }
 #picUpload {
     padding:10px;
