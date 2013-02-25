@@ -3581,3 +3581,108 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
 #11 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
 #12 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #13 {main}
+2013-02-22 09:58:35 Error: [MissingControllerException] Controller class GetRecipesByCategoryController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:04:55 Error: [PDOException] SQLSTATE[HY000]: General error: 1 near "Recipe": syntax error
+#0 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(435): PDO->prepare('SELECT "Recipe"...', Array)
+#1 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT "Recipe"...', Array)
+#2 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT "Recipe"...', Array, Array)
+#3 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT "Recipe"...', false)
+#4 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Recipe), Array)
+#5 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Component\PaginatorComponent.php(172): Model->find('all', Array)
+#6 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(1084): PaginatorComponent->paginate('Recipe', Array, Array)
+#7 C:\xampp3\htdocs\SumoDinner\app\Controller\RecipesController.php(69): Controller->paginate('Recipe')
+#8 [internal function]: RecipesController->getRecipesByCategory()
+#9 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#10 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#12 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-02-22 10:08:02 Error: [PDOException] SQLSTATE[HY000]: General error: 1 no such function: LCASE
+#0 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(435): PDO->prepare('SELECT "Recipe"...', Array)
+#1 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT "Recipe"...', Array)
+#2 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT "Recipe"...', Array, Array)
+#3 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT "Recipe"...', false)
+#4 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Recipe), Array)
+#5 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Component\PaginatorComponent.php(172): Model->find('all', Array)
+#6 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(1084): PaginatorComponent->paginate('Recipe', Array, Array)
+#7 C:\xampp3\htdocs\SumoDinner\app\Controller\RecipesController.php(69): Controller->paginate('Recipe')
+#8 [internal function]: RecipesController->getRecipesByCategory()
+#9 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#10 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#12 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-02-22 10:08:31 Error: [PDOException] SQLSTATE[HY000]: General error: 1 near "ORDER": syntax error
+#0 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(435): PDO->prepare('SELECT "Recipe"...', Array)
+#1 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT "Recipe"...', Array)
+#2 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('SELECT "Recipe"...', Array, Array)
+#3 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Datasource\DboSource.php(1058): DboSource->fetchAll('SELECT "Recipe"...', false)
+#4 C:\xampp3\htdocs\SumoDinner\lib\Cake\Model\Model.php(2698): DboSource->read(Object(Recipe), Array)
+#5 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Component\PaginatorComponent.php(172): Model->find('all', Array)
+#6 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(1084): PaginatorComponent->paginate('Recipe', Array, Array)
+#7 C:\xampp3\htdocs\SumoDinner\app\Controller\RecipesController.php(69): Controller->paginate('Recipe')
+#8 [internal function]: RecipesController->getRecipesByCategory()
+#9 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#10 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#11 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#12 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-02-22 10:12:18 Error: [MissingControllerException] Controller class GetRecipesByCategoryController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:19:48 Error: [MissingControllerException] Controller class AjaxController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:19:50 Error: [MissingControllerException] Controller class AjaxController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:19:51 Error: [MissingControllerException] Controller class AjaxController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:19:51 Error: [MissingControllerException] Controller class AjaxController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:19:54 Error: [MissingControllerException] Controller class AjaxController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:27:47 Error: [MissingControllerException] Controller class AjaxController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:27:47 Error: [MissingControllerException] Controller class AjaxController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:27:48 Error: [MissingControllerException] Controller class AjaxController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:27:48 Error: [MissingControllerException] Controller class AjaxController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:58:19 Error: [MissingControllerException] Controller class RecipeController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 10:58:29 Error: [MissingControllerException] Controller class RecipeController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-02-22 13:05:50 Error: [MissingViewException] View file "C:\xampp3\htdocs\SumoDinner\app\View\Recipes\search_json.ctp" is missing.
+#0 C:\xampp3\htdocs\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-02-22 13:20:34 Error: [MissingViewException] View file "C:\xampp3\htdocs\SumoDinner\app\View\Recipes\getrecipeckjson.ctp" is missing.
+#0 C:\xampp3\htdocs\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-02-22 13:21:02 Error: [MissingViewException] View file "C:\xampp3\htdocs\SumoDinner\app\View\Recipes\get_recipe_c_k_json.ctp" is missing.
+#0 C:\xampp3\htdocs\SumoDinner\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

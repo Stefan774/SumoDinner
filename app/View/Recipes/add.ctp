@@ -3,6 +3,7 @@
     echo $this->Html->script('plupload.full'); // Include plupload
     echo $this->Html->script('advanced'); // Include wysihtml5 parser rules
     echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
+    //pr($result);
 ?>
 
 <script type="text/javascript">
@@ -119,15 +120,59 @@ $(function() {
         $('#'+formElementId).attr('value',$(this).attr('value'));
     });
 /** END Handle some input elements **/
+
+/** Autocomplete function for categories **/
+    var availableTags = [
+        <?php if (isset($categories)) {foreach($categories as $category){echo "'$category',";}} ?>
+   ];
+   function split( val ) {
+       return val.split( /;\s*/ );
+   }
+   function extractLast( term ) {
+       return split( term ).pop();
+   }
+   $( "#CategoryName_edit" )
+   // don't navigate away from the field on tab when selecting an item
+   .bind( "keydown", function( event ) {
+        if ( event.keyCode === $.ui.keyCode.TAB &&
+        $( this ).data( "ui-autocomplete" ).menu.active ) {
+        event.preventDefault();
+   }
+   })
+   .autocomplete({
+        minLength: 0,
+        source: function( request, response ) {
+        // delegate back to autocomplete, but extract the last term
+        response( $.ui.autocomplete.filter(
+        availableTags, extractLast( request.term ) ) );
+        },
+        focus: function() {
+        // prevent value inserted on focus
+        return false;
+        },
+        select: function( event, ui ) {
+        var terms = split( this.value );
+        // remove the current input
+        terms.pop();
+        // add the selected item
+        terms.push( ui.item.value );
+        // add placeholder to get the comma-and-space at the end
+        terms.push( "" );
+        this.value = terms.join( "; " );
+        return false;
+        }
+   });
+/** END autocomplete function for categories **/
 });
 
 </script>
+
 <?php
 echo $this->Form->create('Recipe');
-echo $this->Form->input('title',array('class'=>'recipeTitle_Input','label'=>false,'value'=>'Name deines Rezepts...'));
+echo $this->Form->input('title',array('class'=>'recipeTitle_Input','label'=>false,'value'=>isset($result)?$result['result'][0]['rezept_name']." ".$result['result'][0]['rezept_name2']:'Name deines Rezepts...'));
 ?>
 <div id="recipe_part1" class="row">
-    <div id="recipe_main_pic" class="span8">Dein Titelbild</div>
+    <div id="recipe_main_pic" class="span8"><?php echo isset($result['result'][0]['rezept_bilder'][0]['bigfix']['file'])?$this->Html->image($result['result'][0]['rezept_bilder'][0]['big']['file'],array('height'=>'300px')):"Dein Titelbild"; ?></div>
         <div class="additional_widget span2"><p>Schwierigkeitsgrad</p>
             <select id="RecipeSeverity_edit">
                 <?php foreach (Configure::read('severity_level') as $key=>$severity_level){echo "<option value='$key'>$severity_level</option>";}?>
@@ -135,7 +180,7 @@ echo $this->Form->input('title',array('class'=>'recipeTitle_Input','label'=>fals
         </div>
         <div class="additional_widget span3">
             <p>Kategorie(n) <small>z.B. Hauptspeise</small></p>
-            <input type="text" id="CategoryName_edit">
+            <input type="text" id="CategoryName_edit" value="<?php if (isset($result)) {foreach ($result['result'][0]['rezept_tags'] as $category) {echo $category."; ";};} ?>">
         </div>
 </div>
 
@@ -160,7 +205,15 @@ echo $this->Form->input('title',array('class'=>'recipeTitle_Input','label'=>fals
         </div>
     </div>
 <?php
-echo $this->Form->input('ingredients', array('rows' => '7','label'=>'','value'=>'<ul><li></li></ul>'));
+$valueIngredients = "<ul><li></li></ul>";
+if (isset($result)){
+    $valueIngredients = "<ul>";
+    foreach ($result['result'][0]['rezept_zutaten'] as $ingredient) {
+        $valueIngredients .= "<li>".$ingredient['menge']."&nbsp;".$ingredient['einheit']."&nbsp;".$ingredient['name']."</li>";
+    };
+    $valueIngredients .= "</ul>";
+}
+echo $this->Form->input("ingredients", array("rows" => "7","label"=>"","value"=>"$valueIngredients"));
 ?>
 </div>
 <div class="wys-container">
@@ -177,7 +230,7 @@ echo $this->Form->input('ingredients', array('rows' => '7','label'=>'','value'=>
         </div>
     </div>
 <?php
-echo $this->Form->input('description', array('rows' => '10','label'=>''));
+echo $this->Form->input('description', array('rows' => '10','label'=>'','value'=>isset($result)?$result['result'][0]['rezept_zubereitung']:""));
 ?>
 </div>
 <?php

@@ -1,5 +1,8 @@
+<?php
+//pr($result);
+?>
 <!-- File: /app/View/Recipes/view.ctp -->
-<?php //pr($recipe); ?>
+<?php //pr($result); ?>
 <?php 
     echo $this->Html->script('jquery.fancybox'); // Include fancybox
     echo $this->Html->css('jquery.fancybox');
@@ -15,6 +18,7 @@ $(function() {
             $(".current-rating").attr('style',"width:"+rating+"px");
         });
     });
+    
     $(".current-rating").attr('style',"width:"+rating+"px");  
     
 // Start fancybox image viewer
@@ -24,18 +28,18 @@ $(function() {
     $( "#accordion" ).accordion();
 });
 </script>
-
+<?php echo $this->Html->Link('Save-Recipe', array('controller'=>'recipes', 'action'=>'add', true, $result['result'][0]['rezept_show_id'])) ?>
 <div id="result"></div>
 <div data-spy="affix" data-offset-top="10"></div>
-<div class="editable recipeTitle"><?php echo h($recipe['Recipe']['title']); ?></div>
+<div class="editable recipeTitle"><?php echo $result['result'][0]['rezept_name']."&nbsp;".$result['result'][0]['rezept_name2']; ?></div>
 <div id="recipe_part1" class="row">
-    <div id="recipe_main_pic" class="span8"><?php echo isset($recipe['Image'][0]['name'])?$this->Html->image($recipe['Recipe']['contentkey'].'/'.$recipe['Image'][0]['name'], array('pathPrefix' => CONTENT_URL,'alt' => $recipe['Image'][0]['titel'])):"Dein Titelbild"; ?></div>
+    <div id="recipe_main_pic" class="span8"><?php echo isset($result['result'][0]['rezept_bilder'][0]['bigfix']['file'])?$this->Html->image($result['result'][0]['rezept_bilder'][0]['big']['file'],array('height'=>'300px')):"Dein Titelbild"; ?></div>
     <div id="recipe_ratings" class="span4">
         <div id="recipe_text_ratings">
             <b>Schwierigkeitsgrad</b><br>
-            <?php $severity_level = Configure::read('severity_level'); echo $severity_level[$recipe['Recipe']['severity']]; ?><br><br>
+            <?php echo isset($result['result'][0]['rezept_schwierigkeit'])?$result['result'][0]['rezept_schwierigkeit']:""; ?><br><br>
             <b>Kategorie(n)</b><br>
-            <?php foreach ($recipe['Category'] as $category) {echo $category['name']." ";}; ?>
+            <?php foreach ($result['result'][0]['rezept_tags'] as $category) {echo $category."; ";}; ?>
         </div>
         <div id="recipe_star_ratings">  
             <ul class="star-rating">
@@ -51,18 +55,23 @@ $(function() {
 </div>
 <div id="recipe_part2">
     <h3 class="clearBottomBorder">Zutaten:</h3>
-    <div id="ingredients"><?php echo $recipe['Recipe']['ingredients']; ?></div>
+    <div id="ingredients">
+        <ul>
+        <?php foreach ($result['result'][0]['rezept_zutaten'] as $ingredient) : ?>
+            <li><?php echo $ingredient['menge']."&nbsp;".$ingredient['einheit']."&nbsp;".$ingredient['name']; ?></li>
+        <?php endforeach; ?>
+        </ul>
+    </div>
     <h3>Zubereitung:</h3>
-    <div><?php echo $recipe['Recipe']['description']; ?></div>
+    <div><?php echo $result['result'][0]['rezept_zubereitung']; ?></div>
     <h3>Sumo ART:</h3>
     <ul id="images_editor">
         <?php
-            foreach ($recipe['Image'] as $img) {
-                echo "<li class='ui-state-default, img-polaroid'><a class='fancybox' rel='group' href='/SumoDinner/uploads/".$recipe['Recipe']['contentkey'].'/'.$img['name']."'>".$this->Html->image($recipe['Recipe']['contentkey'].'/100x75/'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."</a></li>";
+            foreach ($result['result'][0]['rezept_bilder'] as $img) {
+                echo "<li class='ui-state-default, img-polaroid'><a class='fancybox' rel='group' href='".$img['224x148-fix']['file']."'>".$this->Html->image($img['bigfix']['file'],array('width'=>'100px','height'=>'90px'))."</a></li>";
             }
         ?>
     </ul>
     <div style="clear: both">&nbsp;</div>
-    <p><small>Created: <?php echo $recipe['Recipe']['created']; ?></small></p>
     <p><?php # echo h($post['Post']['body']); ?></p>
 </div>

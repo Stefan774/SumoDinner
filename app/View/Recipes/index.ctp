@@ -1,20 +1,49 @@
 <script>
 $(function() {
     $( "#accordion" ).accordion();
+    $( "#tabs" ).tabs({
+        beforeLoad: function( event, ui ) {
+            ui.jqXHR.error(function() {
+            ui.panel.html(
+            "Leider sind noch keine Gericht in dieser Kategorie vorhanden =( <br>" +
+            "<b>Sei ein SUMO und lege das erste Gericht an!!<b>" );
+            });
+        },
+        ajaxOptions: {
+            dataFilter: function(result){
+                var data = $.parseJSON(result);
+                var viewURL = "<?php echo $this->Html->url(array("controller" => "recipes", "action" => "view")); ?>";
+                console.log(dump(data));
+                console.log(data[0]['Recipe']['title']);               
+                var panelHTML = "";
+                var prvLetter = "";
+                $.each(data, function( intIndex, objValue ) {
+                    var currentLetter = objValue['Recipe']['title'].slice(0,1);
+                    if (intIndex == 0) {
+                        panelHTML += '<h1>' + currentLetter +'</h1>';
+                    }else if(currentLetter != prvLetter) {
+                        panelHTML += '<h1>' + currentLetter +'</h1>';
+                    }
+                    panelHTML += '<a href="' + viewURL + '/' + objValue['Recipe']['id'] + '">' + objValue['Recipe']['title'] + '</a> <br>';
+                    prvLetter = currentLetter;
+                });
+                return panelHTML;
+            }
+        },
+        load: function( event, ui ) {
+            
+        }
+    });
 });
 </script>
 <h1>Recipes</h1>
-<?php pr($recipes); ?>
-<div id="accordion">
-<?php foreach ($recipes as $recipe): ?>
-    <h1><?php echo $recipe['Recipe']['maincategory'] ?></h1>
-    <div>
-        <p>
-            <?php echo $this->Html->link(String::truncate($recipe['Recipe']['description'],100,array('ellipsis' => '...','exact' => false)),
-            array('controller' => 'recipes', 'action' => 'view', $recipe['Recipe']['id'])); ?>
-        </p>
-    </div>
-<?php endforeach; ?>
+<?php //pr($recipes); ?>
+<div id="tabs">
+    <ul>
+        <li><?php echo $this->Html->link("Hauptspeise", array('controller' => 'recipes', 'action' => 'getRecipesByCategory', "Hauptspeise")); ?></li>
+        <li><?php echo $this->Html->link("Vorspeise", array('controller' => 'recipes', 'action' => 'getRecipesByCategory', "Vorspeise")); ?></li>
+        <li><?php echo $this->Html->link("Nachtisch", array('controller' => 'recipes', 'action' => 'getRecipesByCategory', "Nachtisch")); ?></li>
+    </ul>
 </div>
 <table>
     <tr>

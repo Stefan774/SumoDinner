@@ -58,6 +58,83 @@ Class RecipesController extends AppController {
         $this->set('recipes', $data);
     }
     
+    public function getRecipesByCategory($category) {
+        if (isset($category) && $category != "") {
+            $conditions = array (
+                'fields' => array('Recipe.id', 'Recipe.title','Recipe.picture','Recipe.maincategory','Recipe.contentkey','Recipe.description'),
+                'conditions' => array('Recipe.maincategory' => $category ),
+                'order' => array('Recipe.maincategory' => 'asc'),
+                'recursive' => 0
+             );
+            $data = $this->Recipe->find('all',$conditions);
+            die(json_encode($data));
+        }
+        die('{"jsonrpc" : "2.0", "error" : {"code": 100, "message": "no category was set"}}');
+    }
+    
+    public function searchJson($searchToken = "", $start = 0, $limit = 20) {
+        
+        $searchToken = $searchToken==""?isset($_GET['searchToken'])?$_GET['searchToken']:$searchToken:$searchToken;
+        
+        if ($searchToken && $searchToken != "") {
+            $url = "http://api.chefkoch.de/api/1.0/api-recipe-search.php?Suchbegriff=";
+            
+            $json_url = $url.$searchToken."&start=".$start."&limit=".$limit;
+            $ch = curl_init( $json_url );
+
+            // Configuring curl options
+            $options = array(
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_PROXY => 'http://10.158.0.79:80'                    
+            );
+
+            // Setting curl options
+            curl_setopt_array( $ch, $options );
+
+            // Getting jSON result string
+            $jsonResponse = curl_exec($ch); 
+
+            // Close the curl handler
+            curl_close($ch);
+
+            $this->set('result', json_decode($jsonResponse, TRUE));
+        }
+        else {
+            $this->set('result', array());
+        }
+    }
+    
+    public function getRecipeCKJson($recipeID) {
+        if ($recipeID && $recipeID != "") {
+            
+            $url = "http://api.chefkoch.de/api/1.0/api-recipe.php?ID=";
+            
+            $json_url = $url.$recipeID;
+            $ch = curl_init( $json_url );
+
+            // Configuring curl options
+            $options = array(
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_PROXY => 'http://10.158.0.79:80'                    
+            );
+
+            // Setting curl options
+            curl_setopt_array( $ch, $options );
+
+            // Getting jSON result string
+            $jsonResponse = curl_exec($ch); 
+
+            // Close the curl handler
+            curl_close($ch);
+
+            $this->set('result', json_decode($jsonResponse, TRUE));
+        }
+        else {
+            $this->set('result', array());
+        }
+    }
+    
+
     public function view($id = null) {
         $this->Recipe->id = $id;
         $recipe = $this->Recipe->read();
@@ -70,7 +147,7 @@ Class RecipesController extends AppController {
         $this->set('recipe', $recipe);
     }
     
-    public function add() {
+    public function add($saveCK = false,$id = NULL) {
         if ($this->request->is('post')) {
             
             $contentKey = String::uuid();
@@ -130,6 +207,9 @@ Class RecipesController extends AppController {
                 $this->Session->setFlash('Unable to add your recipe.');
             }
         }else {
+            if ($saveCK && $id){
+                $this->getRecipeCKJson($id);
+            }            
             $this->set('categories', $this->Recipe->Category->find('list'));
         }
     }
