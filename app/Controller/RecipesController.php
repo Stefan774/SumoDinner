@@ -77,7 +77,7 @@ Class RecipesController extends AppController {
     
     #Application-Controller methods ##########################
     ##########################################################
-    
+ 
     /**
      * App entering page
      * @todo return only the needed data for recipe preview
@@ -153,9 +153,10 @@ Class RecipesController extends AppController {
         }
     }
     /**
+     * Query chefkoch.de and get recipe data into array.
      * 
-     * @param type $recipeID
-     * @return type
+     * @param int $recipeID id from recipe to load from chefkoch
+     * @return array returns an array with recipe data from chefkoch.de
      */
     public function getRecipeCKJson($recipeID) {
         if ($recipeID && $recipeID != "") {
@@ -189,19 +190,31 @@ Class RecipesController extends AppController {
         }
     }
     
-
+    /**
+     * Shows the recipe with the given id
+     * 
+     * @param int $id recipe id to view
+     */
     public function view($id = null) {
-        $this->Recipe->id = $id;
-        $recipe = $this->Recipe->read();
-        $rating = $this->Recipe->query(
-                    'SELECT ROUND(AVG(rating)) FROM ratings WHERE recipe_id = ?',
-                    array($id)
-        );
-        $recipe['Recipe']['rating'] = $rating[0][0][key($rating[0][0])];
-        //pr($this->Recipe->find('list',array('fields' => array('Category.name'))));
-        $this->set('recipe', $recipe);
+        if ($id != null) {
+            $this->Recipe->id = $id;
+            $recipe = $this->Recipe->read();
+            $rating = $this->Recipe->query(
+                        'SELECT ROUND(AVG(rating)) FROM ratings WHERE recipe_id = ?',
+                        array($id)
+            );
+            $recipe['Recipe']['rating'] = $rating[0][0][key($rating[0][0])];
+            $this->set('recipe', $recipe);
+        } else {
+            $this->Session->setFlash("Tschuldigung das Rezept das du suchst ist leider nicht mehr (oder noch nicht) vorhanden. 
+                                      <br><b>Eine hervorragende Gelegenheit ein neues Rezept zu erstellen.</b>", 'default', array("class"=>"alert alert-info"));
+            $this->redirect(array("action"=>"index"));
+        }
     }
-    
+    /**
+     * @todo Not jet implementet method. $source urls array containing remote image sources must be given as parameter
+     * @param array $source
+     */
     protected function saveRemoteImages($source = array()) {
         $remote_img = 'http://www.somwhere.com/images/image.jpg';
         $img = imagecreatefromjpeg($remote_img);
