@@ -221,24 +221,31 @@ Class RecipesController extends AppController {
         $path = 'images/';
         imagejpeg($img, $path);
     }
-
-        public function add($saveCK = false,$id = NULL) {
+    /**
+     * Add and store recipes from "local" or from chefkoch.de
+     * 
+     * @param bool $saveCK (default = FALSE) set to true to store recipe from chefkoch.de
+     * @param int $id (default = NULL) chefkoch.de recipe id (only needed if $saveCK = true)
+     * @todo Error handling for form validation
+     */
+    public function add($saveCK = false, $id = NULL) {
+        
         if ($this->request->is('post')) {
             
             $contentKey = String::uuid();
             $targetDir = CONTENT_URL.$contentKey;
             
             $this->request->data['Recipe']['contentkey'] = $contentKey;
-                    
-            //pr($this->request->data);
-            
+
             if ($this->Recipe->saveAll($this->request->data)) {
                 #read new tags and update the database
                 $categories = $this->Recipe->Category->find('list');
                 $categories_input = explode(";" , $this->request->data['Category']['name']);
                 $categories_input = str_replace(" ","", $categories_input);
+                
                 foreach ($categories_input as $category_name) {
-                    if ($this->in_arrayi($category_name, $categories)){
+                    #Check if category already exists. If it is existing use category id instead of creating a new one.
+                    if ($this->in_arrayi($category_name, $categories)) {
                         $category = array(
                             'Recipe'=> array('id' => $this->Recipe->id),
                             'Category' => array('id' => $this->array_searchi($category_name, $categories))
@@ -252,18 +259,23 @@ Class RecipesController extends AppController {
                     }                 
                     $this->Recipe->Category->save($category);
                 }
+                #Creat recipe media content target directory
                 if (!is_dir($targetDir)) {
                     @mkdir($targetDir);
                 }
+                #Move recipe images from temp to target dir
                 $this->moveImages2Recipe($this->request->data,$targetDir);
                 
-                $this->Session->setFlash('Your post has been saved.');
-                //$this->redirect(array('action' => 'index'));
+                $this->Session->setFlash('Dein Rezept wurde im Rezepteordner abgeheftet und kann jetzt jeder Zeit wieder gefunden werden.
+                                          <br><b>Klasse weiter so mehr bitte !!</b>','default',array("class" => "alert alert-success"));
+                $this->redirect(array('action' => 'view', $this->Recipe->id));
             } else {
-                $this->Session->setFlash('Unable to add your recipe.');
+                $this->Session->setFlash('Dein Rezept konnte leider nicht im Rezepteordner abgelegt werden. Anscheinend ist der Ordner schon wieder voll ;( <br>
+                                          <b>Ich werde mich schnellst möglich um den Ordner kümmern. Versuch es doch bitte später nochmal.</b>'
+                                          ,'default',array('class'=>'alert alert-error'));
             }
-        }else {
-            if ($saveCK && $id){
+        } else {
+            if ($saveCK && $id) {
                 $rmRecipe = $this->getRecipeCKJson($id);
                 $remotePics = array();
                 
