@@ -2524,3 +2524,33 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
 2013-04-02 09:26:52 Debug: 
 2013-04-02 09:26:52 Debug: uploads/tmp\..
 2013-04-02 09:26:52 Debug: 
+2013-04-02 16:01:53 Debug: uploads/tmp\.
+2013-04-02 16:01:53 Debug: 
+2013-04-02 16:01:53 Debug: uploads/tmp\..
+2013-04-02 16:01:53 Debug: 
+2013-04-02 16:01:53 Debug: uploads/tmp\100x75_p17n4q89os110k192vbqv1p1cj523.jpg
+2013-04-02 16:01:53 Debug: 1
+2013-04-02 16:01:53 Debug: uploads/tmp\100x75_p17n4q89os1i7n15fr19s5lsq1p8r4.jpg
+2013-04-02 16:01:53 Debug: 1
+2013-04-02 16:01:53 Debug: uploads/tmp\100x75_p17n4q89osl3514sh1smg5653sg5.jpg
+2013-04-02 16:01:53 Debug: 1
+2013-04-02 16:01:53 Debug: uploads/tmp\500x300_p17n4q89os110k192vbqv1p1cj523.jpg
+2013-04-02 16:01:53 Debug: 1
+2013-04-02 16:01:53 Debug: uploads/tmp\500x300_p17n4q89os1i7n15fr19s5lsq1p8r4.jpg
+2013-04-02 16:01:53 Debug: 1
+2013-04-02 16:01:53 Debug: uploads/tmp\500x300_p17n4q89osl3514sh1smg5653sg5.jpg
+2013-04-02 16:01:53 Debug: 1
+2013-04-02 16:01:53 Debug: uploads/tmp\p17n4q89os110k192vbqv1p1cj523.jpg
+2013-04-02 16:01:53 Debug: 1
+2013-04-02 16:01:53 Debug: uploads/tmp\p17n4q89os1i7n15fr19s5lsq1p8r4.jpg
+2013-04-02 16:01:53 Debug: 1
+2013-04-02 16:01:53 Debug: uploads/tmp\p17n4q89osl3514sh1smg5653sg5.jpg
+2013-04-02 16:01:53 Debug: 1
+2013-04-02 16:01:53 Debug: uploads/tmp\..
+2013-04-02 16:01:53 Debug: 
+2013-04-02 16:01:53 Debug: uploads/tmp\..
+2013-04-02 16:01:53 Debug: 
+2013-04-02 16:01:54 Debug: uploads/tmp\..
+2013-04-02 16:01:54 Debug: 
+2013-04-02 16:01:54 Debug: uploads/tmp\..
+2013-04-02 16:01:54 Debug: 

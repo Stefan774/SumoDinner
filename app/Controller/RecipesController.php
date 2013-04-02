@@ -78,6 +78,10 @@ Class RecipesController extends AppController {
     #Application-Controller methods ##########################
     ##########################################################
     
+    /**
+     * App entering page
+     * @todo return only the needed data for recipe preview
+     */
     public function index() {
          $this->paginate = array (
             'fields' => array('Recipe.id', 'Recipe.title','Recipe.picture','Recipe.maincategory','Recipe.contentkey','Recipe.description'),
@@ -88,7 +92,12 @@ Class RecipesController extends AppController {
         $data = $this->paginate('Recipe');
         $this->set('recipes', $data);
     }
-    
+    /**
+     * Query recipes by category name and returns a json encoded data representation.
+     * 
+     * @param string $category
+     * @return json recipes found for given $category
+     */
     public function getRecipesByCategory($category) {
         if (isset($category) && $category != "") {
             $conditions = array (
@@ -102,12 +111,21 @@ Class RecipesController extends AppController {
         }
         die('{"jsonrpc" : "2.0", "error" : {"code": 100, "message": "no category was set"}}');
     }
-    
-    public function searchJson($searchToken = "", $start = 0, $limit = 20) {
+    /**
+     * Search recipes which contain the given searchToken. Results are passed to result array for the search view.
+     * 
+     * @param string $searchToken
+     * @param int $start
+     * @param int $limit
+     * 
+     * @todo Add lokal database search 
+     */
+    public function search($searchToken = "", $start = 0, $limit = 20) {
         
-        $searchToken = $searchToken==""?isset($_GET['searchToken'])?$_GET['searchToken']:$searchToken:$searchToken;
+        $searchToken = $searchToken == ""?isset($_GET['searchToken'])?$_GET['searchToken']:$searchToken:$searchToken;
         
         if ($searchToken && $searchToken != "") {
+            
             $url = "http://api.chefkoch.de/api/1.0/api-recipe-search.php?Suchbegriff=";
             
             $json_url = $url.$searchToken."&start=".$start."&limit=".$limit;
@@ -134,7 +152,11 @@ Class RecipesController extends AppController {
             $this->set('result', array());
         }
     }
-    
+    /**
+     * 
+     * @param type $recipeID
+     * @return type
+     */
     public function getRecipeCKJson($recipeID) {
         if ($recipeID && $recipeID != "") {
             

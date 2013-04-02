@@ -55,7 +55,7 @@ $cakeDescription = __d('SumoDinner', 'SumoDinner: Dine like a Sumo');
                 <li><a href="#">Link</a></li>
             </ul>
             <?php 
-                echo $this->Form->create(null, array('controller'=>'Recipes','action'=>'searchJson', 'type' => 'get', 'class'=>'navbar-search pull-right'));
+                echo $this->Form->create(null, array('controller'=>'Recipes','action'=>'search', 'type' => 'get', 'class'=>'navbar-search pull-right'));
                 echo $this->Form->input('searchToken', array('label'=>false,'div'=>false,'type' => 'text','class'=>'search-query','placeholder'=>'Search'));
                 echo $this->Form->end();
             ?>
