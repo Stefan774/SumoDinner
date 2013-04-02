@@ -8,7 +8,8 @@
 
 <script type="text/javascript">
 $(function() {
-    
+ 
+ //Uploader plupload +++++++++++++++++++++++
         var queuedImages = 0;
         var addedImages = 0;
         
@@ -74,19 +75,22 @@ $(function() {
             if (addedImages <= queuedImages) {
                 $('#RecipeAddForm').append('<input name="data[Image]['+addedImages+'][name]" type="hidden" value="'+obj["result"]["fileName"]+'"/>');
                 $('#RecipeAddForm').append('<input name="data[Image]['+addedImages+'][ordernum]" type="hidden" value="'+addedImages+'"/>');                
-                $('#images_editor').append('<li class="ui-state-default"><img src="'+tmpdir+'/'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+addedImages+'" /></li>');
+                $('#images_editor').append('<li class="ui-state-default"><img src="'+tmpdir+'/100x75_'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+addedImages+'" /></li>');
                 ++addedImages;
             }
             
             if (addedImages == queuedImages) {
                 $('#filelist').empty();
                 //console.log($('img[name="pic_0"]').attr('src').replace(tmpdir+'/',''));
-                $('#recipe_main_pic').html('<img src="'+$('img[name="pic_0"]').attr('src')+'" alt="Title Picture" width="500px" height="300px" >');
-                $('#RecipePicture').attr('value',$('img[name="pic_0"]').attr('src').replace(tmpdir+'/',''));
+                var src = $('img[name="pic_0"]').attr('src').split("_")[1];
+                
+                $('#recipe_main_pic').html('<img src="'+tmpdir+"/500x300_"+src+'" alt="Title Picture" width="500px" height="300px" >');
+                $('#RecipePicture').attr('value',src);
                 $( "#images_editor" ).sortable( "refresh" );
             }
 	});
-    
+//END uploader plupload +++++++++++++++++++++++
+
 /** Handle wysihtml5 editor for ingredients and description **/
     
     var editor1 = new wysihtml5.Editor("RecipeIngredients", { // id of textarea element
@@ -234,7 +238,7 @@ echo $this->Form->input('description', array('rows' => '10','label'=>'','value'=
 ?>
 </div>
 <?php
-echo $this->Form->input('picture', array('label'=>'', 'type'=>'hidden'));
+echo $this->Form->input('picture', array('label'=>'', 'type'=>''));
 echo $this->Form->input('maincategory', array('label'=>'','type'=>'hidden'));
 echo $this->Form->input('severity', array('label'=>'','value'=>'0','type'=>'hidden'));
 echo $this->Form->input('Category.name', array('label'=>'','type'=>'hidden'));

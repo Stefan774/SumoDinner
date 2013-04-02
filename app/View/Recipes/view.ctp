@@ -4,6 +4,7 @@
     echo $this->Html->script('jquery.fancybox'); // Include fancybox
     echo $this->Html->css('jquery.fancybox');
 ?>
+ <?php echo $this->Html->Link('Bearbeiten', array('controller'=>'recipes', 'action'=>'edit', $recipe['Recipe']['id'])) ?>
 <script>
 $(function() {    
     var rating =  parseInt(<?php echo $recipe['Recipe']['rating']; ?>) * 40;
@@ -29,7 +30,7 @@ $(function() {
 <div data-spy="affix" data-offset-top="10"></div>
 <div class="editable recipeTitle"><?php echo h($recipe['Recipe']['title']); ?></div>
 <div id="recipe_part1" class="row">
-    <div id="recipe_main_pic" class="span8"><?php echo isset($recipe['Image'][0]['name'])?$this->Html->image($recipe['Recipe']['contentkey'].'/'.$recipe['Image'][0]['name'], array('pathPrefix' => CONTENT_URL,'alt' => $recipe['Image'][0]['titel'])):"Dein Titelbild"; ?></div>
+    <div id="recipe_main_pic" class="span8"><?php echo isset($recipe['Image'][0]['name'])?$this->Html->image($recipe['Recipe']['contentkey'].'/500x300_'.$recipe['Image'][0]['name'], array('pathPrefix' => CONTENT_URL,'alt' => $recipe['Image'][0]['titel'])):"Dein Titelbild"; ?></div>
     <div id="recipe_ratings" class="span4">
         <div id="recipe_text_ratings">
             <b>Schwierigkeitsgrad</b><br>
@@ -58,7 +59,7 @@ $(function() {
     <ul id="images_editor">
         <?php
             foreach ($recipe['Image'] as $img) {
-                echo "<li class='ui-state-default, img-polaroid'><a class='fancybox' rel='group' href='/SumoDinner/uploads/".$recipe['Recipe']['contentkey'].'/'.$img['name']."'>".$this->Html->image($recipe['Recipe']['contentkey'].'/100x75/'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."</a></li>";
+                echo "<li class='ui-state-default, img-polaroid'><a class='fancybox' rel='group' href='/SumoDinner/uploads/".$recipe['Recipe']['contentkey'].'/'.$img['name']."'>".$this->Html->image($recipe['Recipe']['contentkey'].'/100x75_'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."</a></li>";
             }
         ?>
     </ul>

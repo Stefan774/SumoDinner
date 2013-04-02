@@ -72,9 +72,18 @@ $(function() {
                 // setup some helpers for the sort event
                 var attr_helper = $('img',this).attr('name');
                 var img_name_helper = $('img',this).attr('src');
+                //alert (img_name_helper);
                 
                 var img_name_helper_split = img_name_helper.split("/");
                 img_name_helper = img_name_helper_split[(img_name_helper_split.length -1)];
+                
+                var img_name_helper_resize = img_name_helper.split("_");
+                if (img_name_helper_resize.length > 1) {
+                    img_name_helper = img_name_helper_resize[1];
+                    //alert(img_name_helper_resize.length);
+                }
+                
+                //alert (img_name_helper);
                 
                 var attr_split = attr_helper.split("_");
                 attr_helper = (attr_split[0]+'_'+ index);
@@ -95,12 +104,17 @@ $(function() {
                 $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').removeAttr('value');
                 $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').attr('value',index);
         });
-        if ($('#recipe_main_pic').length != 0) {
-            $('#recipe_main_pic').html('<img src="'+$('img[name="pic_0"]').attr('src')+'" alt="Title Picture" width="500px" height="300px" >');
+        
+        var fileName = $('img[name="pic_0"]').attr('src').substr($('img[name="pic_0"]').attr('src').lastIndexOf('/')+1).split("_")[1];
+        var path = $('img[name="pic_0"]').attr('src').substr(0,$('img[name="pic_0"]').attr('src').lastIndexOf('/'));
+        
+        if ($('#recipe_main_pic').length != 0) {     
+            $('#recipe_main_pic').html('<img src="'+path+"/"+"500x300_"+fileName+'" alt="Title Picture" width="500px" height="300px" >');
         }
         if ($('#RecipePicture').length != 0) {
+            //alert($('img[name="pic_0"]').attr('src').substr($('img[name="pic_0"]').attr('src').lastIndexOf('/')+1));
             //console.log($('img[name="pic_0"]').attr('src').slice($('img[name="pic_0"]').attr('src').lastIndexOf('/')+1,$('img[name="pic_0"]').attr('src').length));
-            $('#RecipePicture').attr('value',$('img[name="pic_0"]').attr('src').slice($('img[name="pic_0"]').attr('src').lastIndexOf('/')+1,$('img[name="pic_0"]').attr('src').length));
+            $('#RecipePicture').attr('value',fileName);
         }
     });
     
@@ -114,17 +128,18 @@ $(function() {
         
         //Leave function if ordernum is negative
         if (lastOrderNum < 0 ) {
+            console.log("smaller NULL");
             return;
         }
         
         $('ul#images_editor > li').each(function(index) {
             
             var imgOrderNum = $(this).children('img').attr('name').split("_")[1];
-            var selector_helper = $(this).children('img').attr('src').split("/")[$(this).children('img').attr('src').split("/").length -1];
-            var input_img_name = $('input[value|="'+selector_helper+'"]').attr('name');
-
-            input_img_number_array = input_img_name.split("[");
-            input_img_number = input_img_number_array[2].substr(0,input_img_number_array[2].length-1);
+            var selector_helper = $(this).children('img').attr('src').split("/")[$(this).children('img').attr('src').split("/").length -1].split("_")[1];
+            var input_img_name = $('input[value|="'+selector_helper+'"][id!="RecipePicture"]').attr('name');
+            console.log(input_img_name);
+            var input_img_number_array = input_img_name.split("[");
+            var input_img_number = input_img_number_array[2].substr(0,input_img_number_array[2].length-1);
                 
             if (imgOrderNum > lastOrderNum) {
                 $(this).children('img').attr('name', "pic_"+(imgOrderNum -1));                
@@ -135,8 +150,21 @@ $(function() {
                 $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').removeAttr('value');
                 $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').attr('value',-1);
             }
-        }); 
-        runHideEffect(imgListObject,'highlight');
+        });
+        if ($('img[name="pic_0"]').length != 0) {
+            var fileName = $('img[name="pic_0"]').attr('src').substr($('img[name="pic_0"]').attr('src').lastIndexOf('/')+1).split("_")[1];
+            var path = $('img[name="pic_0"]').attr('src').substr(0,$('img[name="pic_0"]').attr('src').lastIndexOf('/'));
+
+            if ($('#recipe_main_pic').length != 0) {     
+                $('#recipe_main_pic').html('<img src="'+path+"/"+"500x300_"+fileName+'" alt="Title Picture" width="500px" height="300px" >');
+            }
+            if ($('#RecipePicture').length != 0) {
+                //alert($('img[name="pic_0"]').attr('src').substr($('img[name="pic_0"]').attr('src').lastIndexOf('/')+1));
+                //console.log($('img[name="pic_0"]').attr('src').slice($('img[name="pic_0"]').attr('src').lastIndexOf('/')+1,$('img[name="pic_0"]').attr('src').length));
+                $('#RecipePicture').attr('value',fileName);
+            }
+        }
+            runHideEffect(imgListObject,'highlight');
     });
 /** END handle sortable elements for image editor **/
 });

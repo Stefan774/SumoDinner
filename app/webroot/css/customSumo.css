@@ -290,3 +290,10 @@ star-rating li{
     background-color: #e3dede;
     border: 1px solid grey;
 }
+#myCarousel {
+    height: 300px;
+    border: 1px solid black;
+}
+#myCarousel img {
+    margin: auto;
+}

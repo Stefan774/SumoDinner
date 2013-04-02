@@ -5,22 +5,41 @@ Class RecipesController extends AppController {
     public $components = array('Session','RequestHandler');
     
     #Custom functions ########################################
+    ##########################################################
+    
+    /**
+     * Custom in_array function case insensitive
+     * 
+     * @param string $needle
+     * @param array $haystack
+     * @return bool
+     */
     public function in_arrayi($needle, $haystack) {
         return in_array(strtolower($needle), array_map('strtolower', $haystack));
     }
+    /**
+     * Custom case insensitive array_search function
+     * 
+     * @param string $needle
+     * @param array $haystack
+     * @return mixed
+     */
     public function array_searchi($needle, $haystack) {
         return array_search(strtolower($needle), array_map('strtolower', $haystack));
     }
     /**
-     * Delete a file or recursively delete a directory
+     * Delete a single file or recursively delete a directory
      *
-     * @param string $str Path to file or directory
+     * @param string $str path to file or directory
+     * @return bool returns true if direcory or file was deleted successfully.
      */
     protected function recursiveDelete($str){
         if(is_file($str)){
             return @unlink($str);
         }
         elseif(is_dir($str)){
+            //Search all files and dirctorys in the assigned directory and
+            //recursivly call this function to delete all content
             $scan = glob(rtrim($str,'/').'/*');
             foreach($scan as $index=>$path){
                 $this->recursiveDelete($path);
@@ -28,12 +47,22 @@ Class RecipesController extends AppController {
             return @rmdir($str);
         }
     }
-    protected function rmFlaggedImages($requestData){        
-        if (isset($requestData['Image'])){            
-            $targetDir = "uploads".DIRECTORY_SEPARATOR.$requestData['Recipe']['contentkey'].DIRECTORY_SEPARATOR;
+    /**
+     * Remove flagged images from file system.
+     * All images which are flagged with order number -1 will be deleted from 
+     * the corresponding folder. The function expects cakephp's requestData array.
+     * 
+     * @param array $requestData
+     * @return array returns the clean request data array. All image objects with -1 order num are removed. 
+     */
+    protected function rmFlaggedImages($requestData){
+        if (isset($requestData['Image'])) {
+            //Set the target directory
+            $targetDir = CONTENT_URL.$requestData['Recipe']['contentkey'].DIRECTORY_SEPARATOR;
             $count = 0;
             foreach ($requestData['Image'] as $img) {
-                if ($img['ordernum'] == -1){
+                //Check if image is marked for deletion (odernum = -1)
+                if ($img['ordernum'] == -1) {
                     if (is_file($targetDir.$img['name'])){
                         @unlink($targetDir.$img['name']);
                         $this->Recipe->Image->delete($img['id']);
@@ -45,6 +74,8 @@ Class RecipesController extends AppController {
         }
             return $requestData;
     }
+    
+    #Application-Controller methods ##########################
     ##########################################################
     
     public function index() {
@@ -128,9 +159,11 @@ Class RecipesController extends AppController {
             curl_close($ch);
 
             $this->set('result', json_decode($jsonResponse, TRUE));
+            return json_decode($jsonResponse, TRUE);
         }
         else {
             $this->set('result', array());
+            return array();
         }
     }
     
@@ -147,15 +180,22 @@ Class RecipesController extends AppController {
         $this->set('recipe', $recipe);
     }
     
-    public function add($saveCK = false,$id = NULL) {
+    protected function saveRemoteImages($source = array()) {
+        $remote_img = 'http://www.somwhere.com/images/image.jpg';
+        $img = imagecreatefromjpeg($remote_img);
+        $path = 'images/';
+        imagejpeg($img, $path);
+    }
+
+        public function add($saveCK = false,$id = NULL) {
         if ($this->request->is('post')) {
             
             $contentKey = String::uuid();
-            $targetDir = "uploads/".$contentKey;
+            $targetDir = CONTENT_URL.$contentKey;
             
             $this->request->data['Recipe']['contentkey'] = $contentKey;
                     
-            pr($this->request->data);
+            //pr($this->request->data);
             
             if ($this->Recipe->saveAll($this->request->data)) {
                 #read new tags and update the database
@@ -177,30 +217,11 @@ Class RecipesController extends AppController {
                     }                 
                     $this->Recipe->Category->save($category);
                 }
-                if (!is_dir($targetDir)){
+                if (!is_dir($targetDir)) {
                     @mkdir($targetDir);
                 }
-                if (!is_dir($targetDir.DIRECTORY_SEPARATOR."100x75")){
-                    @mkdir($targetDir.DIRECTORY_SEPARATOR."100x75");
-                }
-                if (isset($this->request->data['Image']) && count($this->request->data['Image']) !== 0) {
-                    foreach ($this->request->data['Image'] as $img) {
-                        if (copy("uploads/tmp".DIRECTORY_SEPARATOR.$img['name'], $targetDir.DIRECTORY_SEPARATOR.$img['name'])){
-                            @unlink("uploads/tmp".DIRECTORY_SEPARATOR.$img['name']);
-                            /** Resize uploaded images to 500x300px **/
-                            $image = new Imagick($targetDir.DIRECTORY_SEPARATOR.$img['name']);
-                            $image->thumbnailimage(500, 300, false);
-                            $image->writeimage($targetDir.DIRECTORY_SEPARATOR.$img['name']);
-                            $image->destroy();
-                            
-                            /** Create thumbnails for dia preview 100x75px **/
-                            $image = new Imagick($targetDir.DIRECTORY_SEPARATOR.$img['name']);
-                            $image->thumbnailimage(100, 75, true);
-                            $image->writeimage($targetDir.DIRECTORY_SEPARATOR."100x75".DIRECTORY_SEPARATOR.$img['name']);
-                            $image->destroy();
-                        }
-                    }
-                }
+                $this->moveImages2Recipe($this->request->data,$targetDir);
+                
                 $this->Session->setFlash('Your post has been saved.');
                 //$this->redirect(array('action' => 'index'));
             } else {
@@ -208,7 +229,18 @@ Class RecipesController extends AppController {
             }
         }else {
             if ($saveCK && $id){
-                $this->getRecipeCKJson($id);
+                $rmRecipe = $this->getRecipeCKJson($id);
+                $remotePics = array();
+                
+                if (isset($rmRecipe['result'][0]['rezept_bilder'])) {                    
+                    $remotePics[] = isset($rmRecipe['result'][0]['rezept_bilder'][0]['bigfix']['file'])?array($rmRecipe['result'][0]['rezept_bilder'][0]['bigfix']['file'],""):array();                    
+                    foreach ($rmRecipe['result'][0]['rezept_bilder'] as $img) {
+                        if (isset($img['big']['file'])) {
+                            $remotePics[] = array($img['big']['file'],"");
+                        }
+                    }
+                }
+                pr($remotePics);
             }            
             $this->set('categories', $this->Recipe->Category->find('list'));
         }
@@ -246,7 +278,20 @@ Class RecipesController extends AppController {
         
     }
     
-    public function removeImage() {
+    protected function moveImages2Recipe($requestData = array(),$targetDir) {
+        if (isset($requestData['Image']) && count($requestData['Image']) !== 0) {
+                    foreach ($requestData['Image'] as $img) {
+                        $files2bMoved = glob(UPLOADSTMP.DIRECTORY_SEPARATOR."*".$img['name']);
+                        foreach ($files2bMoved as $move) {
+                            if (copy($move, str_replace(UPLOADSTMP,$targetDir,$move))){
+                                @unlink($move);
+                            }
+                        }
+                    }
+                }
+    }
+
+        public function removeImage() {
         // some logic here
         Configure::write('debug', 0);
         // Data to be sent as JSON response
@@ -267,9 +312,7 @@ Class RecipesController extends AppController {
         header("Cache-Control: no-store, no-cache, must-revalidate");
         header("Cache-Control: post-check=0, pre-check=0", false);
         header("Pragma: no-cache");
-
-        $targetDir = "uploads/tmp";
-
+        
         $cleanupTargetDir = true; // Remove old files
         $maxFileAge = 5 * 3600; // Temp file age in seconds
         //$maxFileAge = 30;
@@ -288,31 +331,31 @@ Class RecipesController extends AppController {
         $fileName = preg_replace('/[^\w\._]+/', '_', $fileName);
 
         // Make sure the fileName is unique but only if chunking is disabled
-        if ($chunks < 2 && file_exists($targetDir . DIRECTORY_SEPARATOR . $fileName)) {
+        if ($chunks < 2 && file_exists(UPLOADSTMP . DIRECTORY_SEPARATOR . $fileName)) {
             $ext = strrpos($fileName, '.');
             $fileName_a = substr($fileName, 0, $ext);
             $fileName_b = substr($fileName, $ext);
 
             $count = 1;
             
-            while (file_exists($targetDir . DIRECTORY_SEPARATOR . $fileName_a . '_' . $count . $fileName_b)) {
+            while (file_exists(UPLOADSTMP . DIRECTORY_SEPARATOR . $fileName_a . '_' . $count . $fileName_b)) {
                 $count++;
             }
 
             $fileName = $fileName_a . '_' . $count . $fileName_b;
         }
 
-        $filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
+        $filePath = UPLOADSTMP . DIRECTORY_SEPARATOR . $fileName;
 
         // Create target dir
-        if (!file_exists($targetDir)) {
-            @mkdir($targetDir);
+        if (!file_exists(UPLOADSTMP)) {
+            @mkdir(UPLOADSTMP);
         }
 
         // Remove old temp files
-        if ($cleanupTargetDir && is_dir($targetDir) && ($dir = opendir($targetDir))) {
+        if ($cleanupTargetDir && is_dir(UPLOADSTMP) && ($dir = opendir(UPLOADSTMP))) {
             while (($file = readdir($dir)) !== false) {
-                $tmpfilePath = $targetDir . DIRECTORY_SEPARATOR . $file;
+                $tmpfilePath = UPLOADSTMP . DIRECTORY_SEPARATOR . $file;
                 //$this->log(filemtime($tmpfilePath)." <= MAXTIME = ".(time() - $maxFileAge),'Debug');
 //                if (preg_match('/\.part$/', $file)) {
 //                    $this->log('MAXTIME IS REACHED FOR '.$tmpfilePath,'Debug');
@@ -387,6 +430,22 @@ Class RecipesController extends AppController {
             // Strip the temp .part suffix off
             rename("{$filePath}.part", $filePath);
         }
+        
+         $image = new Imagick(UPLOADSTMP.DIRECTORY_SEPARATOR.$fileName);
+         $image->cropThumbnailImage(500, 300);
+         //remove the canvas
+         $image->setImagePage(0, 0, 0, 0);
+         $image->writeimage(UPLOADSTMP.DIRECTORY_SEPARATOR."500x300_".$fileName);
+         $image->destroy();
+         
+         $image2 = new Imagick(UPLOADSTMP.DIRECTORY_SEPARATOR.$fileName);
+         $image2->cropThumbnailImage(100, 75);
+         //remove the canvas
+         $image2->setImagePage(0, 0, 0, 0);
+         $image2->writeimage(UPLOADSTMP.DIRECTORY_SEPARATOR."100x75_".$fileName);
+         $image2->destroy();
+
+        
         // Return JSON-RPC response
         die('{"jsonrpc" : "2.0", "result" : {"fileName":"'.$fileName.'"}}');
     }
@@ -406,6 +465,7 @@ Class RecipesController extends AppController {
             $this->set('recipe', $this->request->data);
         } else {
             $this->request->data = $this->rmFlaggedImages($this->request->data);
+            pr($this->request->data);
             if ($this->Recipe->saveAll($this->request->data)) {
                 #first delete all associated categories for the recipe
                 $this->Recipe->CategoryRecipe->deleteAll(array('recipe_id' => $this->Recipe->id),false);
@@ -429,7 +489,7 @@ Class RecipesController extends AppController {
                 $this->Recipe->Category->save($category);
                 }
                 $this->Session->setFlash('Your post has been updated.');
-                $this->redirect(array('action' => 'view', $id));
+                //$this->redirect(array('action' => 'view', $id));
             } else {
                 $this->Session->setFlash('Unable to update your post.');
             }

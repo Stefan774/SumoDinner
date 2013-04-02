@@ -28,28 +28,6 @@ $(function() {
     });
 /** END Handle some input elements **/
 
-/** Handle editable elements **/ 
-    $('.editable').editable(function(value, settings) {
-            var formElementId = this.id.split("_")[0];
-            $('#'+formElementId).attr('value',value);
-            return value;
-        }, 
-        { 
-            type        : 'textarea',
-            submit      : 'OK',
-            event       : 'dblclick',
-            cssclass    : 'jeditTextarea',
-            width       : 'none',
-            onblur      : 'ignore'
-    });
-    
-    /* Find and trigger "edit" event on correct Jeditable instance. */
-    $(".edit_trigger").bind("click", function() {
-        triggerElement = this.id.split('_')[0]+'_edit';
-        $('#'+triggerElement).trigger('dblclick');
-    });
-/** END Handle editable elements **/
-
 /** Handle wysihtml5 editor for ingredients and description **/
     
     var editor1 = new wysihtml5.Editor("RecipeIngredients", { // id of textarea element
@@ -65,6 +43,88 @@ $(function() {
     });
 /** END handle wysihtml5 editor  **/   
 
+//Uploader plupload +++++++++++++++++++++++
+        var queuedImages = 0;
+        var addedImages = 0;
+        
+	var uploader = new plupload.Uploader({
+		runtimes : 'html5,flash,silverlight,html4',
+		browse_button : 'pickfiles',
+		container : 'container',
+		max_file_size : '10mb',
+                chunk_size : '2mb',
+	        unique_names : true,
+                
+		url : '<?php echo $this->Html->Url(array("controller"=>"recipes","action"=>"addImages"),true); ?>',
+                
+		filters : [
+			{title : "Image files", extensions : "jpg,gif,png"}
+		],
+                
+                flash_swf_url : '<?php echo $this->webroot.'plupload/js/plupload.flash.swf' ?>',
+                silverlight_xap_url : '<?php echo $this->webroot.'plupload/js/plupload.silverlight.xap' ?>'
+	});
+
+	uploader.bind('Init', function(up, params) {
+		$('#filelist').html("<div>Bilder ausw&auml;hlen und dann Bilder hochladen nicht vergessen !!</div>");
+	});
+
+	$('#uploadfiles').click(function(e) {
+		uploader.start();
+		e.preventDefault();
+	});
+
+	uploader.init();
+
+	uploader.bind('FilesAdded', function(up, files) {            
+            $.each(files, function(i, file) {
+                    ++queuedImages;
+                    $('#filelist').append(                            
+                            '<div id="' + file.id + '">' +
+                            file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
+                    '</div>');
+            });
+
+            up.refresh(); // Reposition Flash/Silverlight
+	});
+        
+	uploader.bind('UploadProgress', function(up, file) {
+            $('#' + file.id + " b").html(file.percent + "%");
+	});
+
+	uploader.bind('Error', function(up, err) {
+            $('#filelist').append("<div>Error: " + err.code +
+                    ", Message: " + err.message +
+                    (err.file ? ", File: " + err.file.name : "") +
+                    "</div>"
+            );
+            up.refresh(); // Reposition Flash/Silverlight
+	});
+
+	uploader.bind('FileUploaded', function(up, file,response) {
+            $('#' + file.id + " b").html("100%");
+            var obj = jQuery.parseJSON(response["response"]);
+            var tmpdir = "<?php  echo $this->Html->webroot('uploads/tmp'); ?>";
+            
+            if (addedImages <= queuedImages) {
+                $('#RecipeEditForm').append('<input name="data[Image]['+addedImages+'][name]" type="" value="'+obj["result"]["fileName"]+'"/>');
+                $('#RecipeEditForm').append('<input name="data[Image]['+addedImages+'][ordernum]" type="" value="'+addedImages+'"/>');                
+                $('#images_editor').append('<li class="ui-state-default"><img src="'+tmpdir+'/100x75_'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+addedImages+'" /></li>');
+                ++addedImages;
+            }
+            
+            if (addedImages == queuedImages) {
+                $('#filelist').empty();
+                //console.log($('img[name="pic_0"]').attr('src').replace(tmpdir+'/',''));
+                var src = $('img[name="pic_0"]').attr('src').split("_")[1];
+                
+                $('#recipe_main_pic').html('<img src="'+tmpdir+"/500x300_"+src+'" alt="Title Picture" width="500px" height="300px" >');
+                $('#RecipePicture').attr('value',src);
+                $( "#images_editor" ).sortable( "refresh" );
+            }
+	});
+//END uploader plupload +++++++++++++++++++++++
+
 });
 </script>
 
@@ -74,7 +134,7 @@ $(function() {
     echo $this->Form->input('title',array('class'=>'recipeTitle_Input','label'=>false));
 ?>
 <div id="recipe_part1" class="row">
-    <div id="recipe_main_pic" class="span8"><?php echo isset($recipe['Image'][0]['name'])?$this->Html->image($recipe['Recipe']['contentkey'].'/'.$recipe['Image'][0]['name'], array('pathPrefix' => CONTENT_URL,'alt' => $recipe['Image'][0]['titel'])):"Dein Titelbild"; ?></div>
+    <div id="recipe_main_pic" class="span8"><?php echo isset($recipe['Image'][0]['name'])?$this->Html->image($recipe['Recipe']['contentkey'].'/500x300_'.$recipe['Image'][0]['name'], array('pathPrefix' => CONTENT_URL,'alt' => $recipe['Image'][0]['titel'])):"Dein Titelbild"; ?></div>
         <div class="additional_widget span2"><p>Schwierigkeitsgrad</p>
             <select id="RecipeSeverity_edit">
                 <?php foreach (Configure::read('severity_level') as $key=>$severity_level){echo "<option value='$key'>$severity_level</option>";}?>
@@ -84,6 +144,26 @@ $(function() {
             <p>Kategorie(n) <small>z.B. Hauptspeise</small></p>
             <input type="text" id="CategoryName_edit">
         </div>
+</div>
+<div id="picUpload">
+    <h3>Bilder hinzuf&uuml;gen</h3>
+    <div id="success"></div>
+    <div id="error"></div>
+    <div id="container">
+            <div id="filelist">No runtime found.</div>
+            <ul id="images_editor">
+                <?php
+                    foreach ($recipe['Image'] as $img) {
+                        echo "<li class='ui-state-default, img-polaroid'>".$this->Html->image($recipe['Recipe']['contentkey'].'/100x75_'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."<button class='btn_delete' id='".$img['id']."'>Löschen</button></li>";
+                    }
+                ?>
+            </ul>
+    
+            <div class="clear"></div>
+            <br />
+            <a id="pickfiles" href="#" class="btn"><i class="icon-picture"></i>&nbsp; Bilder ausw&auml;hlen</a>
+            <a id="uploadfiles" href="#" class="btn"><i class="icon-upload"></i>&nbsp; Bilder hochladen</a>
+    </div>
 </div>
 
 <div class="wys-container">
@@ -122,19 +202,11 @@ echo $this->Form->input('description', array('rows' => '10','label'=>''));
     echo $this->Form->input('id', array('type' => 'hidden'));
     echo $this->Form->input('contentkey', array('type' => 'hidden'));
     foreach ($recipe['Image'] as $img) {
-        echo $this->Form->input('Image.'.$img['ordernum'].'.id', array('type' => 'hidden'));
-        echo $this->Form->input('Image.'.$img['ordernum'].'.name', array('type' => 'hidden'));
-        echo $this->Form->input('Image.'.$img['ordernum'].'.ordernum', array('type' => 'hidden'));
+        echo $this->Form->input('Image.'.$img['ordernum'].'.id', array('type' => ''));
+        echo $this->Form->input('Image.'.$img['ordernum'].'.name', array('type' => ''));
+        echo $this->Form->input('Image.'.$img['ordernum'].'.ordernum', array('type' => ''));
     }
     echo $this->Form->submit('Save Recipe', array('class' => 'btn btn-success'));
     echo $this->Form->end();
 ?>
 <br>
-<h3>Bilder:</h3>
-<ul id="images_editor">
-    <?php
-        foreach ($recipe['Image'] as $img) {
-            echo "<li class='ui-state-default, img-polaroid'>".$this->Html->image($recipe['Recipe']['contentkey'].'/100x75/'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."<button class='btn_delete' id='".$img['id']."'>Löschen</button></li>";
-        }
-    ?>
-</ul>

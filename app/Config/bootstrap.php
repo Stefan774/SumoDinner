@@ -151,5 +151,8 @@ if (!defined('VIEWS')) {
 if (!defined('UPLOADS')) {
     define('UPLOADS', WWW_ROOT . 'uploads' . DS);
 }
+if (!defined('UPLOADSTMP')) {
+    define('UPLOADSTMP','uploads/tmp');
+}
 
 
