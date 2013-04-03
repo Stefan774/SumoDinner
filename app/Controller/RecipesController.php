@@ -227,6 +227,7 @@ Class RecipesController extends AppController {
      * @param bool $saveCK (default = FALSE) set to true to store recipe from chefkoch.de
      * @param int $id (default = NULL) chefkoch.de recipe id (only needed if $saveCK = true)
      * @todo Error handling for form validation
+     * @todo store remote images from ck
      */
     public function add($saveCK = false, $id = NULL) {
         
@@ -264,7 +265,7 @@ Class RecipesController extends AppController {
                     @mkdir($targetDir);
                 }
                 #Move recipe images from temp to target dir
-                $this->moveImages2Recipe($this->request->data,$targetDir);
+                $this->moveImages2Recipe($targetDir,$this->request->data);
                 
                 $this->Session->setFlash('Dein Rezept wurde im Rezepteordner abgeheftet und kann jetzt jeder Zeit wieder gefunden werden.
                                           <br><b>Klasse weiter so mehr bitte !!</b>','default',array("class" => "alert alert-success"));
@@ -276,9 +277,10 @@ Class RecipesController extends AppController {
             }
         } else {
             if ($saveCK && $id) {
+                #get the recipe data from chefkoch.de
                 $rmRecipe = $this->getRecipeCKJson($id);
                 $remotePics = array();
-                
+                #if there are any recipe images attached get the title pic first and the all other pics
                 if (isset($rmRecipe['result'][0]['rezept_bilder'])) {                    
                     $remotePics[] = isset($rmRecipe['result'][0]['rezept_bilder'][0]['bigfix']['file'])?array($rmRecipe['result'][0]['rezept_bilder'][0]['bigfix']['file'],""):array();                    
                     foreach ($rmRecipe['result'][0]['rezept_bilder'] as $img) {
@@ -287,13 +289,13 @@ Class RecipesController extends AppController {
                         }
                     }
                 }
-                pr($remotePics);
+                //pr($remotePics);
             }            
             $this->set('categories', $this->Recipe->Category->find('list'));
         }
     }
     /**
-     * Function to rate recipes with ip lock.
+     * Function to rate recipes with integrated ip lock.
      * 
      * Return-codes are:
      * 200 = Success
@@ -305,6 +307,7 @@ Class RecipesController extends AppController {
      * @param type $rating
      */
     public function rateRecipe($id, $rating) {
+        
         $clientIp = $_SERVER['REMOTE_ADDR'];
         $this->Recipe->id = $id;
         
@@ -324,34 +327,47 @@ Class RecipesController extends AppController {
         }
         
     }
-    
-    protected function moveImages2Recipe($requestData = array(),$targetDir) {
+    /**
+     * Moves images from temp directory (request data array) to a specified target directory $targetDir
+     * 
+     * @param string $targetDir path to images target directory
+     * @param type $requestData request data array ($this->request->data array expected)
+     */
+    protected function moveImages2Recipe($targetDir, $requestData = array()) {
         if (isset($requestData['Image']) && count($requestData['Image']) !== 0) {
-                    foreach ($requestData['Image'] as $img) {
-                        $files2bMoved = glob(UPLOADSTMP.DIRECTORY_SEPARATOR."*".$img['name']);
-                        foreach ($files2bMoved as $move) {
-                            if (copy($move, str_replace(UPLOADSTMP,$targetDir,$move))){
-                                @unlink($move);
-                            }
-                        }
+            foreach ($requestData['Image'] as $img) {
+                $files2bMoved = glob(UPLOADSTMP.DIRECTORY_SEPARATOR."*".$img['name']);
+                foreach ($files2bMoved as $move) {
+                    if (copy($move, str_replace(UPLOADSTMP,$targetDir,$move))){
+                        @unlink($move);
                     }
                 }
+            }
+        }
     }
+    /**
+     * @todo Eval if this method is needed
+     * @todo If needed implement it
+     */
+//    public function removeImage() {
+//        // some logic here
+//        Configure::write('debug', 0);
+//        // Data to be sent as JSON response
+//        $response = array(
+//                    'success' => true,
+//                     'message' => 'My error message',
+//                     'test' => '123',
+//                     'pic_id' => $this->request->data['pic_id']
+//                    );
+//        $this->set('resp',$response);
+//        $this->set('_serialize', 'resp');
+//    }
 
-        public function removeImage() {
-        // some logic here
-        Configure::write('debug', 0);
-        // Data to be sent as JSON response
-        $response = array(
-                    'success' => true,
-                     'message' => 'My error message',
-                     'test' => '123',
-                     'pic_id' => $this->request->data['pic_id']
-                    );
-        $this->set('resp',$response);
-        $this->set('_serialize', 'resp');
-    }
-
+    /**
+     * Upload helper method for plupload component. Handels the upload of recipe images to temp directory.
+     * Additionally picture resize operations are done.
+     * 
+     */
     public function addImages() {
 		
         header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
@@ -362,12 +378,12 @@ Class RecipesController extends AppController {
         
         $cleanupTargetDir = true; // Remove old files
         $maxFileAge = 5 * 3600; // Temp file age in seconds
-        //$maxFileAge = 30;
+
         // 5 minutes execution time
         @set_time_limit(5 * 60);
 
         // Uncomment this one to fake upload time
-        usleep(5000);
+        //usleep(5000);
         
         // Get parameters
         $chunk = isset($_REQUEST["chunk"]) ? intval($_REQUEST["chunk"]) : 0;
