@@ -133,8 +133,8 @@ Class RecipesController extends AppController {
 
             // Configuring curl options
             $options = array(
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_PROXY => 'http://10.158.0.79:80'                    
+                CURLOPT_RETURNTRANSFER => true
+                //CURLOPT_PROXY => 'http://10.158.0.79:80'                    
             );
 
             // Setting curl options
@@ -168,8 +168,8 @@ Class RecipesController extends AppController {
 
             // Configuring curl options
             $options = array(
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_PROXY => 'http://10.158.0.79:80'                    
+                CURLOPT_RETURNTRANSFER => true
+                //CURLOPT_PROXY => 'http://10.158.0.79:80'                    
             );
 
             // Setting curl options
