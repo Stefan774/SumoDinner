@@ -18,7 +18,7 @@ $(function() {
 		browse_button : 'pickfiles',
 		container : 'container',
 		max_file_size : '10mb',
-                chunk_size : '2mb',
+                chunk_size : '1mb',
 	        unique_names : true,
                 
 		url : '<?php echo $this->Html->Url(array("controller"=>"recipes","action"=>"addImages"),true); ?>',

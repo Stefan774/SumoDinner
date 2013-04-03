@@ -118,8 +118,8 @@ $(function() {
         }
     });
     
-    $(".btn_delete").click(function() {
-        
+    $(".btn_delete").click(function(event) {
+        event.preventDefault();
         var imgListObject = $(this).parent();
         var lastOrderNum = $(imgListObject).children('img').attr('name').split("_")[1];
         

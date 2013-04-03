@@ -58,7 +58,7 @@ Class RecipesController extends AppController {
     protected function rmFlaggedImages($requestData){
         if (isset($requestData['Image'])) {
             //Set the target directory
-            $targetDir = CONTENT_URL.$requestData['Recipe']['contentkey'].DIRECTORY_SEPARATOR;
+            $targetDir = CONTENT_URL.$requestData['Recipe']['contentkey']."/";
             $count = 0;
             foreach ($requestData['Image'] as $img) {
                 //Check if image is marked for deletion (odernum = -1)
@@ -336,7 +336,7 @@ Class RecipesController extends AppController {
     protected function moveImages2Recipe($targetDir, $requestData = array()) {
         if (isset($requestData['Image']) && count($requestData['Image']) !== 0) {
             foreach ($requestData['Image'] as $img) {
-                $files2bMoved = glob(UPLOADSTMP.DIRECTORY_SEPARATOR."*".$img['name']);
+                $files2bMoved = glob(UPLOADSTMP."/"."*".$img['name']);
                 foreach ($files2bMoved as $move) {
                     if (copy($move, str_replace(UPLOADSTMP,$targetDir,$move))){
                         @unlink($move);
@@ -367,9 +367,9 @@ Class RecipesController extends AppController {
      * Upload helper method for plupload component. Handels the upload of recipe images to temp directory.
      * Additionally picture resize operations are done.
      * 
+     * @todo implement support for addImages on edit recipe action
      */
-    public function addImages() {
-		
+    public function addImages($contentKey = NULL) {	
         header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
         header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
         header("Cache-Control: no-store, no-cache, must-revalidate");
@@ -383,7 +383,7 @@ Class RecipesController extends AppController {
         @set_time_limit(5 * 60);
 
         // Uncomment this one to fake upload time
-        //usleep(5000);
+        usleep(5000);
         
         // Get parameters
         $chunk = isset($_REQUEST["chunk"]) ? intval($_REQUEST["chunk"]) : 0;
@@ -393,22 +393,24 @@ Class RecipesController extends AppController {
         // Clean the fileName for security reasons
         $fileName = preg_replace('/[^\w\._]+/', '_', $fileName);
 
+        $this->log("Number of chunks = $chunks for file $fileName :: contentkey = $contentKey",'Debug');
+        
         // Make sure the fileName is unique but only if chunking is disabled
-        if ($chunks < 2 && file_exists(UPLOADSTMP . DIRECTORY_SEPARATOR . $fileName)) {
+        if ($chunks < 2 && file_exists(UPLOADSTMP . "/" . $fileName)) {
             $ext = strrpos($fileName, '.');
             $fileName_a = substr($fileName, 0, $ext);
             $fileName_b = substr($fileName, $ext);
 
             $count = 1;
             
-            while (file_exists(UPLOADSTMP . DIRECTORY_SEPARATOR . $fileName_a . '_' . $count . $fileName_b)) {
+            while (file_exists(UPLOADSTMP . "/" . $fileName_a . '_' . $count . $fileName_b)) {
                 $count++;
             }
 
             $fileName = $fileName_a . '_' . $count . $fileName_b;
         }
 
-        $filePath = UPLOADSTMP . DIRECTORY_SEPARATOR . $fileName;
+        $filePath = $contentKey!=NULL?CONTENT_URL.$contentKey."/".$fileName:UPLOADSTMP . "/" . $fileName;
 
         // Create target dir
         if (!file_exists(UPLOADSTMP)) {
@@ -418,13 +420,7 @@ Class RecipesController extends AppController {
         // Remove old temp files
         if ($cleanupTargetDir && is_dir(UPLOADSTMP) && ($dir = opendir(UPLOADSTMP))) {
             while (($file = readdir($dir)) !== false) {
-                $tmpfilePath = UPLOADSTMP . DIRECTORY_SEPARATOR . $file;
-                //$this->log(filemtime($tmpfilePath)." <= MAXTIME = ".(time() - $maxFileAge),'Debug');
-//                if (preg_match('/\.part$/', $file)) {
-//                    $this->log('MAXTIME IS REACHED FOR '.$tmpfilePath,'Debug');
-//                }
-                // Remove temp file if it is older than the max age and is not the current file
-                //if (preg_match('/\.part$/', $file) && (filemtime($tmpfilePath) < time() - $maxFileAge) && ($tmpfilePath != "{$filePath}.part")) {
+                $tmpfilePath = UPLOADSTMP . "/" . $file;
                 /** Remove all files when max age is reached not only tmp files **/
                 if ((filemtime($tmpfilePath) < time() - $maxFileAge) && ($tmpfilePath != "{$filePath}.part")) {
                     $this->log($tmpfilePath,'Debug');
@@ -447,16 +443,22 @@ Class RecipesController extends AppController {
 
         // Handle non multipart uploads older WebKit versions didn't support multipart in HTML5
         if (strpos($contentType, "multipart") !== false) {
+            $this->log("This uplaod is not a multipart upload",'Debug');
+            
             if (isset($_FILES['file']['tmp_name']) && is_uploaded_file($_FILES['file']['tmp_name'])) {
+                $this->log("The temp file name is : ".$_FILES['file']['tmp_name'],'Debug');
                 // Open temp file
                 $out = fopen("{$filePath}.part", $chunk == 0 ? "wb" : "ab");
+                
                 if ($out) {
+                    $this->log("Tempfile successfully opend",'Debug');
                     // Read binary input stream and append it to temp file
                     $in = fopen($_FILES['file']['tmp_name'], "rb");
 
                     if ($in) {
+                        $this->log("Binary input stream successfully opend",'Debug');
                         while ($buff = fread($in, 4096))
-                        fwrite($out, $buff);
+                            fwrite($out, $buff);
                     } else {
                         die('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
                     }
@@ -470,6 +472,7 @@ Class RecipesController extends AppController {
                 die('{"jsonrpc" : "2.0", "error" : {"code": 103, "message": "Failed to move uploaded file."}, "id" : "id"}');
             }
         } else {
+            $this->log("This uplaod is multipart",'Debug');
             // Open temp file
             $out = fopen("{$filePath}.part", $chunk == 0 ? "wb" : "ab");
             if ($out) {
@@ -490,45 +493,51 @@ Class RecipesController extends AppController {
         }
         // Check if file has been uploaded
         if (!$chunks || $chunk == $chunks - 1) {
+            $this->log("The file $filePath has been successfully uploaded.",'Debug');
             // Strip the temp .part suffix off
             rename("{$filePath}.part", $filePath);
+            //$writePath = isset($contentKey)?CONTENT_URL.$contentKey:NULL;
+            $writePath = NULL;
+            $this->thumbnailImage($filePath,500,300,$writePath);
+            $this->thumbnailImage($filePath,100,75,$writePath);
         }
-        
-         $image = new Imagick(UPLOADSTMP.DIRECTORY_SEPARATOR.$fileName);
-         $image->cropThumbnailImage(500, 300);
-         //remove the canvas
-         $image->setImagePage(0, 0, 0, 0);
-         $image->writeimage(UPLOADSTMP.DIRECTORY_SEPARATOR."500x300_".$fileName);
-         $image->destroy();
-         
-         $image2 = new Imagick(UPLOADSTMP.DIRECTORY_SEPARATOR.$fileName);
-         $image2->cropThumbnailImage(100, 75);
-         //remove the canvas
-         $image2->setImagePage(0, 0, 0, 0);
-         $image2->writeimage(UPLOADSTMP.DIRECTORY_SEPARATOR."100x75_".$fileName);
-         $image2->destroy();
-
-        
         // Return JSON-RPC response
         die('{"jsonrpc" : "2.0", "result" : {"fileName":"'.$fileName.'"}}');
     }
     
+    /**
+     * Edit method for recipes
+     * 
+     * @param int $id recipe id
+     * @todo create method to set categories to avoied dublicate code in add and edit action
+     */
     public function edit($id = null) {
+        if (!isset($id)) {
+            $this->redirect($this->referer());
+            return false;
+        }
+        //Set request id
         $this->Recipe->id = $id;
+        //Display current recipe data if requested and recipe with id exists
         if ($this->request->is('get')) {
             $this->request->data = $this->Recipe->read();
+            if (empty($this->request->data)) {
+                $this->redirect($this->referer());
+                return false;
+            }
             $categories = array();
+            
             #read multible categories and push it into an array
             foreach ($this->request->data['Category'] as $category) {
                 array_push($categories, $category['name']);
             }
-            //pr($this->request->data);
+            
             $categories_csv = implode(";",$categories);
             $this->set('categories', $categories_csv);
             $this->set('recipe', $this->request->data);
+            
         } else {
             $this->request->data = $this->rmFlaggedImages($this->request->data);
-            pr($this->request->data);
             if ($this->Recipe->saveAll($this->request->data)) {
                 #first delete all associated categories for the recipe
                 $this->Recipe->CategoryRecipe->deleteAll(array('recipe_id' => $this->Recipe->id),false);
@@ -536,6 +545,7 @@ Class RecipesController extends AppController {
                 $categories = $this->Recipe->Category->find('list');
                 $categories_input = explode(";" , $this->request->data['Category']['name']);
                 $categories_input = str_replace(" ","", $categories_input);
+                
                 foreach ($categories_input as $category_name) {
                     if ($this->in_arrayi($category_name, $categories)){
                         $category = array(
@@ -549,27 +559,64 @@ Class RecipesController extends AppController {
                         );
                         $this->Recipe->Category->Create();
                     }                 
-                $this->Recipe->Category->save($category);
+                    $this->Recipe->Category->save($category);
                 }
+                
+                $this->moveImages2Recipe(CONTENT_URL.$this->request->data['Recipe']['contentkey'],$this->request->data);
                 $this->Session->setFlash('Your post has been updated.');
-                //$this->redirect(array('action' => 'view', $id));
+                $this->redirect(array('action' => 'view', $id));
             } else {
                 $this->Session->setFlash('Unable to update your post.');
             }
         }
     }
-    
+    /**
+     * Creat a croped thumbnail of an image with the given $x=width $y=height.
+     * 
+     * @param string $imgPath
+     * @param int $x
+     * @param int $y
+     * @return boolean true if on success fals on failure
+     */
+    private function thumbnailImage($imgPath , $x, $y,$writePath = NULL) {
+        if (isset($imgPath) && $imgPath != "" && isset($x) && isset($y)) {
+            $lastSlash = strrpos($imgPath,"/");
+            $fileName = substr($imgPath, $lastSlash + 1);          
+            $this->log("All set for thumbnailing the images x=$x y=$y imagePath=$imgPath fileName=".isset($writePath)?$writePath."/".$x.'x'.$y.'_'.$fileName:UPLOADSTMP."/".$x.'x'.$y.'_'.$fileName,'Debug');
+            try { 
+                $image = new Imagick($imgPath);
+                $image->cropThumbnailImage($x, $y);
+                //remove the canvas
+                $image->setImagePage(0, 0, 0, 0);
+                $image->writeimage(isset($writePath)?$writePath."/".$x.'x'.$y.'_'.$fileName:UPLOADSTMP."/".$x.'x'.$y.'_'.$fileName);
+                $image->destroy();
+                return TRUE;
+            } catch (Exception $e) {
+                $this->log("Caught exception for thumbnailImage: ".$e->getMessage());
+                return FALSE;
+            }
+        } else {
+            $this->log("Thumbnailing could not be done to less arguments provided for method thumbnailImage(string imgPath , int x, int y)", 'Debug');
+            return FALSE;
+        }
+    }
+    /**
+     * 
+     * @param type $id
+     * @param type $title
+     * @throws MethodNotAllowedException
+     */
     public function delete($id, $title) {
         if ($this->request->is('get')) {
             throw new MethodNotAllowedException();
-            $this->redirect(array('action' => 'index'));
+            $this->redirect($this->referer());
         }
         
         $this->Recipe->id = $id;
         $contentkey = $this->Recipe->field('contentkey');
         
         if ($this->Recipe->delete($id)) {
-            if ($this->recursiveDelete("uploads".DIRECTORY_SEPARATOR.$contentkey) !== true) {
+            if ($this->recursiveDelete("uploads"."/".$contentkey) !== true) {
                 $this->log("Could not delete uploads from recipe id = ".$id." content must be deleted manually contentkey = ".$contentkey);
             }
             $this->Session->setFlash('The recipe ' . $title . ' has been deleted.');
@@ -578,19 +625,6 @@ Class RecipesController extends AppController {
             $this->Session->setFlash('The recipe ' . $title . ' could not be deleted. Try again later.');
             $this->redirect(array('action' => 'index'));
         }
-    }
-    // The magic is here. When not called, no view is rendered. 
-    // When called it renders message.ctp,
-    // content set to $message, or json_encode($message), respectively
-    function respond($message=null, $json=false) {
-        if ($message!=null) {
-            if ($json==true) {
-                $this->RequestHandler->setContent('json', 'application/json');
-                $message=json_encode($message);
-            }
-            $this->set('message', $message);
-        }
-        $this->render('message');
     }
 }
 ?>

@@ -55,7 +55,7 @@ $(function() {
                 chunk_size : '2mb',
 	        unique_names : true,
                 
-		url : '<?php echo $this->Html->Url(array("controller"=>"recipes","action"=>"addImages"),true); ?>',
+		url : '<?php echo $this->Html->Url(array("controller"=>"recipes","action"=>"addImages",$recipe['Recipe']['contentkey']),true); ?>',
                 
 		filters : [
 			{title : "Image files", extensions : "jpg,gif,png"}
