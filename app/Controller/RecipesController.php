@@ -3,6 +3,7 @@ Class RecipesController extends AppController {
     
     public $helpers = array('Html', 'Form','Js');
     public $components = array('Session','RequestHandler');
+    private $useProxy = true;
     
     #Custom functions ########################################
     ##########################################################
@@ -132,11 +133,11 @@ Class RecipesController extends AppController {
             $ch = curl_init( $json_url );
 
             // Configuring curl options
-            $options = array(
-                CURLOPT_RETURNTRANSFER => true
-                //CURLOPT_PROXY => 'http://10.158.0.79:80'                    
-            );
+            $options = array(CURLOPT_RETURNTRANSFER => true);
 
+            if ($this->useProxy)
+                $options[CURLOPT_PROXY] = 'http://10.158.0.79:80';
+            
             // Setting curl options
             curl_setopt_array( $ch, $options );
 
@@ -167,11 +168,11 @@ Class RecipesController extends AppController {
             $ch = curl_init( $json_url );
 
             // Configuring curl options
-            $options = array(
-                CURLOPT_RETURNTRANSFER => true
-                //CURLOPT_PROXY => 'http://10.158.0.79:80'                    
-            );
-
+            $options = array(CURLOPT_RETURNTRANSFER => true);
+            
+            if ($this->useProxy)
+                $options[CURLOPT_PROXY] = 'http://10.158.0.79:80';
+  
             // Setting curl options
             curl_setopt_array( $ch, $options );
 
@@ -196,7 +197,7 @@ Class RecipesController extends AppController {
      * @param int $id recipe id to view
      */
     public function view($id = null) {
-        if ($id != null) {
+        if ($id != null && is_numeric($id)) {
             $this->Recipe->id = $id;
             $recipe = $this->Recipe->read();
             $rating = $this->Recipe->query(
@@ -538,6 +539,7 @@ Class RecipesController extends AppController {
             
         } else {
             $this->request->data = $this->rmFlaggedImages($this->request->data);
+            pr($this->request->data);
             if ($this->Recipe->saveAll($this->request->data)) {
                 #first delete all associated categories for the recipe
                 $this->Recipe->CategoryRecipe->deleteAll(array('recipe_id' => $this->Recipe->id),false);
@@ -564,7 +566,7 @@ Class RecipesController extends AppController {
                 
                 $this->moveImages2Recipe(CONTENT_URL.$this->request->data['Recipe']['contentkey'],$this->request->data);
                 $this->Session->setFlash('Your post has been updated.');
-                $this->redirect(array('action' => 'view', $id));
+                //$this->redirect(array('action' => 'view', $id));
             } else {
                 $this->Session->setFlash('Unable to update your post.');
             }

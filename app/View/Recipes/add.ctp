@@ -78,9 +78,11 @@ $(function() {
                 $('#images_editor').append('<li class="ui-state-default"><img src="'+tmpdir+'/100x75_'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+addedImages+'" /></li>');
                 ++addedImages;
             }
-            
+            //Uncomment for debugging
+            //console.log("AddedImages images total: " + addedImages + " Queued Images total: " + queuedImages + "\n");
             if (addedImages == queuedImages) {
                 $('#filelist').empty();
+                //Uncomment for debugging
                 //console.log($('img[name="pic_0"]').attr('src').replace(tmpdir+'/',''));
                 var src = $('img[name="pic_0"]').attr('src').split("_")[1];
                 

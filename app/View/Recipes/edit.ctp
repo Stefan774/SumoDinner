@@ -4,7 +4,7 @@
     echo $this->Html->script('advanced'); // Include wysihtml5 parser rules
     echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
     echo $this->Html->script('jEditable');
-    //pr($recipe);
+    pr($recipe);
 ?>
 <script>
 $(function() {
@@ -45,7 +45,8 @@ $(function() {
 
 //Uploader plupload +++++++++++++++++++++++
         var queuedImages = 0;
-        var addedImages = 0;
+        var uploadedImages = 0;
+        var addedImages = <?php echo count($recipe['Image']); ?>
         
 	var uploader = new plupload.Uploader({
 		runtimes : 'html5,flash,silverlight,html4',
@@ -103,24 +104,38 @@ $(function() {
 
 	uploader.bind('FileUploaded', function(up, file,response) {
             $('#' + file.id + " b").html("100%");
+            var deletedPictures = $('img[name|="pic_-1"]').length;
+            //var visiblePictures = addedImages - deletedPictures;
+            
             var obj = jQuery.parseJSON(response["response"]);
             var tmpdir = "<?php  echo $this->Html->webroot('uploads/tmp'); ?>";
             
-            if (addedImages <= queuedImages) {
+            if (uploadedImages <= queuedImages) {
                 $('#RecipeEditForm').append('<input name="data[Image]['+addedImages+'][name]" type="" value="'+obj["result"]["fileName"]+'"/>');
-                $('#RecipeEditForm').append('<input name="data[Image]['+addedImages+'][ordernum]" type="" value="'+addedImages+'"/>');                
-                $('#images_editor').append('<li class="ui-state-default"><img src="'+tmpdir+'/100x75_'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+addedImages+'" /></li>');
+                $('#RecipeEditForm').append('<input name="data[Image]['+addedImages+'][ordernum]" type="" value="'+(addedImages-deletedPictures)+'"/>');                
+                $('#images_editor').append('<li class="ui-state-default, img-polaroid"><img src="'+tmpdir+'/100x75_'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+(addedImages-deletedPictures)+'" /><button class="btn_delete" onclick="">Löschen</button></li>');
+                ++uploadedImages;
                 ++addedImages;
             }
             
-            if (addedImages == queuedImages) {
+            console.log("Uploaded images total: " + uploadedImages + " Queued Images total: " + queuedImages + "\n");
+            
+            if (uploadedImages == queuedImages) {
                 $('#filelist').empty();
-                //console.log($('img[name="pic_0"]').attr('src').replace(tmpdir+'/',''));
-                var src = $('img[name="pic_0"]').attr('src').split("_")[1];
-                
-                $('#recipe_main_pic').html('<img src="'+tmpdir+"/500x300_"+src+'" alt="Title Picture" width="500px" height="300px" >');
+                console.log("Title picture = " + $('img[name="pic_0"]').attr('src').replace(tmpdir+'/',''));
+                var imgPath = $('img[name="pic_0"]').attr('src');
+                var src = imgPath.substring(imgPath.lastIndexOf('/')+1,imgPath.length).split("_")[1];
+                console.log("Title picture src = " + src);
+                if (imgPath.search(tmpdir) != -1 ) {
+                    $('#recipe_main_pic').html('<img src="'+tmpdir+"/500x300_"+src+'" alt="Title Picture" width="500px" height="300px" >');
+                } else {
+                    var recipeImgPath = imgPath.substring(0,imgPath.lastIndexOf('/'));
+                    console.log("Title picture already on Server content path = " + recipeImgPath);
+                    $('#recipe_main_pic').html('<img src="'+recipeImgPath+"/500x300_"+src+'" alt="Title Picture" width="500px" height="300px" >');
+                }
                 $('#RecipePicture').attr('value',src);
                 $( "#images_editor" ).sortable( "refresh" );
+                uploadedImages = 0;
             }
 	});
 //END uploader plupload +++++++++++++++++++++++

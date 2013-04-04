@@ -70,39 +70,43 @@ $(function() {
         //Loop through all images an change sort order number
         $('ul#images_editor > li').each(function(index) {	
                 // setup some helpers for the sort event
-                var attr_helper = $('img',this).attr('name');
+                var attr_helper_old = $('img',this).attr('name');
                 var img_name_helper = $('img',this).attr('src');
-                //alert (img_name_helper);
-                
-                var img_name_helper_split = img_name_helper.split("/");
-                img_name_helper = img_name_helper_split[(img_name_helper_split.length -1)];
-                
-                var img_name_helper_resize = img_name_helper.split("_");
-                if (img_name_helper_resize.length > 1) {
-                    img_name_helper = img_name_helper_resize[1];
-                    //alert(img_name_helper_resize.length);
+                var skipped_images = 0;
+                //Skip the sorting for deleted images
+                if (attr_helper_old != "pic_-1") {
+                    var img_name_helper_split = img_name_helper.split("/");
+                    img_name_helper = img_name_helper_split[(img_name_helper_split.length -1)];
+
+                    var img_name_helper_resize = img_name_helper.split("_");
+                    if (img_name_helper_resize.length > 1) {
+                        img_name_helper = img_name_helper_resize[1];
+                        //alert(img_name_helper_resize.length);
+                    }
+
+                    //alert (img_name_helper);
+
+                    var attr_split = attr_helper_old.split("_");
+                    var attr_helper = (attr_split[0]+'_'+ index);
+
+                    //alert(attr_helper);
+
+                    //Set new sort index number to the image name attr
+                    $('img',this).attr('name', attr_helper);
+                    var input_img_name = $('input[value|="'+img_name_helper+'"][id!="RecipePicture"]').attr('name');
+
+                    var input_img_number_array = input_img_name.split("[");
+                    var input_img_number = (input_img_number_array[2].substr(0,input_img_number_array[2].length-1))- skipped_images;
+
+                    //Uncomment for debugging sort mechanism
+                    console.log("input_img_number = " + input_img_number + "; input_img_name = " + input_img_name + "; attr_helper = " + attr_helper + "; attr_helper_old = " + attr_helper_old + " img_name_helper = " + img_name_helper);
+
+                    //Set new sort index number to cakephp input fields
+                    $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').removeAttr('value');
+                    $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').attr('value',index);
+                } else {
+                    skipped_images++;
                 }
-                
-                //alert (img_name_helper);
-                
-                var attr_split = attr_helper.split("_");
-                attr_helper = (attr_split[0]+'_'+ index);
-                
-                //alert(attr_helper);
-                
-                //Set new sort index number to the image name attr
-                $('img',this).attr('name', attr_helper);
-                var input_img_name = $('input[value|="'+img_name_helper+'"][id!="RecipePicture"]').attr('name');
-                
-                var input_img_number_array = input_img_name.split("[");
-                var input_img_number = input_img_number_array[2].substr(0,input_img_number_array[2].length-1);
-                
-                //Uncomment for debugging sort mechanism
-                //console.log("input_img_number = " + input_img_number + "; input_img_name = " + input_img_name + "; attr_helper = " + attr_helper + "; img_name_helper = " + img_name_helper);
-                
-                //Set new sort index number to cakephp input fields
-                $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').removeAttr('value');
-                $('input[name|="data[Image]['+input_img_number+'][ordernum]"]').attr('value',index);
         });
         
         var fileName = $('img[name="pic_0"]').attr('src').substr($('img[name="pic_0"]').attr('src').lastIndexOf('/')+1).split("_")[1];
@@ -119,6 +123,7 @@ $(function() {
     });
     
     $(".btn_delete").click(function(event) {
+        console.log("Delete button was pressed why does it not what I want ??");
         event.preventDefault();
         var imgListObject = $(this).parent();
         var lastOrderNum = $(imgListObject).children('img').attr('name').split("_")[1];

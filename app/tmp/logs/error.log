@@ -7170,3 +7170,242 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
 2013-04-03 19:40:16 Error: [MissingControllerException] Controller class UploadsController could not be found.
 #0 /Applications/MAMP/htdocs/SumoDinner/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-04-04 08:59:26 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:26 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:27 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:27 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:32 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:32 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:33 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:33 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:41 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:41 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:42 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:42 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:46 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:46 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 08:59:46 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:01:14 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:01:14 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:01:14 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:01:14 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:01:15 Error: [MethodNotAllowedException] Method Not Allowed
+#0 [internal function]: RecipesController->delete('2')
+#1 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#2 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-04 09:01:56 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:01:56 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:01:56 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:01:58 Error: [MethodNotAllowedException] Method Not Allowed
+#0 [internal function]: RecipesController->delete('2', 'Urmelis Apfel -...')
+#1 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#2 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-04 09:04:11 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:04:11 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:04:11 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:04:11 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:04:21 Error: Could not delete uploads from recipe id = 1 content must be deleted manually contentkey = 515c5e71-a1bc-46bd-9e0c-283d3b9153d1
+2013-04-04 09:04:30 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:04:30 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 09:04:34 Error: Could not delete uploads from recipe id = 2 content must be deleted manually contentkey = 515c5eda-3eec-4a58-8146-26913b9153d1
+2013-04-04 09:32:35 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 10:30:03 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 10:36:06 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 11:58:54 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:54:16 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:55:50 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:55:50 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:55:51 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:55:51 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:55:53 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:55:53 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:56:08 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:56:08 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:56:08 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:56:08 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:56:14 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:56:14 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 12:59:05 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 13:00:55 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 13:04:41 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:07:21 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:10:47 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:18:12 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:18:12 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:18:12 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:18:12 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:18:14 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:18:14 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:19:45 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:24:55 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:55:44 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:55:44 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:55:45 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:55:45 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:55:57 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:55:57 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:56:27 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:56:27 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:56:28 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:56:28 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 14:56:58 Error: [MethodNotAllowedException] Method Not Allowed
+#0 [internal function]: RecipesController->delete('2')
+#1 C:\xampp3\htdocs\SumoDinner\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(RecipesController), Array)
+#2 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp3\htdocs\SumoDinner\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(RecipesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-04-04 16:02:35 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 16:02:35 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 16:02:35 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-04 16:02:35 Error: [MissingControllerException] Controller class UploadsController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
