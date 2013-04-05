@@ -4,7 +4,7 @@
     echo $this->Html->script('advanced'); // Include wysihtml5 parser rules
     echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
     echo $this->Html->script('jEditable');
-    pr($recipe);
+    //pr($recipe);
 ?>
 <script>
 $(function() {
@@ -14,7 +14,6 @@ $(function() {
         var formElementId = this.id.split("_")[0];
         $('#'+formElementId).attr('value',$(this).attr('value'));
         var mainCategory = $(this).attr('value');
-        //console.log(mainCategory.split(";").length);
         if (mainCategory.split(";").length > 1) {
             mainCategory = mainCategory.split(";")[0]; 
         }
@@ -113,7 +112,8 @@ $(function() {
             if (uploadedImages <= queuedImages) {
                 $('#RecipeEditForm').append('<input name="data[Image]['+addedImages+'][name]" type="" value="'+obj["result"]["fileName"]+'"/>');
                 $('#RecipeEditForm').append('<input name="data[Image]['+addedImages+'][ordernum]" type="" value="'+(addedImages-deletedPictures)+'"/>');                
-                $('#images_editor').append('<li class="ui-state-default, img-polaroid"><img src="'+tmpdir+'/100x75_'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+(addedImages-deletedPictures)+'" /><button class="btn_delete" onclick="">Löschen</button></li>');
+                $('#images_editor').append('<li class="ui-state-default, img-polaroid"><img src="'+tmpdir+'/100x75_'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+(addedImages-deletedPictures)+'" /><button class="btn_delete">Löschen</button></li>');
+                //$('.btn_delete').on('click',hallo());
                 ++uploadedImages;
                 ++addedImages;
             }

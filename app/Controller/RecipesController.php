@@ -66,9 +66,9 @@ Class RecipesController extends AppController {
                 if ($img['ordernum'] == -1) {
                     if (is_file($targetDir.$img['name'])){
                         @unlink($targetDir.$img['name']);
-                        $this->Recipe->Image->delete($img['id']);
-                        unset($requestData['Image'][$count]);
+                        $this->Recipe->Image->delete($img['id']);                        
                     }
+                    unset($requestData['Image'][$count]);
                 }
                 $count++;
             }
@@ -539,7 +539,7 @@ Class RecipesController extends AppController {
             
         } else {
             $this->request->data = $this->rmFlaggedImages($this->request->data);
-            pr($this->request->data);
+            //pr($this->request->data);
             if ($this->Recipe->saveAll($this->request->data)) {
                 #first delete all associated categories for the recipe
                 $this->Recipe->CategoryRecipe->deleteAll(array('recipe_id' => $this->Recipe->id),false);
@@ -566,7 +566,7 @@ Class RecipesController extends AppController {
                 
                 $this->moveImages2Recipe(CONTENT_URL.$this->request->data['Recipe']['contentkey'],$this->request->data);
                 $this->Session->setFlash('Your post has been updated.');
-                //$this->redirect(array('action' => 'view', $id));
+                $this->redirect(array('action' => 'view', $id));
             } else {
                 $this->Session->setFlash('Unable to update your post.');
             }
@@ -603,12 +603,12 @@ Class RecipesController extends AppController {
         }
     }
     /**
+     * Delete recipe and associated data (pictures etc.)
      * 
-     * @param type $id
-     * @param type $title
+     * @param int $id
      * @throws MethodNotAllowedException
      */
-    public function delete($id, $title) {
+    public function delete($id) {
         if ($this->request->is('get')) {
             throw new MethodNotAllowedException();
             $this->redirect($this->referer());
@@ -621,10 +621,13 @@ Class RecipesController extends AppController {
             if ($this->recursiveDelete("uploads"."/".$contentkey) !== true) {
                 $this->log("Could not delete uploads from recipe id = ".$id." content must be deleted manually contentkey = ".$contentkey);
             }
-            $this->Session->setFlash('The recipe ' . $title . ' has been deleted.');
+            $this->Session->setFlash('Das Rezept wurde erfolgreich durch den Reisswolf gedreht','default',array("class" => "alert alert-success"));
             $this->redirect(array('action' => 'index'));
         } else {
-            $this->Session->setFlash('The recipe ' . $title . ' could not be deleted. Try again later.');
+            $this->Session->setFlash('Hmm der Reisswolf scheint nicht zu funktionieren, 
+                                      ich arbeite dran!<br><b>Bitte versuch es doch etwas später nochmal</b>',
+                                      'default',array("class" => "alert alert-error"));
+            $this->log("Could not delete recipe $id");
             $this->redirect(array('action' => 'index'));
         }
     }

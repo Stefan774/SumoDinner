@@ -7,7 +7,7 @@
 <?php echo $this->Html->Link('Bearbeiten', array('controller'=>'recipes', 'action'=>'edit', $recipe['Recipe']['id'])) ?>
 <?php echo $this->Form->postLink(
                 'Löschen',
-                array('action' => 'delete', $recipe['Recipe']['id'],$recipe['Recipe']['title'] ),
+                array('action' => 'delete', $recipe['Recipe']['id']),
                 array('confirm' => 'Wollen Sie dieses durchaus köstliche Rezept mit dem bezaubernden Namen:\n'.$recipe['Recipe']['title'].'\nWirklich löschen?' ));
 ?>
 <script>
