@@ -32,5 +32,14 @@ App::uses('Controller', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+    
+    public function redirectURL ($url = null, $status = null, $exit = true) {
+        if (isset($url)) {
+            parent::redirect($url, $status, $exit);
+        }
+        else {
+            $this->redirect($this->referer());
+        }
+    }
 
 }

@@ -3,7 +3,7 @@
 $(function() {
     $( "#accordion" ).accordion();
     $('.carousel').carousel({
-        interval: false
+        interval: 5000
     })
     $( "#tabs" ).tabs({
         beforeLoad: function( event, ui ) {
@@ -65,12 +65,12 @@ if (count($recipes) >= 3) {
 }
 ?>
 <?php if ($preview) { ?>
-<div id="myCarousel" class="carousel slide">
+<div id="myCarousel" class="carousel slide" style="background-color:white;">
     <div class="carousel-inner">
       <?php $counter = 0; foreach ($preview as $item) : ?>
         <div class="item <?php echo $counter==0?"active":""; ?>">
-        <?php echo isset($recipes[$item]['Recipe']['picture'])?$this->Html->image($recipes[$item]['Recipe']['contentkey'].'/'.$recipes[$item]['Recipe']['picture'], array('pathPrefix' => CONTENT_URL,'alt' => $recipes[$item]['Recipe']['title'])):"Dein Titelbild"; ?>
-          <div class="carousel-caption"><a href="#">
+        <?php echo isset($recipes[$item]['Recipe']['picture'])?$this->Html->image($recipes[$item]['Recipe']['contentkey'].'/500x300_'.$recipes[$item]['Recipe']['picture'], array('pathPrefix' => CONTENT_URL,'alt' => $recipes[$item]['Recipe']['title'])):"Dein Titelbild"; ?>
+          <div class="carousel-caption"><a href="<?php echo $this->Html->url(array("controller" => "recipes", "action" => "view", $recipes[$item]['Recipe']['id'])); ?>">
           <h4><?php echo $recipes[$item]['Recipe']['title']; ?></h4>
           <p><?php echo String::truncate($recipes[$item]['Recipe']['description'],100,array('ellipsis' => '...','exact' => false)); $counter++; ?></p></a>
         </div>

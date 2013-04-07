@@ -3,7 +3,7 @@ Class RecipesController extends AppController {
     
     public $helpers = array('Html', 'Form','Js');
     public $components = array('Session','RequestHandler');
-    private $useProxy = true;
+    private $useProxy = false;
     
     #Custom functions ########################################
     ##########################################################
@@ -124,12 +124,13 @@ Class RecipesController extends AppController {
     public function search($searchToken = "", $start = 0, $limit = 20) {
         
         $searchToken = $searchToken == ""?isset($_GET['searchToken'])?$_GET['searchToken']:$searchToken:$searchToken;
-        
+        $decodedSearcbToken = urlencode($searchToken);
+        $this->log("searchToken = $searchToken ;; decodedSearchToken = $decodedSearcbToken");
         if ($searchToken && $searchToken != "") {
             
             $url = "http://api.chefkoch.de/api/1.0/api-recipe-search.php?Suchbegriff=";
             
-            $json_url = $url.$searchToken."&start=".$start."&limit=".$limit;
+            $json_url = $url.$decodedSearcbToken."&start=".$start."&limit=".$limit;
             $ch = curl_init( $json_url );
 
             // Configuring curl options
@@ -535,6 +536,7 @@ Class RecipesController extends AppController {
             
             $categories_csv = implode(";",$categories);
             $this->set('categories', $categories_csv);
+            $this->set('categories_drdown', $this->Recipe->Category->find('list'));
             $this->set('recipe', $this->request->data);
             
         } else {

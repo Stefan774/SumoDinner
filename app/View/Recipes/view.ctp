@@ -1,5 +1,5 @@
 <!-- File: /app/View/Recipes/view.ctp -->
-<?php //pr($recipe); ?>
+<?php $this->Html->addCrumb('Users', '/users'); ?>
 <?php 
     echo $this->Html->script('jquery.fancybox'); // Include fancybox
     echo $this->Html->css('jquery.fancybox');

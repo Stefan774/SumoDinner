@@ -5,6 +5,7 @@
     echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
     echo $this->Html->script('jEditable');
     //pr($recipe);
+     //pr($categories_drdown);
 ?>
 <script>
 $(function() {
@@ -110,9 +111,9 @@ $(function() {
             var tmpdir = "<?php  echo $this->Html->webroot('uploads/tmp'); ?>";
             
             if (uploadedImages <= queuedImages) {
-                $('#RecipeEditForm').append('<input name="data[Image]['+addedImages+'][name]" type="" value="'+obj["result"]["fileName"]+'"/>');
-                $('#RecipeEditForm').append('<input name="data[Image]['+addedImages+'][ordernum]" type="" value="'+(addedImages-deletedPictures)+'"/>');                
-                $('#images_editor').append('<li class="ui-state-default, img-polaroid"><img src="'+tmpdir+'/100x75_'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+(addedImages-deletedPictures)+'" /><button class="btn_delete">Löschen</button></li>');
+                $('#RecipeEditForm').append('<input name="data[Image]['+addedImages+'][name]" type="hidden" value="'+obj["result"]["fileName"]+'"/>');
+                $('#RecipeEditForm').append('<input name="data[Image]['+addedImages+'][ordernum]" type="hidden" value="'+(addedImages-deletedPictures)+'"/>');                
+                $('#images_editor').append('<li class="ui-state-default, img-polaroid"><img src="'+tmpdir+'/100x75_'+obj["result"]["fileName"]+'" alt="" width="100px" height="90px" name="pic_'+(addedImages-deletedPictures)+'" /><button class="btn_delete badge badge-important">Löschen</button></li>');
                 //$('.btn_delete').on('click',hallo());
                 ++uploadedImages;
                 ++addedImages;
@@ -140,9 +141,52 @@ $(function() {
 	});
 //END uploader plupload +++++++++++++++++++++++
 
+/** Autocomplete function for categories **/
+    var availableTags = [
+        <?php if (isset($categories_drdown)) {foreach($categories_drdown as $category){echo "'$category',";}} ?>
+   ];
+   function split( val ) {
+       return val.split( /;\s*/ );
+   }
+   function extractLast( term ) {
+       return split( term ).pop();
+   }
+   $( "#CategoryName_edit" )
+   // don't navigate away from the field on tab when selecting an item
+   .bind( "keydown", function( event ) {
+        if ( event.keyCode === $.ui.keyCode.TAB &&
+        $( this ).data( "ui-autocomplete" ).menu.active ) {
+        event.preventDefault();
+   }
+   })
+   .autocomplete({
+        minLength: 0,
+        source: function( request, response ) {
+        // delegate back to autocomplete, but extract the last term
+        response( $.ui.autocomplete.filter(
+        availableTags, extractLast( request.term ) ) );
+        },
+        focus: function() {
+        // prevent value inserted on focus
+        return false;
+        },
+        select: function( event, ui ) {
+        var terms = split( this.value );
+        // remove the current input
+        terms.pop();
+        // add the selected item
+        terms.push( ui.item.value );
+        // add placeholder to get the comma-and-space at the end
+        terms.push( "" );
+        this.value = terms.join( "; " );
+        return false;
+        }
+   });
+/** END autocomplete function for categories **/
+
 });
 </script>
-
+<?php echo $this->Html->Link('Abbrechen', array('action'=>'view',$recipe['Recipe']['id'])) ?>
 <h2>Rezept nachsalzen</h2>
 <?php
     echo $this->Form->create('Recipe', array('action' => 'edit'));
@@ -168,8 +212,10 @@ $(function() {
             <div id="filelist">No runtime found.</div>
             <ul id="images_editor">
                 <?php
+                    $index = 0;
                     foreach ($recipe['Image'] as $img) {
-                        echo "<li class='ui-state-default, img-polaroid'>".$this->Html->image($recipe['Recipe']['contentkey'].'/100x75_'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$img['ordernum']))."<button class='btn_delete' id='".$img['id']."'>Löschen</button></li>";
+                        echo "<li class='ui-state-default, img-polaroid'>".$this->Html->image($recipe['Recipe']['contentkey'].'/100x75_'.$img['name'],array('alt' => $img['titel'],'pathPrefix' => CONTENT_URL,'width'=>'100px','height'=>'90px','name' => 'pic_'.$index))."<button class='btn_delete badge badge-important' id='".$img['id']."'>Löschen</button></li>";
+                        $index++;
                     }
                 ?>
             </ul>
@@ -210,16 +256,18 @@ echo $this->Form->input('description', array('rows' => '10','label'=>''));
 ?>
 </div>
 <?php
-    echo $this->Form->input('picture', array('label'=>''));
-    echo $this->Form->input('maincategory', array('label'=>''));
+    echo $this->Form->input('picture', array('label'=>'','type' => 'hidden'));
+    echo $this->Form->input('maincategory', array('label'=>'','type' => 'hidden'));
     echo $this->Form->input('severity', array('type' => 'hidden'));
     echo $this->Form->input('Category.name', array('value' => $categories, 'label'=>'Categories','type' => 'hidden'));
     echo $this->Form->input('id', array('type' => 'hidden'));
     echo $this->Form->input('contentkey', array('type' => 'hidden'));
+    $index = 0;
     foreach ($recipe['Image'] as $img) {
-        echo $this->Form->input('Image.'.$img['ordernum'].'.id', array('type' => ''));
-        echo $this->Form->input('Image.'.$img['ordernum'].'.name', array('type' => ''));
-        echo $this->Form->input('Image.'.$img['ordernum'].'.ordernum', array('type' => ''));
+        echo $this->Form->input('Image.'.$index.'.id', array('type' => 'hidden'));
+        echo $this->Form->input('Image.'.$index.'.name', array('type' => 'hidden'));
+        echo $this->Form->input('Image.'.$index.'.ordernum', array('type' => 'hidden'));
+        $index++;
     }
     echo $this->Form->submit('Save Recipe', array('class' => 'btn btn-success'));
     echo $this->Form->end();

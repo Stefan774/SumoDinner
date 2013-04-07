@@ -4,6 +4,7 @@
     echo $this->Html->script('advanced'); // Include wysihtml5 parser rules
     echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
     //pr($result);
+    //pr($categories);
 ?>
 
 <script type="text/javascript">
