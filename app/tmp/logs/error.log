@@ -7587,3 +7587,116 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 85
 2013-04-07 11:39:21 Error: [MissingControllerException] Controller class UploadsController could not be found.
 #0 /Applications/MAMP/htdocs/SumoDinner/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-04-08 14:09:10 Error: searchToken = Gnocci ;; decodedSearchToken = Gnocci
+2013-04-08 14:16:58 Error: searchToken = Pizza ;; decodedSearchToken = Pizza
+2013-04-08 16:04:59 Error: searchToken = Pizza ;; decodedSearchToken = Pizza
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:46:01 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:47:59 Error: searchToken = Obatzda ;; decodedSearchToken = Obatzda
+2013-04-08 16:48:05 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:48:05 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:48:06 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:48:06 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:48:06 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:48:06 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:48:06 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:48:06 Error: [MissingControllerException] Controller class ImgController could not be found.
+#0 C:\xampp3\htdocs\SumoDinner\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-04-08 16:59:05 Error: searchToken = Schnitzel ;; decodedSearchToken = Schnitzel
+2013-04-08 17:00:52 Error: searchToken = Pizzateig ;; decodedSearchToken = Pizzateig
+2013-04-08 17:02:35 Error: searchToken = Pizzateig ;; decodedSearchToken = Pizzateig
+2013-04-08 17:05:50 Error: searchToken = Pizzateig ;; decodedSearchToken = Pizzateig

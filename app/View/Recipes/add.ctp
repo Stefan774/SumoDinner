@@ -5,6 +5,7 @@
     echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
     //pr($result);
     //pr($categories);
+    //pr($remoteImages);
 ?>
 
 <script type="text/javascript">
@@ -179,7 +180,7 @@ echo $this->Form->create('Recipe');
 echo $this->Form->input('title',array('class'=>'recipeTitle_Input','label'=>false,'value'=>isset($result)?$result['result'][0]['rezept_name']." ".$result['result'][0]['rezept_name2']:'Name deines Rezepts...'));
 ?>
 <div id="recipe_part1" class="row">
-    <div id="recipe_main_pic" class="span8"><?php echo isset($result['result'][0]['rezept_bilder'][0]['bigfix']['file'])?$this->Html->image($result['result'][0]['rezept_bilder'][0]['big']['file'],array('height'=>'300px')):"Dein Titelbild"; ?></div>
+    <div id="recipe_main_pic" class="span8"><?php echo isset($remoteImages[0])?$this->Html->image('tmp/500x300_'.$remoteImages[0],array('height'=>'300px','pathPrefix' => CONTENT_URL)):"Dein Titelbild"; ?></div>
         <div class="additional_widget span2"><p>Schwierigkeitsgrad</p>
             <select id="RecipeSeverity_edit">
                 <?php foreach (Configure::read('severity_level') as $key=>$severity_level){echo "<option value='$key'>$severity_level</option>";}?>
@@ -197,7 +198,15 @@ echo $this->Form->input('title',array('class'=>'recipeTitle_Input','label'=>fals
     <div id="error"></div>
     <div id="container">
             <div id="filelist">No runtime found.</div>
-            <ul id="images_editor"></ul>
+            <ul id="images_editor">
+                <?php
+                    $index = 0;
+                    foreach ($remoteImages as $remoteImage) {
+                        echo "<li class='ui-state-default, img-polaroid'>".$this->Html->image('tmp/100x75_'.$remoteImage,array('alt' => "",'width'=>'100px','height'=>'90px','name' => 'pic_'.$index,'pathPrefix' => CONTENT_URL))."</li>";
+                        $index++;
+                    }
+                ?>
+            </ul>
             <div class="clear"></div>
             <br />
             <a id="pickfiles" href="#" class="btn"><i class="icon-picture"></i>&nbsp; Bilder ausw&auml;hlen</a>
@@ -241,13 +250,21 @@ echo $this->Form->input('description', array('rows' => '10','label'=>'','value'=
 ?>
 </div>
 <?php
-echo $this->Form->input('picture', array('label'=>'', 'type'=>''));
+echo $this->Form->input('picture', array('label'=>'', 'type'=>'', 'value' => isset($remoteImages[0])?"$remoteImages[0]":"" ));
 echo $this->Form->input('maincategory', array('label'=>'','type'=>'hidden'));
 echo $this->Form->input('severity', array('label'=>'','value'=>'0','type'=>'hidden'));
 echo $this->Form->input('Category.name', array('label'=>'','type'=>'hidden'));
 ?>
 <?php
 echo $this->Form->submit('Save Recipe', array('class' => 'btn btn-success'));
+$index = 0;
+if (isset($remoteImages)) {
+    foreach ($remoteImages as $img) {
+        echo $this->Form->input('Image.'.$index.'.name', array('type' => '' , 'value' => $img));
+        echo $this->Form->input('Image.'.$index.'.ordernum', array('type' => '', 'value' => $index));
+        $index++;
+    }
+}
 echo $this->Form->end();
 ?>  
 <?php

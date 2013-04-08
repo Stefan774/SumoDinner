@@ -3,7 +3,7 @@ Class RecipesController extends AppController {
     
     public $helpers = array('Html', 'Form','Js');
     public $components = array('Session','RequestHandler');
-    private $useProxy = false;
+    private $useProxy = true;
     
     #Custom functions ########################################
     ##########################################################
@@ -215,13 +215,35 @@ Class RecipesController extends AppController {
     }
     /**
      * @todo Not jet implementet method. $source urls array containing remote image sources must be given as parameter
-     * @param array $source
+     * @param array $remoteImages
+     * @return array $savedImages returns an array of saved images filenames.
      */
-    protected function saveRemoteImages($source = array()) {
-        $remote_img = 'http://www.somwhere.com/images/image.jpg';
-        $img = imagecreatefromjpeg($remote_img);
-        $path = 'images/';
-        imagejpeg($img, $path);
+    protected function saveRemoteImages($remoteImages = array(),$path = NULL) {
+        $savedImages = array();
+        $path = isset($path)?$path:UPLOADSTMP;
+        foreach ($remoteImages as $remoteImage ) {
+            $imgFileName = substr($remoteImage, (strrpos($remoteImage,"/") + 1));
+            $this->log("Remote image url = $remoteImage :: FileName = $imgFileName",'Debug');
+            //try to get the remote image with the simple file_puts function if it is not working try to get it with curl
+            //if (file_put_contents(UPLOADSTMP."/".$imgFileName, $imgFileName) === FALSE) {
+                $this->log("Cannot get remote image url = $remoteImage :: FileName = $imgFileName with file_put_contents try to curl it.",'Debug');
+                $ch = curl_init($remoteImage);
+                $fp = fopen($path."/".$imgFileName, 'wb');
+                curl_setopt($ch, CURLOPT_FILE, $fp);
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                if ($this->useProxy)
+                    curl_setopt($ch, CURLOPT_PROXY,'http://10.158.0.79:80');
+                
+                if (curl_exec($ch)) {
+                    $savedImages[] = $imgFileName;
+                    $this->thumbnailImage($path."/".$imgFileName , 500, 300);
+                    $this->thumbnailImage($path."/".$imgFileName , 100, 75);
+                }
+                curl_close($ch);
+                fclose($fp);
+            //}
+        }
+        return $savedImages;
     }
     /**
      * Add and store recipes from "local" or from chefkoch.de
@@ -282,16 +304,19 @@ Class RecipesController extends AppController {
                 #get the recipe data from chefkoch.de
                 $rmRecipe = $this->getRecipeCKJson($id);
                 $remotePics = array();
-                #if there are any recipe images attached get the title pic first and the all other pics
+                #if there are any recipe images attached get the title pic first and then all other pics
                 if (isset($rmRecipe['result'][0]['rezept_bilder'])) {                    
-                    $remotePics[] = isset($rmRecipe['result'][0]['rezept_bilder'][0]['bigfix']['file'])?array($rmRecipe['result'][0]['rezept_bilder'][0]['bigfix']['file'],""):array();                    
+                    $remotePics[] = isset($rmRecipe['result'][0]['rezept_bilder'][0]['bigfix']['file'])?$rmRecipe['result'][0]['rezept_bilder'][0]['bigfix']['file']:"";                    
                     foreach ($rmRecipe['result'][0]['rezept_bilder'] as $img) {
                         if (isset($img['big']['file'])) {
-                            $remotePics[] = array($img['big']['file'],"");
+                            $remotePics[] = $img['big']['file'];
                         }
                     }
                 }
-                //pr($remotePics);
+                if (count($remotePics) != 0) {
+                    $this->saveRemoteImages($remotePics);
+                    $this->set('remoteImages',$this->saveRemoteImages($remotePics)); 
+                }
             }            
             $this->set('categories', $this->Recipe->Category->find('list'));
         }
@@ -576,6 +601,7 @@ Class RecipesController extends AppController {
     }
     /**
      * Creat a croped thumbnail of an image with the given $x=width $y=height.
+     * If no writePath is given it will store the images in standard temp directory UPLOADSTMP
      * 
      * @param string $imgPath
      * @param int $x

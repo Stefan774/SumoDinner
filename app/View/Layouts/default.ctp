@@ -51,7 +51,7 @@ $cakeDescription = __d('SumoDinner', 'SumoDinner: Dine like a Sumo');
             <?php //echo $this->Html->getCrumbList(array('class'=>'brand'));//echo $this->Html->getCrumbs(' > ', array('text'=> 'SumoDinner', 'controller'=>'Recipes','action'=>'index','class'=>'brand')); ?>
             <?php echo $this->Html->link('SumoDinner',array('controller'=>'Recipes','action'=>'index'),array('class'=>'brand')); ?>
             <span class="breadcrumbs-container">
-                <?php echo $this->Html->getCrumbList(array('id'=>'breadcrumbs')); ?>
+                <?php //echo $this->Html->getCrumbList(array('id'=>'breadcrumbs')); ?>
             </span>
             <?php 
                 echo $this->Form->create(null, array('controller'=>'Recipes','action'=>'search', 'type' => 'get', 'class'=>'navbar-search pull-right'));
@@ -60,6 +60,7 @@ $cakeDescription = __d('SumoDinner', 'SumoDinner: Dine like a Sumo');
             ?>
         </div>
     </div>
+    <?php // echo $this->Html->getCrumbList(array('class'=>'breadcrumb')); ?>
     <div  class="container">
             <div id="content">
 
