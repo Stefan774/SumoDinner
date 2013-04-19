@@ -200,10 +200,12 @@ echo $this->Form->input('title',array('class'=>'recipeTitle_Input','label'=>fals
             <div id="filelist">No runtime found.</div>
             <ul id="images_editor">
                 <?php
-                    $index = 0;
-                    foreach ($remoteImages as $remoteImage) {
-                        echo "<li class='ui-state-default, img-polaroid'>".$this->Html->image('tmp/100x75_'.$remoteImage,array('alt' => "",'width'=>'100px','height'=>'90px','name' => 'pic_'.$index,'pathPrefix' => CONTENT_URL))."</li>";
-                        $index++;
+                    if (isset($remoteImages)) {
+                        $index = 0;
+                        foreach ($remoteImages as $remoteImage) {
+                            echo "<li class='ui-state-default, img-polaroid'>".$this->Html->image('tmp/100x75_'.$remoteImage,array('alt' => "",'width'=>'100px','height'=>'90px','name' => 'pic_'.$index,'pathPrefix' => CONTENT_URL))."</li>";
+                            $index++;
+                        }
                     }
                 ?>
             </ul>
@@ -250,7 +252,7 @@ echo $this->Form->input('description', array('rows' => '10','label'=>'','value'=
 ?>
 </div>
 <?php
-echo $this->Form->input('picture', array('label'=>'', 'type'=>'', 'value' => isset($remoteImages[0])?"$remoteImages[0]":"" ));
+echo $this->Form->input('picture', array('label'=>'', 'type'=>'hidden', 'value' => isset($remoteImages[0])?"$remoteImages[0]":"" ));
 echo $this->Form->input('maincategory', array('label'=>'','type'=>'hidden'));
 echo $this->Form->input('severity', array('label'=>'','value'=>'0','type'=>'hidden'));
 echo $this->Form->input('Category.name', array('label'=>'','type'=>'hidden'));
@@ -260,8 +262,8 @@ echo $this->Form->submit('Save Recipe', array('class' => 'btn btn-success'));
 $index = 0;
 if (isset($remoteImages)) {
     foreach ($remoteImages as $img) {
-        echo $this->Form->input('Image.'.$index.'.name', array('type' => '' , 'value' => $img));
-        echo $this->Form->input('Image.'.$index.'.ordernum', array('type' => '', 'value' => $index));
+        echo $this->Form->input('Image.'.$index.'.name', array('type' => 'hidden' , 'value' => $img));
+        echo $this->Form->input('Image.'.$index.'.ordernum', array('type' => 'hidden', 'value' => $index));
         $index++;
     }
 }

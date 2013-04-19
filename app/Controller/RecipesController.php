@@ -126,6 +126,25 @@ Class RecipesController extends AppController {
         $searchToken = $searchToken == ""?isset($_GET['searchToken'])?$_GET['searchToken']:$searchToken:$searchToken;
         $decodedSearcbToken = urlencode($searchToken);
         $this->log("searchToken = $searchToken ;; decodedSearchToken = $decodedSearcbToken");
+        
+//        $this->Recipe->query('DROP TABLE searches_recipes');
+//        $this->Recipe->query('CREATE VIRTUAL TABLE searches_recipes USING fts4(content="recipes",title,description,ingredients,maincategory,picture,contentkey,rating,severity,tokenize=porter)');
+//        $this->Recipe->query('INSERT INTO searches_recipes (docid,title,description,ingredients,maincategory,picture,contentkey,rating,severity) SELECT id,title,description,ingredients,maincategory,picture,contentkey,rating,severity FROM recipes');        
+        
+//  $dbftsTrigger = "CREATE TRIGGER recipes_bu BEFORE UPDATE ON recipes BEGIN
+//                    DELETE FROM searches_recipes WHERE docid=old.rowid;
+//                  END;
+//                  CREATE TRIGGER recipes_bd BEFORE DELETE ON recipes BEGIN
+//                    DELETE FROM searches_recipes WHERE docid=old.rowid;
+//                  END;
+//                  CREATE TRIGGER recipes_au AFTER UPDATE ON recipes BEGIN
+//                    INSERT INTO searches_recipes(docid,title,description,ingredients,maincategory,picture,contentkey,rating,severity) VALUES(new.rowid,new.title,new.description,new.ingredients,new.maincategory,new.picture,new.contentkey,new.rating,new.severity);
+//                  END;
+//                  CREATE TRIGGER recipes_ai AFTER INSERT ON recipes BEGIN
+//                    INSERT INTO searches_recipes(docid,title,description,ingredients,maincategory,picture,contentkey,rating,severity) VALUES(new.id,new.title,new.description,new.ingredients,new.maincategory,new.picture,new.contentkey,new.rating,new.severity);
+//                  END;";
+//        $this->Recipe->query($dbftsTrigger);
+        
         if ($searchToken && $searchToken != "") {
             
             $url = "http://api.chefkoch.de/api/1.0/api-recipe-search.php?Suchbegriff=";
@@ -147,7 +166,9 @@ Class RecipesController extends AppController {
 
             // Close the curl handler
             curl_close($ch);
-
+            
+            $data = $this->Recipe->query("SELECT docid, title, contentkey, picture FROM searches_recipes WHERE searches_recipes MATCH '$searchToken' ");
+            $this->set('loresult', $data);
             $this->set('result', json_decode($jsonResponse, TRUE));
         }
         else {
@@ -219,31 +240,99 @@ Class RecipesController extends AppController {
      * @return array $savedImages returns an array of saved images filenames.
      */
     protected function saveRemoteImages($remoteImages = array(),$path = NULL) {
+        $rustart = getrusage();
         $savedImages = array();
         $path = isset($path)?$path:UPLOADSTMP;
+        
+        //place this before any script you want to calculate time
+$time_start = microtime(true); 
+        
+        $curlHandles = array();
+        $handelCounter = 0;
         foreach ($remoteImages as $remoteImage ) {
             $imgFileName = substr($remoteImage, (strrpos($remoteImage,"/") + 1));
             $this->log("Remote image url = $remoteImage :: FileName = $imgFileName",'Debug');
             //try to get the remote image with the simple file_puts function if it is not working try to get it with curl
             //if (file_put_contents(UPLOADSTMP."/".$imgFileName, $imgFileName) === FALSE) {
                 $this->log("Cannot get remote image url = $remoteImage :: FileName = $imgFileName with file_put_contents try to curl it.",'Debug');
-                $ch = curl_init($remoteImage);
+                $curlHandles[$handelCounter] = curl_init($remoteImage);
                 $fp = fopen($path."/".$imgFileName, 'wb');
-                curl_setopt($ch, CURLOPT_FILE, $fp);
-                curl_setopt($ch, CURLOPT_HEADER, 0);
+                curl_setopt($curlHandles[$handelCounter], CURLOPT_FILE, $fp);
+                curl_setopt($curlHandles[$handelCounter], CURLOPT_HEADER, 0);
                 if ($this->useProxy)
-                    curl_setopt($ch, CURLOPT_PROXY,'http://10.158.0.79:80');
-                
-                if (curl_exec($ch)) {
-                    $savedImages[] = $imgFileName;
-                    $this->thumbnailImage($path."/".$imgFileName , 500, 300);
-                    $this->thumbnailImage($path."/".$imgFileName , 100, 75);
-                }
-                curl_close($ch);
-                fclose($fp);
-            //}
+                    curl_setopt($curlHandles[$handelCounter], CURLOPT_PROXY,'http://10.158.0.79:80');
+                $handelCounter++;
+                $savedImages[] = $imgFileName;
+//             
+//                if (curl_exec($ch)) {
+//                    $savedImages[] = $imgFileName;
+//                    $this->thumbnailImage($path."/".$imgFileName , 500, 300);
+//                    $this->thumbnailImage($path."/".$imgFileName , 100, 75);
         }
-        return $savedImages;
+        
+       // create the multiple cURL handle
+        $mh = curl_multi_init();
+        
+        foreach ($curlHandles as $cH ) {
+         curl_multi_add_handle($mh,$cH);
+        }
+        $active = null;
+        //execute the handles
+        do {
+            $mrc = curl_multi_exec($mh, $active);
+        } while ($mrc == CURLM_CALL_MULTI_PERFORM);
+
+        while ($active && $mrc == CURLM_OK) {
+            if (curl_multi_select($mh) != -1) {
+                do {
+                    $mrc = curl_multi_exec($mh, $active);
+                } while ($mrc == CURLM_CALL_MULTI_PERFORM);
+            }
+       }
+        foreach ($curlHandles as $cH ) {
+         curl_multi_remove_handle($mh,$cH);
+        }
+        foreach ($savedImages as $img ) {
+            $this->thumbnailImage($path."/".$img , 500, 300);
+            $this->thumbnailImage($path."/".$img , 100, 75);
+        }
+                    
+                curl_multi_close($mh);
+                fclose($fp);
+              
+            //}
+        
+//        foreach ($remoteImages as $remoteImage ) {
+//            $imgFileName = substr($remoteImage, (strrpos($remoteImage,"/") + 1));
+//            $this->log("Remote image url = $remoteImage :: FileName = $imgFileName",'Debug');
+//            //try to get the remote image with the simple file_puts function if it is not working try to get it with curl
+//            //if (file_put_contents(UPLOADSTMP."/".$imgFileName, $imgFileName) === FALSE) {
+//                $this->log("Cannot get remote image url = $remoteImage :: FileName = $imgFileName with file_put_contents try to curl it.",'Debug');
+//                $ch = curl_init($remoteImage);
+//                $fp = fopen($path."/".$imgFileName, 'wb');
+//                curl_setopt($ch, CURLOPT_FILE, $fp);
+//                curl_setopt($ch, CURLOPT_HEADER, 0);
+//                if ($this->useProxy)
+//                    curl_setopt($ch, CURLOPT_PROXY,'http://10.158.0.79:80');
+//                
+//                if (curl_exec($ch)) {
+//                    $savedImages[] = $imgFileName;
+//                    $this->thumbnailImage($path."/".$imgFileName , 500, 300);
+//                    $this->thumbnailImage($path."/".$imgFileName , 100, 75);
+//                }
+//                curl_close($ch);
+//                fclose($fp);
+//            //}
+//        }
+                              $time_end = microtime(true);
+
+//dividing with 60 will give the execution time in minutes other wise seconds
+$execution_time = ($time_end - $time_start)/60;
+
+//execution time of the script
+echo '<b>Total Execution Time:</b> '.$execution_time.' Mins'; 
+                // Script end
+  return $savedImages;
     }
     /**
      * Add and store recipes from "local" or from chefkoch.de
