@@ -3,7 +3,7 @@ Class RecipesController extends AppController {
     
     public $helpers = array('Html', 'Form','Js');
     public $components = array('Session','RequestHandler');
-    private $useProxy = true;
+    private $useProxy = false;
     
     #Custom functions ########################################
     ##########################################################
@@ -104,7 +104,7 @@ Class RecipesController extends AppController {
             $conditions = array (
                 'fields' => array('Recipe.id', 'Recipe.title','Recipe.picture','Recipe.maincategory','Recipe.contentkey','Recipe.description'),
                 'conditions' => array('Recipe.maincategory' => $category ),
-                'order' => array('Recipe.maincategory' => 'asc'),
+                'order' => array('Recipe.title' => 'asc'),
                 'recursive' => 0
              );
             $data = $this->Recipe->find('all',$conditions);
@@ -126,7 +126,7 @@ Class RecipesController extends AppController {
         $searchToken = $searchToken == ""?isset($_GET['searchToken'])?$_GET['searchToken']:$searchToken:$searchToken;
         $decodedSearcbToken = urlencode($searchToken);
         $this->log("searchToken = $searchToken ;; decodedSearchToken = $decodedSearcbToken");
-        
+//        
 //        $this->Recipe->query('DROP TABLE searches_recipes');
 //        $this->Recipe->query('CREATE VIRTUAL TABLE searches_recipes USING fts4(content="recipes",title,description,ingredients,maincategory,picture,contentkey,rating,severity,tokenize=porter)');
 //        $this->Recipe->query('INSERT INTO searches_recipes (docid,title,description,ingredients,maincategory,picture,contentkey,rating,severity) SELECT id,title,description,ingredients,maincategory,picture,contentkey,rating,severity FROM recipes');        
