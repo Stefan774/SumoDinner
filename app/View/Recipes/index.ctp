@@ -1,10 +1,13 @@
 <?php //pr($recipes);  ?>
 <script>
 $(function() {
+ //Initialzie the picture preview ****************//   
     $( "#accordion" ).accordion();
     $('.carousel').carousel({
         interval: 5000
-    })
+    });
+ // END Initialzie the picture preview ***********// 
+ 
     $( "#tabs" ).tabs({
         beforeLoad: function( event, ui ) {
             ui.jqXHR.error(function() {
@@ -83,9 +86,9 @@ if (count($recipes) >= 3) {
 <?php } ?>
 <div id="tabs">
     <ul>
-        <li><?php echo $this->Html->link("Hauptspeise", array('controller' => 'recipes', 'action' => 'getRecipesByCategory', "Hauptspeise")); ?></li>
+        <li><?php echo $this->Html->link("Hauptspeise", array('controller' => 'recipes', 'action' => 'getRecipesByCategory', "Hauptspeise,Hauptgericht")); ?></li>
         <li><?php echo $this->Html->link("Vorspeise", array('controller' => 'recipes', 'action' => 'getRecipesByCategory', "Vorspeise")); ?></li>
-        <li><?php echo $this->Html->link("Nachtisch", array('controller' => 'recipes', 'action' => 'getRecipesByCategory', "Nachtisch")); ?></li>
+        <li><?php echo $this->Html->link("Nachtisch", array('controller' => 'recipes', 'action' => 'getRecipesByCategory', "Nachtisch,Nachspeise,Dessert")); ?></li>
     </ul>
 </div>
 <!--

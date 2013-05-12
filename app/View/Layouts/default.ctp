@@ -19,7 +19,7 @@
 $cakeDescription = __d('SumoDinner', 'SumoDinner: Dine like a Sumo');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
@@ -31,9 +31,10 @@ $cakeDescription = __d('SumoDinner', 'SumoDinner: Dine like a Sumo');
 
 		//echo $this->Html->css('cake.generic');
                 //echo $this->Html->css('wysihtml5'); 
-                echo $this->Html->css('bootstrap');
+                
                 echo $this->Html->css('jquery-ui-1.9.2.custom');  
-                echo $this->Html->css('customSumo');              
+                echo $this->Html->css('customSumo');  
+                echo $this->Html->css('bootstrap');
                                
                 echo $this->Html->script('jquery'); // Include jQuery library
                 echo $this->Html->script('jquery-ui-1.9.2.custom.min'); // Include jQuery UI-library    
@@ -61,7 +62,7 @@ $cakeDescription = __d('SumoDinner', 'SumoDinner: Dine like a Sumo');
         </div>
     </div>
     <?php // echo $this->Html->getCrumbList(array('class'=>'breadcrumb')); ?>
-    <div  class="container">
+    <div class="container">
             <div id="content">
 
                     <?php echo $this->Session->flash(); ?>

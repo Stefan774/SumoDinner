@@ -1,9 +1,12 @@
 <?php
+App::import('Vendor','sphinx/sphinxapi');
+
 Class RecipesController extends AppController {
     
     public $helpers = array('Html', 'Form','Js');
     public $components = array('Session','RequestHandler');
-    private $useProxy = true;
+    private $useProxy = false;
+    private $liveIndexer = true;
     
     #Custom functions ########################################
     ##########################################################
@@ -75,6 +78,80 @@ Class RecipesController extends AppController {
         }
             return $requestData;
     }
+    /**
+     * Creates the xml file for sphinx search
+     * 
+     */
+    private function createSphinxIndex() {
+        $conditions =  array(
+            'recursive' => 1,
+            'fields' => array('Recipe.title','Recipe.description','Recipe.ingredients')
+        );
+        $allRecipes = $this->Recipe->find('all',$conditions);
+
+        //Create XML output for Sphinx indexer (search)
+        $xmlwriter = new xmlWriter;
+        //$xmlwriter->openMemory();
+        $xmlwriter->openUri('files/sphinxIndexer.xml');
+        $xmlwriter->setIndent(true);
+        $xmlwriter->startDocument('1.0', 'UTF-8');
+        $xmlwriter->startElement('sphinx:docset');
+
+        $xmlwriter->startElement('sphinx:schema');
+
+        $xmlwriter->startElement('sphinx:field');
+        $xmlwriter->writeAttribute("name", "title");
+        $xmlwriter->endElement();
+
+        $xmlwriter->startElement('sphinx:field');
+        $xmlwriter->writeAttribute("name", "description");
+        $xmlwriter->endElement();
+
+        $xmlwriter->startElement('sphinx:field');
+        $xmlwriter->writeAttribute("name", "ingredients");
+        $xmlwriter->endElement();
+
+        $xmlwriter->startElement('sphinx:field');
+        $xmlwriter->writeAttribute("name", "category");
+        $xmlwriter->endElement();
+
+        $xmlwriter->endElement();
+
+        foreach($allRecipes as $recipe) {
+
+            $xmlwriter->startElement('sphinx:document');
+            $xmlwriter->writeAttribute("id", $recipe['Recipe']['id']);
+
+            $xmlwriter->startElement('title');
+            $xmlwriter->text($recipe['Recipe']['title']);
+            $xmlwriter->endElement();
+
+            $xmlwriter->startElement('description');
+            $xmlwriter->text($recipe['Recipe']['description']);
+            $xmlwriter->endElement();
+
+            $xmlwriter->startElement('ingredients');
+            $xmlwriter->text($recipe['Recipe']['ingredients']);
+            $xmlwriter->endElement();
+
+
+            $xmlwriter->startElement('category');
+            $buffer = '';
+
+            foreach($recipe['Category'] as $category) {
+                $buffer .= $category['name']." ";
+            }
+            
+            $xmlwriter->text($buffer);
+            $xmlwriter->endElement();
+
+            $xmlwriter->endElement();
+        }
+
+        $xmlwriter->endElement();
+
+        $xmlwriter->flush();
+    }
     
     #Application-Controller methods ##########################
     ##########################################################
@@ -101,10 +178,11 @@ Class RecipesController extends AppController {
      */
     public function getRecipesByCategory($category) {
         if (isset($category) && $category != "") {
+	    $categoryArray = explode(",",$category);
             $conditions = array (
                 'fields' => array('Recipe.id', 'Recipe.title','Recipe.picture','Recipe.maincategory','Recipe.contentkey','Recipe.description'),
-                'conditions' => array('Recipe.maincategory' => $category ),
-                'order' => array('Recipe.maincategory' => 'asc'),
+                'conditions' => array('Recipe.maincategory' => $categoryArray ),
+                'order' => array('Recipe.title' => 'asc'),
                 'recursive' => 0
              );
             $data = $this->Recipe->find('all',$conditions);
@@ -167,8 +245,43 @@ Class RecipesController extends AppController {
             // Close the curl handler
             curl_close($ch);
             
-            $data = $this->Recipe->query("SELECT docid, title, contentkey, picture FROM searches_recipes WHERE searches_recipes MATCH '$searchToken' ");
-            $this->set('loresult', $data);
+            // Connect to sphinx server
+            $sp = new SphinxClient();
+
+            // Set the server
+            $sp->SetServer('localhost', 3312);
+
+            // SPH_MATCH_ALL will match all words in the search term
+            $sp->SetMatchMode(SPH_MATCH_ALL);
+
+            // We want an array with complete per match information including the document ids
+            $sp->SetArrayResult(true);
+
+            /**
+             * Run the search query. Here the first argument is the search term 
+             * and the second is the name of the index to search in.
+             * Search term can come from a search form
+             */
+            $sphinxResults = $sp->Query($searchToken, 'members');
+            //pr($sphinxResults);
+            
+            if ($sphinxResults['total'] > 0) {
+                $foundIDs = array();
+                foreach($sphinxResults['matches'] as $match) {
+                    $foundIDs[] =  $match['id'];
+                }
+                //pr($foundIDs);
+                $conditions =  array(
+                    'recursive' => 0,
+                    'conditions' => array('Recipe.id' => $foundIDs),
+                    'fields' => array('Recipe.id','Recipe.title','Recipe.contentkey','Recipe.picture')
+                );
+                $data2 = $this->Recipe->find('all',$conditions);
+                $this->set('loresult', $data2);
+            } else {
+                $data = $this->Recipe->query("SELECT Recipe.docid, Recipe.title, Recipe.contentkey, Recipe.picture FROM searches_recipes AS Recipe WHERE searches_recipes MATCH '$searchToken' ");
+                $this->set('loresult', $data);
+            }
             $this->set('result', json_decode($jsonResponse, TRUE));
         }
         else {
@@ -382,6 +495,9 @@ echo '<b>Total Execution Time:</b> '.$execution_time.' Mins';
                 
                 $this->Session->setFlash('Dein Rezept wurde im Rezepteordner abgeheftet und kann jetzt jeder Zeit wieder gefunden werden.
                                           <br><b>Klasse weiter so mehr bitte !!</b>','default',array("class" => "alert alert-success"));
+                if ($this->liveIndexer)
+                    $this->createSphinxIndex();
+                
                 $this->redirect(array('action' => 'view', $this->Recipe->id));
             } else {
                 $this->Session->setFlash('Dein Rezept konnte leider nicht im Rezepteordner abgelegt werden. Anscheinend ist der Ordner schon wieder voll ;( <br>
@@ -682,6 +798,10 @@ echo '<b>Total Execution Time:</b> '.$execution_time.' Mins';
                 
                 $this->moveImages2Recipe(CONTENT_URL.$this->request->data['Recipe']['contentkey'],$this->request->data);
                 $this->Session->setFlash('Your post has been updated.');
+                
+                if ($this->liveIndexer)
+                    $this->createSphinxIndex();
+                
                 $this->redirect(array('action' => 'view', $id));
             } else {
                 $this->Session->setFlash('Unable to update your post.');
@@ -739,6 +859,10 @@ echo '<b>Total Execution Time:</b> '.$execution_time.' Mins';
                 $this->log("Could not delete uploads from recipe id = ".$id." content must be deleted manually contentkey = ".$contentkey);
             }
             $this->Session->setFlash('Das Rezept wurde erfolgreich durch den Reisswolf gedreht','default',array("class" => "alert alert-success"));
+            
+            if ($this->liveIndexer)
+                $this->createSphinxIndex();
+            
             $this->redirect(array('action' => 'index'));
         } else {
             $this->Session->setFlash('Hmm der Reisswolf scheint nicht zu funktionieren, 

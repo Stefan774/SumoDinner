@@ -3,9 +3,9 @@
 <!-- local search results -->
 <h3>Lokale Ergebnise</h3>
 <?php if (count($loresult) > 0 ) { ?>
-    <?php foreach ($loresult as $item) : { $recipe = $item[0]; ?>
+    <?php foreach ($loresult as $item) : { $recipe = $item['Recipe']; $recipeID = isset($recipe['id'])?$recipe['id']:$recipe['docid']; ?>
     <div class="row search-grid">
-        <a href="<?php echo $this->Html->Url(array("controller"=>"recipes","action"=>"view", $recipe['docid']),false); ?>" class="result">
+        <a href="<?php echo $this->Html->Url(array("controller"=>"recipes","action"=>"view", $recipeID),false); ?>" class="result">
             <div class="span2"><?php echo $this->Html->image($recipe['contentkey'].'/100x75_'.$recipe['picture'],array('pathPrefix' => CONTENT_URL,)); ?></div>
             <div class="span8"><?php echo $recipe['title']; ?></div>
         </a>
@@ -24,4 +24,3 @@
     </div>
     <?php } endforeach; ?>
 <?php } ?>
-

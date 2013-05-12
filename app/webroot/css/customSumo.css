@@ -8,14 +8,14 @@
 
 /** Custom application styling ******************/
 
-.container {
+/*.container {
     -moz-box-shadow: 0 0 3px 3px #888;
     -webkit-box-shadow: 0 0 3px 3px#888;
     box-shadow: 0 0 3px 3px #888;
     margin-top: 20px;
     padding: 30px 25px;
     background: url(images/cream_dust.png);
-}
+}*/
 
 #images_editor { list-style-type: none; margin: 0; padding: 0; width: 550px; }
 #images_editor li { margin: 3px 3px 3px 3px; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; position: relative;}

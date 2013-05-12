@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/holder.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8">
+<title>Bootstrap, from Twitter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href="css/bootstrap.css" rel="stylesheet" />
+<style type="text/css">
+body {
+	padding-top: 0px;
+	padding-bottom: 40px;
+}
+.star-rating {
+	list-style: none;
+	margin: 5px 0px 10px 0px;
+	padding: 0px;
+	width: 120px;
+	height: 24px;
+	position: relative;
+	background: url(img/stars.png) top left repeat-x;
+}
+star-rating li {
+	padding: 0px;
+	margin: 0px;
+	/**/ 
+	float: left;
+– for any other browser, we are going to float left, this makes a horizontal list
+/* */
+}
+.star-rating li a {
+	display: block;
+	width: 24px;
+	height: 24px;
+	text-decoration: none;
+	text-indent: -9000px;
+	z-index: 20;
+	position: absolute;
+	padding: 0px;
+	background-image: none;
+}
+.star-rating li.current-rating {
+	background: url(img/stars.png) left bottom;
+	position: absolute;
+	height: 24px;
+	display: block;
+	text-indent: -9000px;
+	z-index: 1;
+}
+.star-rating li a:hover {
+	background: url(img/stars.png) left bottom;
+	z-index: 1;
+	left: 0px;
+}
+.star-rating li a.disabled:hover {
+	background: none;
+	z-index: 1;
+	left: 0px;
+}
+.star-rating a.one-star {
+	left: 0px;
+}
+.star-rating a.one-star:hover {
+	width: 24px;
+}
+.star-rating a.two-stars {
+	left: 24px;
+}
+.star-rating a.two-stars:hover {
+	width: 48px;
+}
+.star-rating a.three-stars {
+	left: 48px;
+}
+.star-rating a.three-stars:hover {
+	width: 72px;
+}
+.star-rating a.four-stars {
+	left: 72px;
+}
+.star-rating a.four-stars:hover {
+	width: 96px;
+}
+.star-rating a.five-stars {
+	left: 96px;
+}
+.star-rating a.five-stars:hover {
+	width: 120px;
+}
+</style>
+<title>MitStaebchen</title>
+</head>
+
+<body>
+<div class="navbar">
+  <div class="navbar-inner">
+    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    <a class="brand" href="#">MitSt&auml;bchen</a>
+    <div class="nav-collapse collapse">
+      <ul class="nav">
+        <li><a href="#">Hauptspeisen</a></li>
+        <li><a href="#about">Vorspeisen</a></li>
+        <li><a href="#contact">Nachtisch</a></li>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">St&auml;bchen Aktionen <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="disabled"><a href="#">Gericht hinzufügen</a></li>
+            <li class="divider"></li>
+            <li class="nav-header">MitSt&auml;bchen Anmelden</li>
+            <li>
+              <form class="form-horizontal" style="padding:0px 10px 0px 10px;">
+                <div class="control-group" style="margin: 5px">
+                  <input class="span2" type="text" placeholder="Email" style="min-width:200px">
+                </div>
+                <div class="control-group" style="margin: 5px">
+                  <input class="span2" type="password" placeholder="Password" style="min-width:200px">
+                </div>
+                <div class="control-group" style="margin: 5px">
+                  <button type="submit" class="btn btn-primary">Los geth's</button>
+                </div>
+              </form>
+            </li>
+            <li class="divider"></li>
+            <li><a href="#">Neuer MitSt&auml;bchen Teilnehmer</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form pull-right">
+        <input class="span4 search-query" type="text" placeholder="Suchen">
+      </form>
+    </div>
+    <!--/.nav-collapse --> 
+  </div>
+</div>
+</div>
+<div class="container">
+  <p class="lead">Gefunden bei MitStäbchen</p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>hình ảnh</th>
+        <th>Beschreibung / Bewertung</th>
+        <th>Schwierigkeitsgrad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="min-width:120px"><img class="thumbnail" data-src="holder.js/120x120" alt="" src="holder.js/120x120"></td>
+        <td><h5>Asiatische Kartoffeln gebraten mit Sellerie</h5>
+          <ul class="star-rating">
+            <li class="current-rating" style="width:120px;"></li>
+            <li class="disabled"><a title="1 Staebchen von 5" class="star-hover">1</a></li>
+            <li><a title="2 Staebchen von 5" class="two-stars disabled">2</a></li>
+            <li class="disabled"><a title="3 Staebchen von 5" class="three-stars disabled">3</a></li>
+            <li class="disabled"><a title="4 Staebchen von 5" class="four-stars disabled">4</a></li>
+            <li class="disabled"><a title="5 Staebchen von 5" class="five-stars disabled">5</a></li>
+          </ul>
+          <p>Kartoffeln kochen und nach dem Kochen zu Brei zerstampfen. Den Kartoffelbrei etwas abkühlen lassen und mit Kartoffelmehl...</p></td>
+        <td style="text-align:center; vertical-align:middle">Die goldene Mitte</td>
+      </tr>
+      <tr>
+        <td style="min-width:120px"><img class="thumbnail" data-src="holder.js/120x120" alt="" src="holder.js/120x120"></td>
+        <td><h5>Asiatische Kartoffeln gebraten mit Sellerie</h5>
+          <ul class="star-rating">
+            <li class="current-rating" style="width:78px;"></li>
+            <li class="disabled"><a title="1 Staebchen von 5" class="star-hover">1</a></li>
+            <li><a title="2 Staebchen von 5" class="two-stars disabled">2</a></li>
+            <li class="disabled"><a title="3 Staebchen von 5" class="three-stars disabled">3</a></li>
+            <li class="disabled"><a title="4 Staebchen von 5" class="four-stars disabled">4</a></li>
+            <li class="disabled"><a title="5 Staebchen von 5" class="five-stars disabled">5</a></li>
+          </ul>
+          <p>Kartoffeln kochen und nach dem Kochen zu Brei zerstampfen. Den Kartoffelbrei etwas abkühlen lassen und mit Kartoffelmehl...</p></td>
+        <td style="text-align:center; vertical-align:middle">Die goldene Mitte</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination pagination-right">
+    <ul>
+      <li class="disabled"><a href="#">&laquo;</a></li>
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">&raquo;</a></li>
+    </ul>
+  </div>
+  <hr>
+  <p class="lead"><img style="margin-right:10px" src="img/ck-logo-de.png" /> Gefunden bei chefkoch.de </p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>hình ảnh</th>
+        <th>Beschreibung / Bewertung</th>
+        <th>Schwierigkeitsgrad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="min-width:120px"><img class="thumbnail" data-src="holder.js/120x120" alt="" src="holder.js/120x120"></td>
+        <td><h5>Asiatische Kartoffeln gebraten mit Sellerie</h5>
+          <ul class="star-rating">
+            <li class="current-rating" style="width:48px;"></li>
+            <li class="disabled"><a title="1 Staebchen von 5" class="star-hover">1</a></li>
+            <li><a title="2 Staebchen von 5" class="two-stars disabled">2</a></li>
+            <li class="disabled"><a title="3 Staebchen von 5" class="three-stars disabled">3</a></li>
+            <li class="disabled"><a title="4 Staebchen von 5" class="four-stars disabled">4</a></li>
+            <li class="disabled"><a title="5 Staebchen von 5" class="five-stars disabled">5</a></li>
+          </ul>
+          <p>Kartoffeln kochen und nach dem Kochen zu Brei zerstampfen. Den Kartoffelbrei etwas abkühlen lassen und mit Kartoffelmehl...</p></td>
+        <td style="text-align:center; vertical-align:middle">Die goldene Mitte</td>
+      </tr>
+      <tr>
+        <td style="min-width:120px"><img class="thumbnail" data-src="holder.js/120x120" alt="" src="holder.js/120x120"></td>
+        <td><h5>Asiatische Kartoffeln gebraten mit Sellerie</h5>
+          <ul class="star-rating">
+            <li class="current-rating" style="width:59px;"></li>
+            <li class="disabled"><a title="1 Staebchen von 5" class="star-hover">1</a></li>
+            <li><a title="2 Staebchen von 5" class="two-stars disabled">2</a></li>
+            <li class="disabled"><a title="3 Staebchen von 5" class="three-stars disabled">3</a></li>
+            <li class="disabled"><a title="4 Staebchen von 5" class="four-stars disabled">4</a></li>
+            <li class="disabled"><a title="5 Staebchen von 5" class="five-stars disabled">5</a></li>
+          </ul>
+          <p>Kartoffeln kochen und nach dem Kochen zu Brei zerstampfen. Den Kartoffelbrei etwas abkühlen lassen und mit Kartoffelmehl...</p></td>
+        <td style="text-align:center; vertical-align:middle">Die goldene Mitte</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination pagination-right">
+    <ul>
+      <li class="disabled"><a href="#">&laquo;</a></li>
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#">&raquo;</a></li>
+    </ul>
+  </div>
+    <hr>
+  <footer>
+    <p>&copy; MitStaebchen.de 2013</p>
+  </footer>
+</div>
+<!-- /container -->
+</body>
+</html>

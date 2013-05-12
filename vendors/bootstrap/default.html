@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/holder.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8">
+<title>Bootstrap, from Twitter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href="css/bootstrap.css" rel="stylesheet" />
+<style type="text/css">
+body {
+	padding-top: 0px;
+	padding-bottom: 40px;
+}
+.bordered {
+	border: 1px solid #dddddd;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 17px 0px 0px 0px;
+}
+.gradientBg {
+	/* generated css with http://www.colorzilla.com/gradient-editor/ */
+	background: -moz-linear-gradient(top, rgba(244,244,244,1) 8%, rgba(244,244,244,0.96) 13%, rgba(221,221,221,0.26) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(8%, rgba(244,244,244,1)), color-stop(13%, rgba(244,244,244,0.96)), color-stop(100%, rgba(221,221,221,0.26))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(244,244,244,1) 8%, rgba(244,244,244,0.96) 13%, rgba(221,221,221,0.26) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(244,244,244,1) 8%, rgba(244,244,244,0.96) 13%, rgba(221,221,221,0.26) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(244,244,244,1) 8%, rgba(244,244,244,0.96) 13%, rgba(221,221,221,0.26) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(244,244,244,1) 8%, rgba(244,244,244,0.96) 13%, rgba(221,221,221,0.26) 100%); /* W3C */
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#42dddddd', GradientType=0 ); /* IE6-9 */
+}
+</style>
+<title>MitStaebchen</title>
+</head>
+
+<body>
+<div class="navbar">
+  <div class="navbar-inner">
+    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    <a class="brand" href="#">MitSt&auml;bchen</a>
+    <div class="nav-collapse collapse">
+      <ul class="nav">
+        <li><a href="#">Hauptspeisen</a></li>
+        <li><a href="#about">Vorspeisen</a></li>
+        <li><a href="#contact">Nachtisch</a></li>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">St&auml;bchen Aktionen <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="disabled"><a href="#">Gericht hinzufügen</a></li>
+            <li class="divider"></li>
+            <li class="nav-header">MitSt&auml;bchen Anmelden</li>
+            <li>
+              <form class="form-horizontal" style="padding:0px 10px 0px 10px;">
+                <div class="control-group" style="margin: 5px">
+                  <input class="span2" type="text" placeholder="Email" style="min-width:200px">
+                </div>
+                <div class="control-group" style="margin: 5px">
+                  <input class="span2" type="password" placeholder="Password" style="min-width:200px">
+                </div>
+                <div class="control-group" style="margin: 5px">
+                  <button type="submit" class="btn btn-primary">Los geth's</button>
+                </div>
+              </form>
+            </li>
+            <li class="divider"></li>
+            <li><a href="#">Neuer MitSt&auml;bchen Teilnehmer</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form pull-right">
+        <input class="span4 search-query" type="text" placeholder="Suchen">
+      </form>
+    </div>
+    <!--/.nav-collapse --> 
+  </div>
+</div>
+</div>
+<div class="container"> 
+  
+  <!-- Carousel for recipe preview -->
+  <div class="bordered gradientBg">
+    <div id="myCarousel" class="carousel slide">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <div class="active item"><img src="img/IMG_0631.JPG" style="margin:auto" /></div>
+        <div class="item"><img src="img/IMG_0657.JPG" style="margin:auto"  alt="Test Text"/>
+          <div class="carousel-caption"><a href="/SumoDinner/recipes/view/28">
+            <h4>Mariniertes Steak mit Grillkartoffel und Gemüsespieß </h4>
+            <p>Knoblauch in Scheiben schneiden. Zusammen mit dem Öl und dem Pfeffer in einer Auflaufform...</p>
+            </a> </div>
+        </div>
+        <div class="item"><img src="img/IMG_0662.JPG" style="margin:auto" /></div>
+      </div>
+      <!-- Carousel nav --> 
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a> <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a> </div>
+  </div>
+  <!-- End Carousel -->
+  
+  <blockquote style="margin:20px 0px 10px 0px; display:block; width:100%" class="pull-right">
+    <p>K&uuml;rzlich hinzugef&uuml;gte k&ouml;stliche St&auml;bchengerichte</p>
+    <small>Smoking hot new delicious meals. Caution only eat with Staebchen.</small> </blockquote>
+  
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="span4">
+      <h2>Blumenkohl - Brokkoli - Auflauf</h2>
+      <a href="#" class="thumbnail"> <img data-src="holder.js/300x200" alt="" src="holder.js/300x220"> </a>
+      <p>Brokkoli und Blumenkohl in kleine Röschen teilen und waschen, in  ausreichend Wasser 15 Minuten kochen, abgießen und beiseite stellen. Die  Zwiebel klein würfeln. Die Zwiebelwürfel in einer Pfanne in etwas  Olivenöl glasig anbraten ...</p>
+      <p><a class="btn" href="#">Zeig mir alles &raquo;</a></p>
+    </div>
+    <div class="span4">
+      <h2>Grüner Spargel mit Rinderstake</h2>
+      <a href="#" class="thumbnail"> <img data-src="holder.js/300x200" alt="" src="holder.js/300x220"> </a>
+      <p><strong>Senf-Sauce:<br />
+        </strong>Butter im Wasserbad schmelzen lassen. 2 Eigelb und  2-3 Löffel Senf hinzugeben. Dann das ganze mit etwas Fleischbrühe  aufgießen und unter etwas Wärme von Wasserbad verrühren. Dann einen  Schuss Essig und Öl beimischen und mit Salz und Pfeffer abschmecken ...<strong><br />
+        </strong></p>
+      <p><a class="btn" href="#">Zeig mir alles &raquo;</a></p>
+    </div>
+    <div class="span4">
+      <h2 style="min-height:80px">Semmelknödel </h2>
+      <a href="#" class="thumbnail"> <img data-src="holder.js/300x200" alt="" src="holder.js/300x220"> </a>
+      <p>Angewärmte Milch über das Knödelbrot gießen. Eier und Salz dazu mischen.  Den Teig beim Kneten gut durch die Finger drucken. Wenn er dann weich,  aber gut zu formen is</p>
+      <p><a class="btn" href="#">Zeig mir alles &raquo;</a></p>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <p>&copy; MitStaebchen.de 2013</p>
+  </footer>
+</div>
+<!-- /container -->
+</body>
+</html>

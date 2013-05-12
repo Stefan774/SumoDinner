@@ -3,7 +3,7 @@
     echo $this->Html->script('plupload.full'); // Include plupload
     echo $this->Html->script('advanced'); // Include wysihtml5 parser rules
     echo $this->Html->script('wysihtml5-0.3.0.min'); // Include wysihtml5 library
-    echo $this->Html->script('jEditable');
+    //echo $this->Html->script('jEditable');
     //pr($recipe);
      //pr($categories_drdown);
 ?>
